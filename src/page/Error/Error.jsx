@@ -1,4 +1,4 @@
-import { useRouteError } from 'react-router';
+import { isRouteErrorResponse, useRouteError } from 'react-router';
 import style from '../../assets/style/index.module.css'
 
 import back from './img/back.png'
@@ -12,8 +12,16 @@ import { NavLink } from 'react-router-dom';
 
 
 const Error = () => {
-  const error = useRouteError()
   const value = localStorage.getItem('value')
+  const error = useRouteError()
+  const status = 404;
+  const message = 'Сторінку не знайдено';
+
+  if (isRouteErrorResponse(error)) {
+    status = error.status;
+    message = error.statusText;
+  }
+
   console.error(error);
 
   return <>
@@ -26,17 +34,17 @@ const Error = () => {
 
         <div className={style.errorPageInnerCont}>
           <h5 className={style.errorPageInnerContTitle}>
-            <span>{error.status} </span>
-            
-            {useLangChange(error.statusText)}
+            <span>{status} </span>
+
+            {useLangChange('Not Found')}
           </h5>
           <p className={style.errorPageInnerContSub}>
             {useLangChange('errorPageInnerContSub')}
           </p>
-          <NavLink className={style.errorPageInnerContLink} to={`/${value}`}
+          <NavLink className={style.errorPageInnerContLink} to={`/?lang=${value}`}
             end>
             {useLangChange('errorPageInnerContLink')}
-            </NavLink>
+          </NavLink>
         </div>
       </div>
 

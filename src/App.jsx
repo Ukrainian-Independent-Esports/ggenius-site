@@ -1,8 +1,11 @@
 import style from './assets/style/index.module.css'
 import Header from './page/Header/Header';
 import Footer from './page/Footer/Footer';
-import { Outlet, useLocation, useNavigate } from 'react-router';
+import { Outlet, useLocation } from 'react-router';
 import { useEffect, useRef } from 'react';
+import LanguageProvider from './Hooks/LanguageProvider';
+
+
 
 const App = () => {
   const canvasRef = useRef(null);
@@ -92,7 +95,7 @@ const App = () => {
   //   };
   // }, []);
 
-const location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo({
@@ -102,8 +105,10 @@ const location = useLocation();
     });
   }, [location]);
 
+ 
 
-  return (
+  return (<>
+
     <div ref={wrapperRef} className={style.wrapper}>
       <canvas
         ref={canvasRef}
@@ -120,10 +125,13 @@ const location = useLocation();
 
       <Header />
       <main className={style.main}>
+        <LanguageProvider />
+
         <Outlet />
       </main>
       <Footer />
     </div>
+  </>
   );
 };
 

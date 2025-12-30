@@ -4,6 +4,13 @@
 .errorPageInner {
   position: relative;
 }
+.errorPageInnerBack {
+  width: 100%;
+}
+
+.errorPageInnerBackMob {
+  display: none;
+}
 
 .errorPageInnerCont {
   position: absolute;
@@ -27,8 +34,7 @@
   margin-bottom: 24px;
 }
 
-.errorPageInnerContLink
- {
+.errorPageInnerContLink {
   @include btn;
 }
 
@@ -49,6 +55,7 @@
   }
   .errorPageInnerBack {
     display: none;
+    width: 100%;
   }
 
   .errorPageInnerBackMob {

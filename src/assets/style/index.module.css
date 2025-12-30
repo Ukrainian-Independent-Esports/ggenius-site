@@ -1566,6 +1566,14 @@ input {
   position: relative;
 }
 
+.errorPageInnerBack {
+  width: 100%;
+}
+
+.errorPageInnerBackMob {
+  display: none;
+}
+
 .errorPageInnerCont {
   position: absolute;
   top: 50%;
@@ -1637,6 +1645,7 @@ input {
   }
   .errorPageInnerBack {
     display: none;
+    width: 100%;
   }
   .errorPageInnerBackMob {
     width: 100%;

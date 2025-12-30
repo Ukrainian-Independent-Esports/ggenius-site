@@ -4,11 +4,8 @@ import About from '../page/About/About.jsx';
 import Error from '../page/Error/Error.jsx';
 import Home from '../page/Home/Home.jsx';
 
+
 export const routes = [
-  {
-    path: '/',
-    element: <Navigate to="/uk/Home" replace />
-  },
   {
     path: '/',
     element: <App />,
@@ -19,13 +16,17 @@ export const routes = [
         element: <Home />
       },
       {
-        path: ':lang',
+        path: '/',
         element: <Home />
       },
       {
-        path: ':lang/About',
+        path: 'About',
         element: <About />
-      }
+      },
+      {
+        path: '*',
+        element: <Error />,
+      },
     ],
   },
 ];

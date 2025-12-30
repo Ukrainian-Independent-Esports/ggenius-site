@@ -27,13 +27,13 @@ const Footer = () => {
       <div className={style.container}>
         <div className={style.footerInner}>
           <nav className={style.footeNav}>
-            <Link to={`/${value}`} className={style.footerNavLogoLink}>
+            <Link to={`/?lang=${value}`} className={style.footerNavLogoLink}>
               <img src={logo} className={style.navLogoLinkImg} alt="Logo" />
             </Link>
 
             <ul className={style.footerNavList}>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}`}
+                <NavLink to={`/?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink} >
                   {useLangChange('navListItemLinkHome')}
@@ -41,20 +41,20 @@ const Footer = () => {
               </li>
               {/* About */}
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/`}
+                <NavLink to={`/gg?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
                   {useLangChange('navListItemLinkAbout')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
                   {useLangChange('navListItemLinkWork')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
                   {useLangChange('navListItemLinkOur')}
                 </NavLink>
@@ -69,12 +69,12 @@ const Footer = () => {
               </Link>
             </li>
             <li className={style.footerCopyListItem}>
-              <Link className={style.footerCopyListItemLinkYT}>
+              <Link to='https://www.youtube.com/@ggenius_ua' className={style.footerCopyListItemLinkYT}>
                 <img src={yt} alt="" className={style.footerCopyListItemImg} />
               </Link>
             </li>
             <li className={style.footerCopyListItem}>
-              <Link className={style.footerCopyListItemLinkTT}>
+              <Link to='https://tiktok.com/@mobile_legends.ua' className={style.footerCopyListItemLinkTT}>
                 <img src={tt} alt="" className={style.footerCopyListItemImg} />
               </Link>
             </li>

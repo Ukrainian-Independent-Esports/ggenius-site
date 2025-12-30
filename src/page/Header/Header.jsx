@@ -16,9 +16,14 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menu, setMenu] = useState(false)
-  const { lang } = useParams();
+  const [value, setValue] = useState('uk');
 
-
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const lang = params.get('lang') || localStorage.getItem('value') || 'uk';
+    i18n.changeLanguage(lang);
+    setValue(lang);
+  }, []);
 
   const botUsername = 'TestAuthBotb_bot';
   const loginUrl = `https://t.me/${botUsername}?start=auth`;
@@ -65,40 +70,30 @@ const Header = () => {
     return useLangChange(lang)
   }
 
-
-
-  const [value, setValue] = useState(() => {
-    if (lang) return lang;
-    const saved = localStorage.getItem('value');
-    return saved || 'uk';
-  });
-
   useEffect(() => {
-    const supportedLangs = ['uk', 'en'];
-    const currentLang = supportedLangs.includes(lang) ? lang : 'uk';
+    const params = new URLSearchParams(location.search);
+    const langFromUrl = params.get('lang');
+    const savedLang = localStorage.getItem('value');
+    const lang = langFromUrl || savedLang || 'uk';
 
-    if (i18n.language !== currentLang) {
-      i18n.changeLanguage(currentLang);
-    }
-
-    setValue(currentLang);
-    localStorage.setItem('value', currentLang);
-  }, [lang, i18n]);
+    setValue(lang);
+    i18n.changeLanguage(lang);
+    localStorage.setItem('value', lang);
+  }, [location.search]);
 
   const changeLanguage = (newLang) => {
     setValue(newLang);
     localStorage.setItem('value', newLang);
 
-    const pathParts = location.pathname.split('/').filter(Boolean);
+    const params = new URLSearchParams(location.search);
+    params.set('lang', newLang);
 
-    if (pathParts.length > 0 && ['uk', 'en'].includes(pathParts[0])) {
-      pathParts[0] = newLang;
-    } else {
-      pathParts.unshift(newLang);
-    }
-
-    navigate(`/${pathParts.join('/')}`);
+    navigate({
+      pathname: location.pathname,
+      search: params.toString(),
+    }, { replace: true });
   };
+
 
 
 
@@ -106,7 +101,7 @@ const Header = () => {
     <header className={style.header}>
       <div className={menu ? style.containerr : style.container}>
         <nav className={style.nav}>
-          <Link to={`/${value}`} className={style.navLogoLink}>
+          <Link to={`/?lang=${value}`} className={style.navLogoLink}>
             <img src={logo} className={style.navLogoLinkImg} alt="Logo" />
           </Link>
 
@@ -121,7 +116,7 @@ const Header = () => {
           <div className={style.navMenu}>
             <ul className={style.navList}>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}`}
+                <NavLink to={`/?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                 >
@@ -130,7 +125,7 @@ const Header = () => {
               </li>
               {/* About */}
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/Gg`}
+                <NavLink to={`/gg?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                 >
@@ -138,14 +133,14 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/gg`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                 >
                   {useLangChange('navListItemLinkWork')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/gg`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                 >
                   {useLangChange('navListItemLinkOur')}
@@ -199,7 +194,7 @@ const Header = () => {
             </div>
             <ul className={style.navList}>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}`}
+                <NavLink to={`/?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                   onClick={() => setMenu(!menu)}>
@@ -208,7 +203,7 @@ const Header = () => {
               </li>
               {/* About */}
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/gg`}
+                <NavLink to={`/gg?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                   onClick={() => setMenu(!menu)}>
@@ -216,14 +211,14 @@ const Header = () => {
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/gg`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                   onClick={() => setMenu(!menu)}>
                   {useLangChange('navListItemLinkWork')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/${value}/gg`} end
+                <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
                   onClick={() => setMenu(!menu)}>
                   {useLangChange('navListItemLinkOur')}
