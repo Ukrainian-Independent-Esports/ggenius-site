@@ -52,7 +52,6 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-		
 		<title>GGenius — AI-платформа для турнірів MLBB</title>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 	</head>
@@ -61,5 +60,13 @@
 		<div id="app"></div>
 
 		<script type="module" src="/src/main.jsx"></script>
+		<script>
+			;(function () {
+				var path = window.location.pathname.replace('/', '')
+				if (path === 'uk' || path === 'en') {
+					window.location.replace('/?lang=' + path)
+				}
+			})()
+		</script>
 	</body>
 </html>
