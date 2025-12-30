@@ -100,7 +100,6 @@ const Header = () => {
     navigate(`/${pathParts.join('/')}`);
   };
 
-  console.log(menu);
 
 
   return (

@@ -11,7 +11,7 @@ i18n
     fallbackLng: 'uk',
     debug: false,
     backend: {
-      loadPath: `/locales/{{lng}}/translate.json`,
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/translate.json`,
       //${import.meta.env.BASE_URL}
     },
     detection: {
