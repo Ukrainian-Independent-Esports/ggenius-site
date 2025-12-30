@@ -15,13 +15,6 @@ const Error = () => {
   const value = localStorage.getItem('value')
   const error = useRouteError()
   const status = 404;
-  const message = 'Сторінку не знайдено';
-
-  if (isRouteErrorResponse(error)) {
-    status = error.status;
-    message = error.statusText;
-  }
-
   console.error(error);
 
   return <>
