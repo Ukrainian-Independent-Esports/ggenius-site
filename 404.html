@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+		/>
+		<meta
+			name="description"
+			content="Розумний Telegram-бот, який допоможе тобі грати краще.
+			GGenius підкаже кращих героїв, ефективні збірки, контрпіки і не дасть загубитися новачку в світі MLBB."
+		/>
+		<meta
+			name="keywords"
+			content="Mobile Legends, гайды, MLBB, кіберспорт, GGenius, турніри, герої, ggenius, gg, mlbb, ggenius ai, mobile legends, ггеныус, GGenius, genius, gg, GG"
+		/>
+
+		<!-- Open Graph -->
+		<meta property="og:title" content="GGenius — AI-платформа для турнірів" />
+		<meta
+			property="og:description"
+			content="Розумний Telegram-бот, який допоможе тобі грати краще.
+			GGenius підкаже кращих героїв, ефективні збірки, контрпіки і не дасть загубитися новачку в світі MLBB."
+		/>
+		<meta property="og:image" content="https://ggenius.gg/preview.webp" />
+		<meta property="og:url" content="https://ggenius.gg/" />
+		<meta property="og:type" content="website" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="GGenius" />
+		<meta
+			name="twitter:description"
+			content="Розумний Telegram-бот, який допоможе тобі грати краще.
+			GGenius підкаже кращих героїв, ефективні збірки, контрпіки і не дасть загубитися новачку в світі MLBB."
+		/>
+		<meta name="twitter:image" content="https://ggenius.gg/preview.webp" />
+		<meta name="twitter:url" content="https://ggenius.gg/" />
+
+		<!-- Localized versions -->
+		<link rel="canonical" href="https://ggenius.gg/" />
+		<link rel="alternate" hreflang="uk" href="https://ggenius.gg/" />
+		<link rel="alternate" hreflang="x-default" href="https://ggenius.gg/" />
+
+		<!-- Favicons -->
+		<link rel="icon" href="/favicon/favicon-96x96.png" />
+		<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+		<link rel="manifest" href="/favicon/site.webmanifest" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<title>GGenius — AI-платформа для турнірів MLBB</title>
+		<script>
+      if (!sessionStorage.getItem("redirected")) {
+        sessionStorage.setItem("redirected", "1");
+
+        const path =
+          location.pathname +
+          location.search +
+          location.hash;
+
+        sessionStorage.setItem("redirect", path);
+        location.replace("/");
+      }
+    </script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+		<script>
+			;(function () {
+				var path = window.location.pathname.replace('/', '')
+				if (path === 'uk' || path === 'en') {
+					window.location.replace('/?lang=' + path)
+				}
+			})()
+		</script>
+	</head>
+
+	<body>
+		<div id="app"></div>
+
+		<script type="module" src="/src/main.jsx"></script>
+	</body>
+</html>
