@@ -53,6 +53,19 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
 		<title>GGenius — AI-платформа для турнірів MLBB</title>
+		<script>
+      if (!sessionStorage.getItem("redirected")) {
+        sessionStorage.setItem("redirected", "1");
+
+        const path =
+          location.pathname +
+          location.search +
+          location.hash;
+
+        sessionStorage.setItem("redirect", path);
+        location.replace("/");
+      }
+    </script>
 		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 		<script>
 			;(function () {
