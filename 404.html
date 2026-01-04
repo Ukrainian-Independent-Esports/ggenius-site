@@ -3,14 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<script>
-			if (!sessionStorage.getItem('redirected')) {
-				sessionStorage.setItem('redirected', '1')
-
-				const path = location.pathname + location.search + location.hash
-
-				sessionStorage.setItem('redirect', path)
-				location.replace('/')
-			}
+			const path = location.pathname + location.search + location.hash
+			sessionStorage.setItem('redirect', path)
+			location.replace('/')
 		</script>
 	</head>
 	<body></body>
