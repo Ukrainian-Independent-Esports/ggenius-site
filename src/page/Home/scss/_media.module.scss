@@ -193,17 +193,22 @@
   }
 }
 
+@media screen and (max-width: 400px) {
+  .partnersInner {
+    width: 365px;
+    margin: 0 auto;
+  }
+  .partnersInnerContLink {
+    width: 229px;
+  }
+}
+
 @media screen and (max-width: 412px) {
   .partnersInner {
     width: 396px;
   }
 }
-@media screen and (max-width: 400px) {
-  .partnersInner {
-    width: 380px;
-    margin: 0 auto;
-  }
-}
+
 
 @media screen and (max-width: 380px) {
   .whatinnerListItem,

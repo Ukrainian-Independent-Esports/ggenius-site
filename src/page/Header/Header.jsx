@@ -174,14 +174,14 @@ const Header = () => {
                 )
               }
 
-              <select
-                value={value}
-                className={style.listLang}
-                onChange={e => changeLanguage(e.target.value)}
-              >
-                <option value='uk'>UK</option>
-                <option value='en'>EN</option>
-              </select>
+              
+              <button className={style.listLangBtn}>
+              {value}
+                <ul className={style.listLang}>
+                  <li className={style.listLangOpt} onClick={()=> changeLanguage('uk')}>UK</li>
+                  <li className={style.listLangOpt} onClick={() => changeLanguage('en')}>EN</li>
+                </ul>
+              </button>
             </div>
           </div>
 

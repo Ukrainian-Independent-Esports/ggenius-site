@@ -983,15 +983,18 @@ input {
     width: 405px;
   }
 }
+@media screen and (max-width: 400px) {
+  .partnersInner {
+    width: 365px;
+    margin: 0 auto;
+  }
+  .partnersInnerContLink {
+    width: 229px;
+  }
+}
 @media screen and (max-width: 412px) {
   .partnersInner {
     width: 396px;
-  }
-}
-@media screen and (max-width: 400px) {
-  .partnersInner {
-    width: 380px;
-    margin: 0 auto;
   }
 }
 @media screen and (max-width: 380px) {
@@ -1100,11 +1103,48 @@ input {
   transition: all 0.4s;
 }
 
-.listLang {
-  background: transparent;
-  border: none;
+.listLangBtn {
+  position: relative;
+  padding: 10px;
   color: white;
   font-size: 20px;
+  text-transform: uppercase;
+  border-bottom: 0.5px solid rgba(130, 153, 255, 0);
+  border-radius: 10px;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
+}
+.listLangBtn:hover .listLang {
+  opacity: 1;
+  height: 80px;
+  transform: translateY(0%) scale(1);
+  transition: all 0.4s;
+}
+.listLangBtn:hover .listLangOpt {
+  padding: 10px;
+}
+
+.listLang {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  border-bottom: 0.5px solid rgba(130, 153, 255, 0);
+  border: none;
+  color: white;
+  opacity: 0;
+  transform: translateY(-25%) scale(0);
+  font-size: 20px;
+  transition: all 0.4s;
+}
+
+.listLangOpt {
+  padding: 10px;
+  border-radius: 10px;
+  border-bottom: 0.5px solid rgba(130, 153, 255, 0);
+  background: rgba(204, 204, 204, 0.0941176471);
+}
+.listLangOpt:hover {
+  background: rgba(204, 204, 204, 0.3647058824);
+  transition: all 0.4s;
 }
 
 .navIns {
