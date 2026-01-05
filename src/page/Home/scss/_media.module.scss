@@ -192,9 +192,11 @@
     width: 405px;
   }
 }
-
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 412px) {
   .partnersInner {
+    width: 396px;
+  }
+   .partnersInner {
     width: 365px;
     margin: 0 auto;
   }
@@ -203,11 +205,10 @@
   }
 }
 
-@media screen and (max-width: 412px) {
-  .partnersInner {
-    width: 396px;
-  }
+@media screen and (max-width: 400px) {
+  
 }
+
 
 
 @media screen and (max-width: 380px) {

@@ -1,11 +1,11 @@
-import { Link, useNavigate, useParams, useLocation, NavLink } from 'react-router-dom';
+import { Link, useNavigate, useLocation, NavLink } from 'react-router-dom';
 import style from '../../assets/style/index.module.css';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from './img/logo.png'
 import useLangChange from '../../Hooks/LangChange';
 
-import ins from '../Footer/img/ins.svg'
+// import ins from '../Footer/img/ins.svg'
 import yt from '../Footer/img/yt.svg'
 import tt from '../Footer/img/tt.svg'
 import ds from '../Footer/img/ds.svg'
@@ -60,10 +60,10 @@ const Header = () => {
     window.location.href = loginUrl;
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem('tg_user');
-    setUser(null);
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('tg_user');
+  //   setUser(null);
+  // };
 
 
   const setLang = (lang) => {
