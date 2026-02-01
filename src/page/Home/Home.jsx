@@ -32,6 +32,47 @@ import { Pagination } from 'swiper/modules';
 
 const Home = () => {
 
+  const [chats, setChats] = useState([])
+  const [chatInfo, setChatInfo] = useState([])
+
+  useEffect(() => {
+    if (!chats.length) return;
+
+    Promise.all(
+      chats.map(chat =>
+        fetch(`https://ggenius-api.onrender.com/mlbb/get_chat_info.php?chat_id=${chat.chat_id}`)
+          .then(res => res.json())
+      )
+    )
+      .then(data => setChatInfo(data))
+      .catch(console.error);
+
+  }, [chats]);
+
+  useEffect(() => {
+    fetch('https://ggenius-api.onrender.com/mlbb/get_posts.php?table=chat_members')
+      .then(g => g.json())
+      .then(data => setChats(data))
+      .catch(err => console.error(err))
+  }, [])
+
+  const hiddenChats = [
+    -1001810336177,
+    -1001635885431,
+    -5058351939
+  ]
+
+  const visibleChats = chatInfo.filter((chat, index, self) =>
+    index === self.findIndex(c => c.id === chat.id) &&
+    !hiddenChats.includes(chat.id)
+  );
+
+  chatInfo.forEach(chat => {
+    console.log(chat.id, typeof chat.id);
+  });
+
+  console.log(chatInfo);
+  // console.log(chats);
 
   return <>
     <section className={style.home}>
@@ -428,6 +469,29 @@ const Home = () => {
           <img className={style.partnersInnerImgMob} src={partnersMob} alt='mllbb heroes' />
 
         </Link>
+      </div>
+    </section>
+
+    <section className={style.chats}>
+      <div className={style.container}>
+        <div className={style.chatsInner}>
+          <h6 className={style.chatsInnerTitle}>
+            {useLangChange('chatsInnerTitle')}
+          </h6>
+          <div className={style.chatsInnerInfo}>
+            <ul className={style.chatsInnerInfoList}>
+              {
+              visibleChats.map(chat => (
+                <li className={style.chatsInnerInfoListItem} key={chat.id}>
+                  <img src={chat.avatar} alt="" className={style.chatsInnerInfoListItemImg} />
+                  <h6 className={style.chatsInnerInfoListItemTitle}>{chat.title}</h6>
+                  <p className={style.chatsInnerInfoListItemCount}></p>
+                </li>
+              ))
+              }
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </>

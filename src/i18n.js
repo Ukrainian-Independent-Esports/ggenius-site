@@ -6,7 +6,7 @@ i18n
   .use(HttpBackend)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'uk',
+    fallbackLng: 'ua',
     debug: false,
 
     backend: {

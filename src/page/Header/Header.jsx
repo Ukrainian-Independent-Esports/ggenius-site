@@ -16,11 +16,11 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [menu, setMenu] = useState(false)
-  const [value, setValue] = useState('uk');
+  const [value, setValue] = useState('ua');
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const lang = params.get('lang') || localStorage.getItem('value') || 'uk';
+    const lang = params.get('lang') || localStorage.getItem('value') || 'ua';
     i18n.changeLanguage(lang);
     setValue(lang);
   }, []);
@@ -74,7 +74,7 @@ const Header = () => {
     const params = new URLSearchParams(location.search);
     const langFromUrl = params.get('lang');
     const savedLang = localStorage.getItem('value');
-    const lang = langFromUrl || savedLang || 'uk';
+    const lang = langFromUrl || savedLang || 'ua';
 
     setValue(lang);
     i18n.changeLanguage(lang);
@@ -178,7 +178,7 @@ const Header = () => {
               <button className={style.listLangBtn}>
               {value}
                 <ul className={style.listLang}>
-                  <li className={style.listLangOpt} onClick={()=> changeLanguage('uk')}>UK</li>
+                  <li className={style.listLangOpt} onClick={()=> changeLanguage('ua')}>ua</li>
                   <li className={style.listLangOpt} onClick={() => changeLanguage('en')}>EN</li>
                 </ul>
               </button>
@@ -287,7 +287,7 @@ const Header = () => {
                   value='en'
                   className={value == 'en' ? style.navLangBtnEn : style.navLangBtnEnDis}>English</button>
                 <button
-                  value='uk' onClick={() => changeLanguage('uk')} className={value == 'uk' ? style.navLangBtnUk : style.navLangBtnUkDis}>Українська</button>
+                  value='ua' onClick={() => changeLanguage('ua')} className={value == 'ua' ? style.navLangBtnua : style.navLangBtnuaDis}>Українська</button>
 
               </div>
               <select
@@ -296,7 +296,7 @@ const Header = () => {
                 onChange={e => changeLanguage(e.target.value)}
                 disabled
               >
-                <option value='uk'>UK</option>
+                <option value='ua'>UA</option>
                 <option value='en'>EN</option>
               </select>
 

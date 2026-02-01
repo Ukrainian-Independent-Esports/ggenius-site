@@ -2,7 +2,7 @@ import style from './assets/style/index.module.css'
 import Header from './page/Header/Header';
 import Footer from './page/Footer/Footer';
 import { Outlet, useLocation } from 'react-router';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import LanguageProvider from './Hooks/LanguageProvider';
 
 
@@ -10,7 +10,35 @@ import LanguageProvider from './Hooks/LanguageProvider';
 const App = () => {
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
+  const [chats, setChats] = useState([])
+  const [chatInfo, setChatInfo] = useState([])
 
+  useEffect(() => {
+    fetch('https://ggenius-api.onrender.com/mlbb/get_posts.php?table=chat_info')
+      .then(g => g.json())
+      .then(data => setChats(data))
+      .catch(err => console.error(err))
+  }, [])
+
+  console.log(chats);
+  
+
+  useEffect(() => {
+    if (!chats.length) return;
+
+    Promise.all(
+      chats.map(chat =>
+        fetch(`https://ggenius-api.onrender.com/mlbb/get_chat_info.php?chat_id=${chat.chat_id}`)
+          .then(res => res.json())
+      )
+    )
+      .then(data => setChatInfo(data))
+      .catch(console.error);
+
+  }, [chats]);
+  
+  
+  
   // useEffect(() => {
   //   const canvas = canvasRef.current;
   //   const wrapper = wrapperRef.current;
@@ -108,7 +136,6 @@ const App = () => {
  
 
   return (<>
-
     <div ref={wrapperRef} className={style.wrapper}>
       <canvas
         ref={canvasRef}

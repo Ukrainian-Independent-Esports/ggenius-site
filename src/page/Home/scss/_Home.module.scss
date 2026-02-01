@@ -525,7 +525,8 @@
   position: relative;
 }
 
-.progressInnerTitle {
+.progressInnerTitle,
+.chatsInnerTitle {
   @include titleSection;
   margin-bottom: 80px;
 }
@@ -584,7 +585,8 @@
   margin: 0 auto;
 }
 
-.partners {
+.partners,
+.chats {
   padding: 100px 0;
 }
 
@@ -638,6 +640,42 @@
 .partnersInnerContLink {
   @include btn;
   font-size: 18px;
+}
+
+.chatsInnerInfoList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  color: $color;
+}
+
+.chatsInnerInfoListItem {
+  &:hover {
+   .chatsInnerInfoListItemImg {
+    transform: scale(1.1);
+    transition: all .4s;
+   } 
+  }
+}
+
+
+
+.chatsInnerInfoListItemImg {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 100px #ff01fb57;
+    transition: all .4s;
+
+}
+
+.chatsInnerInfoListItemTitle {
+  font-size: 13px;
+  width: 100px;
+  text-align: center
 }
 
 @import './media.module';
