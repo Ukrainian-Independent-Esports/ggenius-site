@@ -9,6 +9,8 @@ import useLangChange from '../../Hooks/LangChange';
 import yt from '../Footer/img/yt.svg'
 import tt from '../Footer/img/tt.svg'
 import ds from '../Footer/img/ds.svg'
+import { useAuth } from '../../Hooks/useAuth';
+
 
 
 const Header = () => {
@@ -17,6 +19,26 @@ const Header = () => {
   const location = useLocation();
   const [menu, setMenu] = useState(false)
   const [value, setValue] = useState('ua');
+  if (!auth) return null; // защита
+
+  const { users, login, logout } = auth;
+  const auth = useAuth();
+  console.log('AUTH:', auth);
+
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get('id')) {
+      fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
+        .then(res => res.json())
+        .then(data => {
+          login(data); // 🔥 ВАЖНО
+          window.history.replaceState({}, document.title, "/");
+        });
+    }
+  }, []);
+  
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -25,40 +47,31 @@ const Header = () => {
     setValue(lang);
   }, []);
 
-  const botUsername = 'TestAuthBotb_bot';
-  const loginUrl = `https://t.me/${botUsername}?start=auth`;
+  
 
-  const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('tg_user');
-    return saved ? JSON.parse(saved) : null;
-  });
+ 
 
-  useEffect(() => {
-
-    const params = new URLSearchParams(window.location.search);
-    const userDataBase64 = params.get('user');
-
-    if (userDataBase64) {
-      try {
-
-        const decodedData = JSON.parse(atob(userDataBase64));
-        console.log('decodedData:', decodedData);
-
-
-        setUser(decodedData);
-        localStorage.setItem('tg_user', JSON.stringify(decodedData));
+  // // После редиректа с ?id=123&hash=...
+  // useEffect(() => {
+  //   const params = new URLSearchParams(window.location.search);
+  //   if (params.get('id')) {
+  //     fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
+  //       .then(res => res.json())
+  //       .then(data => {
+  //         setUser(data.user)
+  //         localStorage.setItem('tg_user', JSON.stringify(data.user));
+  //         localStorage.setItem('jwt', data.jwt);
+  //         localStorage.setItem('refresh_token', data.refresh_token);
+  //         // чистим URL
+  //         window.history.replaceState({}, document.title, "/");
+  //       });
+  //   }
+  // }, []);
 
 
-        window.history.replaceState({}, document.title, "/");
-      } catch (e) {
-        console.error("Ошибка при разборе данных пользователя", e);
-      }
-    }
-  }, []);
-
-  const loginViaBot = () => {
-    window.location.href = loginUrl;
-  };
+  // const loginViaBot = () => {
+  //   window.location.href = loginUrl;
+  // };
 
   // const handleLogout = () => {
   //   localStorage.removeItem('tg_user');
@@ -96,6 +109,9 @@ const Header = () => {
 
 
 
+  // console.log(users);
+
+  
 
   return (
     <header className={style.header}>
@@ -151,24 +167,29 @@ const Header = () => {
 
             <div className={style.navIns}>
               {
-                user ? (
+                users ? (
                   <Link className={style.navLinkLogin}>
-                    <span>{user.first_name}</span>
-                    {/* <ul className={style.navLinkLoginList}>
+                    {/* <img
+                      src={users.photo_url}
+                      referrerPolicy="no-referrer"
+                      alt=""
+                    /> */}
+                    <span>{users.nickname}</span>
+                    <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemLink}>
                         {setLang('navLinkLoginListItemLink')}
                       </Link>
                     </li>
-                    <li onClick={handleLogout} className={style.navLinkLoginListItem}>
+                    <li onClick={logout} className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemSub}>
                         {setLang('navLinkLoginListItemSub')}
                       </Link>
                     </li>
-                  </ul> */}
+                  </ul>
                   </Link>
                 ) : (
-                  <Link onClick={loginViaBot} className={style.navLink}>
+                  <Link onClick={login} className={style.navLink}>
                     {setLang('navLink')}
                   </Link>
                 )

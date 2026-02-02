@@ -67,11 +67,11 @@ const Home = () => {
     !hiddenChats.includes(chat.id)
   );
 
-  chatInfo.forEach(chat => {
-    console.log(chat.id, typeof chat.id);
-  });
+  // chatInfo.forEach(chat => {
+  //   console.log(chat.id, typeof chat.id);
+  // });
 
-  console.log(chatInfo);
+  // console.log(chatInfo);
   // console.log(chats);
 
   return <>
