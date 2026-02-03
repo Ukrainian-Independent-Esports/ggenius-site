@@ -2,100 +2,50 @@ import { Link, useNavigate, useLocation, NavLink } from 'react-router-dom';
 import style from '../../assets/style/index.module.css';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import logo from './img/logo.png'
+import logo from './img/logo.png';
 import useLangChange from '../../Hooks/LangChange';
-
-// import ins from '../Footer/img/ins.svg'
-import yt from '../Footer/img/yt.svg'
-import tt from '../Footer/img/tt.svg'
-import ds from '../Footer/img/ds.svg'
+import yt from '../Footer/img/yt.svg';
+import tt from '../Footer/img/tt.svg';
+import ds from '../Footer/img/ds.svg';
 import { useAuth } from '../../Hooks/useAuth';
-
-
 
 const Header = () => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const location = useLocation();
-  const [menu, setMenu] = useState(false)
-  const [value, setValue] = useState('ua');
-  if (!auth) return null; // защита
+  const [menu, setMenu] = useState(false);
+  const [lang, setLangState] = useState('ua');
 
-  const { users, login, logout } = auth;
   const auth = useAuth();
-  console.log('AUTH:', auth);
+  if (!auth) return null; // защита от рендера без AuthProvider
+  const { user, login, logout } = auth;
 
-
+  // Получаем Telegram авторизацию из URL
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-
+    const params = new URLSearchParams(location.search);
     if (params.get('id')) {
       fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
         .then(res => res.json())
         .then(data => {
-          login(data); // 🔥 ВАЖНО
-          window.history.replaceState({}, document.title, "/");
+          login(data); // сохраняем токены и пользователя в AuthProvider
+          window.history.replaceState({}, document.title, window.location.pathname);
         });
     }
-  }, []);
-  
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const lang = params.get('lang') || localStorage.getItem('value') || 'ua';
-    i18n.changeLanguage(lang);
-    setValue(lang);
-  }, []);
-
-  
-
- 
-
-  // // После редиректа с ?id=123&hash=...
-  // useEffect(() => {
-  //   const params = new URLSearchParams(window.location.search);
-  //   if (params.get('id')) {
-  //     fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
-  //       .then(res => res.json())
-  //       .then(data => {
-  //         setUser(data.user)
-  //         localStorage.setItem('tg_user', JSON.stringify(data.user));
-  //         localStorage.setItem('jwt', data.jwt);
-  //         localStorage.setItem('refresh_token', data.refresh_token);
-  //         // чистим URL
-  //         window.history.replaceState({}, document.title, "/");
-  //       });
-  //   }
-  // }, []);
-
-
-  // const loginViaBot = () => {
-  //   window.location.href = loginUrl;
-  // };
-
-  // const handleLogout = () => {
-  //   localStorage.removeItem('tg_user');
-  //   setUser(null);
-  // };
-
-
-  const setLang = (lang) => {
-    return useLangChange(lang)
-  }
-
-  useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const langFromUrl = params.get('lang');
-    const savedLang = localStorage.getItem('value');
-    const lang = langFromUrl || savedLang || 'ua';
-
-    setValue(lang);
-    i18n.changeLanguage(lang);
-    localStorage.setItem('value', lang);
   }, [location.search]);
 
+  // Смена языка при загрузке
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const initialLang = params.get('lang') || localStorage.getItem('value') || 'ua';
+    i18n.changeLanguage(initialLang);
+    setLangState(initialLang);
+    localStorage.setItem('value', initialLang);
+  }, [i18n]);
+
+  // Функция смены языка
   const changeLanguage = (newLang) => {
-    setValue(newLang);
+    setLangState(newLang);
+    i18n.changeLanguage(newLang);
     localStorage.setItem('value', newLang);
 
     const params = new URLSearchParams(location.search);
@@ -107,75 +57,88 @@ const Header = () => {
     }, { replace: true });
   };
 
+  const setLang = (key) => useLangChange(key);
 
+  // Telegram login
+  const loginViaBot = () => {
+    const botUsername = 'TestAuthBotb_bot';
+    window.location.href = `https://t.me/${botUsername}?start=auth`;
+  };
 
-  // console.log(users);
-
+  // console.log(user);
   
-
   return (
     <header className={style.header}>
       <div className={menu ? style.containerr : style.container}>
         <nav className={style.nav}>
-          <Link to={`/?lang=${value}`} className={style.navLogoLink}>
-            <img src={logo} className={style.navLogoLinkImg} alt="Logo" />
+          <Link to={`/?lang=${lang}`} className={style.navLogoLink}>
+            <img src={logo} alt="Logo" className={style.navLogoLinkImg} />
           </Link>
 
-          <button className={menu ? style.menuActive : style.menu} onClick={() => setMenu(!menu)} aria-label="Toggle menu">
+          <button
+            className={menu ? style.menuActive : style.menu}
+            onClick={() => setMenu(!menu)}
+            aria-label="Toggle menu"
+          >
             <span className={style.menuSpan1}></span>
             <span className={style.menuSpan2}></span>
             <span className={style.menuSpan3}></span>
           </button>
 
-
-          {/* DESKTOP */}
+          {/* DESKTOP MENU */}
           <div className={style.navMenu}>
             <ul className={style.navList}>
               <li className={style.navListItem}>
-                <NavLink to={`/?lang=${value}`}
+                <NavLink
+                  to={`/?lang=${lang}`}
                   end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
+                  className={({ isActive }) =>
+                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                  }
                 >
-                  {useLangChange('navListItemLinkHome')}
+                  {setLang('navListItemLinkHome')}
                 </NavLink>
               </li>
-              {/* About */}
               <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`}
+                <NavLink
+                  to={`/gg?lang=${lang}`}
                   end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
+                  className={({ isActive }) =>
+                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                  }
                 >
-                  {useLangChange('navListItemLinkAbout')}
+                  {setLang('navListItemLinkAbout')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`} end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
+                <NavLink
+                  to={`/gg?lang=${lang}`}
+                  end
+                  className={({ isActive }) =>
+                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                  }
                 >
-                  {useLangChange('navListItemLinkWork')}
+                  {setLang('navListItemLinkWork')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`} end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
+                <NavLink
+                  to={`/gg?lang=${lang}`}
+                  end
+                  className={({ isActive }) =>
+                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                  }
                 >
-                  {useLangChange('navListItemLinkOur')}
-
+                  {setLang('navListItemLinkOur')}
                 </NavLink>
               </li>
             </ul>
 
             <div className={style.navIns}>
-              {
-                users ? (
-                  <Link className={style.navLinkLogin}>
-                    {/* <img
-                      src={users.photo_url}
-                      referrerPolicy="no-referrer"
-                      alt=""
-                    /> */}
-                    <span>{users.nickname}</span>
-                    <ul className={style.navLinkLoginList}>
+              {user ? (
+                <div className={style.navLinkLogin}>
+                  <span>{user.nickname}</span>
+                  <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemLink}>
                         {setLang('navLinkLoginListItemLink')}
@@ -187,150 +150,88 @@ const Header = () => {
                       </Link>
                     </li>
                   </ul>
-                  </Link>
-                ) : (
-                  <Link onClick={login} className={style.navLink}>
-                    {setLang('navLink')}
-                  </Link>
-                )
-              }
+                </div>
+              ) : (
+                <button onClick={loginViaBot} className={style.navLink}>
+                  {setLang('navLink')}
+                </button>
+              )}
 
-              
-              <button className={style.listLangBtn}>
-              {value}
+              <div className={style.listLangBtn}>
+                {lang}
                 <ul className={style.listLang}>
-                  <li className={style.listLangOpt} onClick={()=> changeLanguage('ua')}>ua</li>
-                  <li className={style.listLangOpt} onClick={() => changeLanguage('en')}>EN</li>
+                  <li onClick={() => changeLanguage('ua')}>UA</li>
+                  <li onClick={() => changeLanguage('en')}>EN</li>
                 </ul>
-              </button>
+              </div>
             </div>
           </div>
 
-
-          {/* MOBILE */}
+          {/* MOBILE MENU */}
           <div className={menu ? style.navMenuActive : style.navMenuDis}>
-            <div className={style.navMenuActiveLine}>
-              {useLangChange('navMenuActiveLine')}
-              <span className={style.navMenuActiveLineSpan}></span>
-            </div>
             <ul className={style.navList}>
-              <li className={style.navListItem}>
-                <NavLink to={`/?lang=${value}`}
-                  end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
-                  onClick={() => setMenu(!menu)}>
-                  {useLangChange('navListItemLinkHome')}
-                </NavLink>
-              </li>
-              {/* About */}
-              <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`}
-                  end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
-                  onClick={() => setMenu(!menu)}>
-                  {useLangChange('navListItemLinkAbout')}
-                </NavLink>
-              </li>
-              <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`} end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
-                  onClick={() => setMenu(!menu)}>
-                  {useLangChange('navListItemLinkWork')}
-                </NavLink>
-              </li>
-              <li className={style.navListItem}>
-                <NavLink to={`/gg?lang=${value}`} end
-                  className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}
-                  onClick={() => setMenu(!menu)}>
-                  {useLangChange('navListItemLinkOur')}
+              {['Home', 'About', 'Work', 'Our'].map((item, idx) => (
+                <li className={style.navListItem} key={idx}>
+                  <NavLink
+                    to={`/${item === 'Home' ? '' : 'gg'}?lang=${lang}`}
+                    end
+                    className={({ isActive }) =>
+                      isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                    }
+                    onClick={() => setMenu(false)}
+                  >
+                    {setLang(`navListItemLink${item}`)}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
 
-                </NavLink>
+            <div className={style.navIns}>
+              {user ? (
+                <div className={style.navLinkLogin}>
+                  <span>{user.nickname}</span>
+                  <ul className={style.navLinkLoginList}>
+                    <li onClick={logout}>
+                      <Link>{setLang('navLinkLoginListItemSub')}</Link>
+                    </li>
+                  </ul>
+                </div>
+              ) : (
+                <button onClick={loginViaBot}>{setLang('navLink')}</button>
+              )}
+              <div className={style.navLang}>
+                <button
+                  className={lang === 'en' ? style.navLangBtnEn : style.navLangBtnEnDis}
+                  onClick={() => changeLanguage('en')}
+                >
+                  English
+                </button>
+                <button
+                  className={lang === 'ua' ? style.navLangBtnua : style.navLangBtnuaDis}
+                  onClick={() => changeLanguage('ua')}
+                >
+                  Українська
+                </button>
+              </div>
+            </div>
+
+            <ul className={style.navCopyListMob}>
+              <li>
+                <Link to='https://www.youtube.com/@ggenius_ua'>
+                  <img src={yt} alt="YouTube" />
+                </Link>
+              </li>
+              <li>
+                <Link to='https://tiktok.com/@mobile_legends.ua'>
+                  <img src={tt} alt="TikTok" />
+                </Link>
+              </li>
+              <li>
+                <Link to=''>
+                  <img src={ds} alt="Discord" />
+                </Link>
               </li>
             </ul>
-            <div className={style.navMenuActiveLine}>
-              {useLangChange('navMenuActiveFind')}
-              <span className={style.navMenuActiveLineSpan}></span>
-              <ul className={style.navCopyListMob}>
-                {/* <li className={style.footerCopyListItem}>
-                <Link to='' className={style.footerCopyListItemLinkIns}>
-                  <img src={ins} alt="" className={style.footerCopyListItemImg} />
-                </Link>
-              </li> */}
-                <li className={style.footerCopyListItem}>
-                  <Link to='https://www.youtube.com/@ggenius_ua' className={style.footerCopyListItemLinkYT}>
-                    <img src={yt} alt="" className={style.footerCopyListItemImg} />
-                  </Link>
-                </li>
-                <li className={style.footerCopyListItem}>
-                  <Link to='https://tiktok.com/@mobile_legends.ua' className={style.footerCopyListItemLinkTT}>
-                    <img src={tt} alt="" className={style.footerCopyListItemImg} />
-                  </Link>
-                </li>
-                <li className={style.footerCopyListItem}>
-                  <Link to='' className={style.footerCopyListItemLinkDS}>
-                    <img src={ds} alt="" className={style.footerCopyListItemImg} />
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className={style.navIns}>
-              <div className={style.navIns2}>{
-                user ? (
-                  <Link className={style.navLinkLogin}>
-                    <span>{user.first_name}</span>
-                    {/* <ul className={style.navLinkLoginList}>
-                    <li className={style.navLinkLoginListItem}>
-                      <Link className={style.navLinkLoginListItemLink}>
-                        {setLang('navLinkLoginListItemLink')}
-                      </Link>
-                    </li>
-                    <li onClick={handleLogout} className={style.navLinkLoginListItem}>
-                      <Link className={style.navLinkLoginListItemSub}>
-                        {setLang('navLinkLoginListItemSub')}
-                      </Link>
-                    </li>
-                  </ul> */}
-                  </Link>
-                ) : (
-                  <Link onClick={loginViaBot} className={style.navLink}>
-                    {setLang('navLink')}
-                  </Link>
-                )
-              }
-              </div>
-              <div className={style.navMenuActiveLine}>
-                {useLangChange('navMenuActiveLang')}
-                <span className={style.navMenuActiveLineSpan}></span>
-              </div>
-              <div className={style.navLang}
-              >
-                <button onClick={() => changeLanguage('en')}
-                  value='en'
-                  className={value == 'en' ? style.navLangBtnEn : style.navLangBtnEnDis}>English</button>
-                <button
-                  value='ua' onClick={() => changeLanguage('ua')} className={value == 'ua' ? style.navLangBtnua : style.navLangBtnuaDis}>Українська</button>
-
-              </div>
-              <select
-                value={value}
-                className={style.listLang}
-                onChange={e => changeLanguage(e.target.value)}
-                disabled
-              >
-                <option value='ua'>UA</option>
-                <option value='en'>EN</option>
-              </select>
-
-              <div className={style.navActiveBtns}>
-                <Link to='https://t.me/ggenius_chat' className={style.navActiveBtnsLinkInv}>
-                  {useLangChange('navLink')}
-                </Link>
-                <Link className={style.navActiveBtnsLink}>
-                  {useLangChange('navActiveBtnsLink')}
-                </Link>
-
-              </div>
-            </div>
           </div>
         </nav>
       </div>

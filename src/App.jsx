@@ -4,6 +4,7 @@ import Footer from './page/Footer/Footer';
 import { Outlet, useLocation } from 'react-router';
 import { useEffect, useRef, useState } from 'react';
 import LanguageProvider from './Hooks/LanguageProvider';
+import { AuthProvider } from './Hooks/useAuth';
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
   }, [location]);
 
   return (<>
+  <AuthProvider>
     <div  className={style.wrapper}>
       <Header />
       <main className={style.main}>
@@ -36,6 +38,7 @@ const App = () => {
       </main>
       <Footer />
     </div>
+    </AuthProvider>
   </>
   );
 };
