@@ -2,6 +2,18 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext(null);
 
+const params = new URLSearchParams(window.location.search);
+const accessFromUrl = params.get('access');
+const refreshFromUrl = params.get('refresh');
+
+if (accessFromUrl && refreshFromUrl) {
+  localStorage.setItem('access', accessFromUrl);
+  localStorage.setItem('refresh', refreshFromUrl);
+
+  // чистим URL
+  window.history.replaceState({}, document.title, window.location.pathname);
+}
+
 export const AuthProvider = ({ children }) => {
   const [access, setAccess] = useState(localStorage.getItem("access") || null);
   const [refresh, setRefresh] = useState(localStorage.getItem("refresh") || null);
@@ -72,19 +84,6 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("refresh", data.refresh);
     await fetchUser(data.access);
   };
-
-  // Проверка URL на ?id=... после редиректа с бота
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (params.get("id")) {
-      fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
-        .then((res) => res.json())
-        .then(async (data) => {
-          await login(data); // сохраняем токены и user
-          window.history.replaceState({}, document.title, "/"); // чистим URL
-        });
-    }
-  }, []);
 
   // Автообновление токена каждые 30 минут
   useEffect(() => {

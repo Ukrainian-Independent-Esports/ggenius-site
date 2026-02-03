@@ -19,6 +19,7 @@ const Header = () => {
   const auth = useAuth();
   if (!auth) return null; // защита от рендера без AuthProvider
   const { user, login, logout } = auth;
+console.log('auh:', auth);
 
   // Получаем Telegram авторизацию из URL
   useEffect(() => {
