@@ -12,6 +12,7 @@ This module provides:
 
 import hashlib
 import hmac
+import json
 import time
 from datetime import datetime, timedelta, timezone
 from typing import Any
@@ -109,7 +110,6 @@ def validate_telegram_webapp_data(init_data: str, bot_token: str) -> dict[str, A
 
         # Парсимо user JSON якщо є
         # Parse user JSON if present
-        import json
         user_data = parsed_data.get("user")
         if user_data:
             parsed_data["user"] = json.loads(unquote(user_data))

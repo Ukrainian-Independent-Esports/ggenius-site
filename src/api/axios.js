@@ -6,6 +6,8 @@
  * - Request interceptor: Attaches Access Token to Authorization header
  * - Response interceptor: Handles 401 errors, attempts token refresh, retries request
  * - Automatic logout redirect on refresh failure
+ *
+ * Note: Requires axios version >= 1.12.0 for security fixes
  */
 
 import axios from 'axios';
@@ -19,6 +21,9 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000
 // Token storage keys
 const ACCESS_TOKEN_KEY = 'access_token';
 const REFRESH_TOKEN_KEY = 'refresh_token';
+
+// API timeout in milliseconds (30 seconds)
+const API_TIMEOUT = 30000;
 
 // ============================================
 // Token Storage Functions / Функції збереження токенів
@@ -89,7 +94,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  timeout: 30000, // 30 seconds timeout
+  timeout: API_TIMEOUT,
 });
 
 // ============================================

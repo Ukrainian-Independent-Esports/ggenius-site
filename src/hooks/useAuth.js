@@ -227,7 +227,8 @@ export const AuthProvider = ({ children }) => {
     if (!isLoading) {
       initTelegramAuth();
     }
-  }, [isLoading, isAuthenticated, loginWithTelegram]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, isAuthenticated]);
 
   // Context value
   const value = {
