@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   color: white;
-  padding: 56px 0 32px;
+  padding: 45px 0 32px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, 0.25);
@@ -91,6 +91,8 @@
 
 .listLangBtn {
   position: relative;
+  width: 30px;
+  height: 30px;
   padding: 10px;
   color: white;
   font-size: 20px;
@@ -101,8 +103,12 @@
 
   &:hover {
     .listLang {
+      cursor: pointer;
       opacity: 1;
-      height: 80px;
+      height: 50px;
+      padding: 10px;
+      border-radius: 10px;
+      background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
       transform: translateY(0%) scale(1);
       transition: all 0.4s;
     }
@@ -114,11 +120,10 @@
 
 .listLang {
   position: absolute;
-
   top: 50px;
   left: 0;
   border-bottom: 0.5px solid rgba(130, 153, 255, 0);
-  // background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
   border: none;
   color: white;
   opacity: 0;
@@ -142,6 +147,7 @@
 .navIns {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 35px;
 }
 
@@ -178,6 +184,35 @@
   }
 }
 
+.navLinkLoginList {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  padding: 12px;
+  background-color: rgba($color: #ccc, $alpha: 0.3);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  transition: all 0.4s;
+}
+
+.navLinkLoginUsers {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.navLinkLoginUsersAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 .navMenuActiveLine,
 .navCopyListMob,
 .navLang,
@@ -191,21 +226,6 @@
   display: none;
   visibility: hidden;
 }
-
-// .navLinkLoginList {
-//   position: absolute;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 20px;
-//   opacity: 0;
-//   visibility: hidden;
-//   overflow: hidden;
-//   padding: 12px;
-//   background-color: rgba($color: #ccc, $alpha: .3);
-//   border: 1px solid #ccc;
-//   border-radius: 12px;
-//   transition: all 0.4s;
-// }
 
 // .navLinkLoginListItem {
 

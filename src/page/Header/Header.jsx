@@ -17,22 +17,21 @@ const Header = () => {
   const [lang, setLangState] = useState('ua');
 
   const auth = useAuth();
-  if (!auth) return null; // защита от рендера без AuthProvider
-  const { user, login, logout } = auth;
+  const { user, login, logout } = auth || {}; // безопасная деструктуризация
 
   // Получаем Telegram авторизацию из URL
   useEffect(() => {
+    if (!auth) return; // проверка внутри эффекта
     const params = new URLSearchParams(location.search);
     if (params.get('id')) {
       fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
         .then(res => res.json())
         .then(data => {
-          login(data); // сохраняем токены и пользователя в AuthProvider
+          login(data);
           window.history.replaceState({}, document.title, window.location.pathname);
         });
     }
-  }, [location.search]);
-  console.log('auh:', auth);
+  }, [location.search, auth, login]);
 
   // Смена языка при загрузке
   useEffect(() => {
@@ -41,9 +40,8 @@ const Header = () => {
     i18n.changeLanguage(initialLang);
     setLangState(initialLang);
     localStorage.setItem('value', initialLang);
-  }, [i18n]);
+  }, [i18n, location.search]);
 
-  // Функция смены языка
   const changeLanguage = (newLang) => {
     setLangState(newLang);
     i18n.changeLanguage(newLang);
@@ -58,16 +56,15 @@ const Header = () => {
     }, { replace: true });
   };
 
-  const setLang = (key) => useLangChange(key);
+  const changeLang = (key) => {
+    return useLangChange(key)
+  }
 
-  // Telegram login
   const loginViaBot = () => {
     const botUsername = 'TestAuthBotb_bot';
     window.location.href = `https://t.me/${botUsername}?start=auth`;
   };
 
-  console.log('user', user);
-  
   return (
     <header className={style.header}>
       <div className={menu ? style.containerr : style.container}>
@@ -89,83 +86,52 @@ const Header = () => {
           {/* DESKTOP MENU */}
           <div className={style.navMenu}>
             <ul className={style.navList}>
-              <li className={style.navListItem}>
-                <NavLink
-                  to={`/?lang=${lang}`}
-                  end
-                  className={({ isActive }) =>
-                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
-                  }
-                >
-                  {setLang('navListItemLinkHome')}
-                </NavLink>
-              </li>
-              <li className={style.navListItem}>
-                <NavLink
-                  to={`/gg?lang=${lang}`}
-                  end
-                  className={({ isActive }) =>
-                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
-                  }
-                >
-                  {setLang('navListItemLinkAbout')}
-                </NavLink>
-              </li>
-              <li className={style.navListItem}>
-                <NavLink
-                  to={`/gg?lang=${lang}`}
-                  end
-                  className={({ isActive }) =>
-                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
-                  }
-                >
-                  {setLang('navListItemLinkWork')}
-                </NavLink>
-              </li>
-              <li className={style.navListItem}>
-                <NavLink
-                  to={`/gg?lang=${lang}`}
-                  end
-                  className={({ isActive }) =>
-                    isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
-                  }
-                >
-                  {setLang('navListItemLinkOur')}
-                </NavLink>
-              </li>
+              {['Home', 'About', 'Work', 'Our'].map((item, idx) => (
+                <li className={style.navListItem} key={idx}>
+                  <NavLink
+                    to={`/${item === 'Home' ? '' : 'gg'}?lang=${lang}`}
+                    end
+                    className={({ isActive }) =>
+                      isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                    }
+                  >
+                    {changeLang(`navListItemLink${item}`)}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
 
             <div className={style.navIns}>
               {user ? (
                 <div className={style.navLinkLogin}>
                   <div className={style.navLinkLoginUsers}>
-                  <span>{user.nickname}</span>
+                    <span>{user.nickname}</span>
                     <img className={style.navLinkLoginUsersAvatar} src={user.avatar_permanent_url} alt="" />
                   </div>
                   <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemLink}>
-                        {setLang('navLinkLoginListItemLink')}
+                        {changeLang('navLinkLoginListItemLink')}
                       </Link>
                     </li>
                     <li onClick={logout} className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemSub}>
-                        {setLang('navLinkLoginListItemSub')}
+                        {changeLang('navLinkLoginListItemSub')}
                       </Link>
                     </li>
                   </ul>
                 </div>
               ) : (
                 <button onClick={loginViaBot} className={style.navLink}>
-                  {setLang('navLink')}
+                    {changeLang('navLink')}
                 </button>
               )}
 
               <div className={style.listLangBtn}>
                 {lang}
                 <ul className={style.listLang}>
-                  <li onClick={() => changeLanguage('ua')}>UA</li>
-                  <li onClick={() => changeLanguage('en')}>EN</li>
+                  <li className={style.listLangItem} onClick={() => changeLanguage('ua')}>UA</li>
+                  <li className={style.listLangItem} onClick={() => changeLanguage('en')}>EN</li>
                 </ul>
               </div>
             </div>
@@ -184,7 +150,7 @@ const Header = () => {
                     }
                     onClick={() => setMenu(false)}
                   >
-                    {setLang(`navListItemLink${item}`)}
+                    {changeLang(`navListItemLink${item}`)}
                   </NavLink>
                 </li>
               ))}
@@ -196,12 +162,12 @@ const Header = () => {
                   <span>{user.nickname}</span>
                   <ul className={style.navLinkLoginList}>
                     <li onClick={logout}>
-                      <Link>{setLang('navLinkLoginListItemSub')}</Link>
+                      <Link>{changeLang('navLinkLoginListItemSub')}</Link>
                     </li>
                   </ul>
                 </div>
               ) : (
-                <button onClick={loginViaBot}>{setLang('navLink')}</button>
+                  <button onClick={loginViaBot}>{changeLang('navLink')}</button>
               )}
               <div className={style.navLang}>
                 <button

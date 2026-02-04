@@ -38,11 +38,6 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("tg_user");
         return;
       }
-      const text = await res.text();
-      console.log("RAW response:", text);
-      const date = JSON.parse(text);
-      console.log(date);
-
 
       const data = await res.json();
       if (!data.user) {
