@@ -109,7 +109,7 @@ const Header = () => {
                   </div>
                   <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
-                      <Link className={style.navLinkLoginListItemLink}>
+                      <Link to={`profile/?lang=${lang}`} className={style.navLinkLoginListItemLink}>
                         {t('navLinkLoginListItemLink')}
                       </Link>
                     </li>

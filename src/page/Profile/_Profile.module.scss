@@ -1,0 +1,67 @@
+.profile {
+  padding: 150px 0 80px;
+}
+
+.profileInner {
+  padding: 40px 0;
+}
+
+.profileInner {
+  display: flex;
+  gap: 80px;
+}
+
+.profileInnerUserInfo,
+.profileInnerUserChara {
+  color: $color;
+}
+.profileInnerUserInfoImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  box-shadow: 0 0 10px $color;
+}
+
+.profileInnerUserInfoTitle {
+  color: $color;
+  text-align: center;
+  font-size: 20px;
+}
+
+.profileInnerUserInfoRank {
+  text-align: center;
+  color: #c4c4c4;
+}
+
+.profileInnerUserCharaTitle {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.profileInnerUserCharaImg {
+  width: 600px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.profileInnerUserCharaTitleHero {
+  margin-bottom: 20px;
+}
+
+.profileInnerUserCharaList {
+  display: flex;
+  gap: 30px;
+}
+
+.profileInnerUserCharaListItem{
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background:
+    radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%),
+    linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%),
+    linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
+  backdrop-filter: blur(1px);
+}
