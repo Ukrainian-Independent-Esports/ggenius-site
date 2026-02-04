@@ -66,7 +66,7 @@ const Header = () => {
     window.location.href = `https://t.me/${botUsername}?start=auth`;
   };
 
-  // console.log(user);
+  console.log('user', user);
   
   return (
     <header className={style.header}>
@@ -138,7 +138,10 @@ const Header = () => {
             <div className={style.navIns}>
               {user ? (
                 <div className={style.navLinkLogin}>
+                  <div className={style.navLinkLoginUsers}>
                   <span>{user.nickname}</span>
+                    <img className={style.navLinkLoginUsersAvatar} src={user.avatar_permanent_url} alt="" />
+                  </div>
                   <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemLink}>

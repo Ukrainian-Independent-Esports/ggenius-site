@@ -22,13 +22,12 @@ export const AuthProvider = ({ children }) => {
   // -------------------- Функция получения пользователя --------------------
   const fetchUser = async (token) => {
     if (!token) return;
-
     try {
       const res = await fetch("https://ggenius-api.onrender.com/bots/user.php", {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
       });
-
+      
       if (!res.ok) {
         if (res.status === 401) {
           console.warn("Токен недействителен или истек");
@@ -39,6 +38,11 @@ export const AuthProvider = ({ children }) => {
         localStorage.removeItem("tg_user");
         return;
       }
+      const text = await res.text();
+      console.log("RAW response:", text);
+      const date = JSON.parse(text);
+      console.log(date);
+
 
       const data = await res.json();
       if (!data.user) {
@@ -67,6 +71,8 @@ export const AuthProvider = ({ children }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ refresh }),
       });
+      
+      
 
       if (!res.ok) throw new Error("Не удалось обновить токен");
 
