@@ -1,19 +1,18 @@
-import { useEffect } from 'react'
-import { useParams } from 'react-router'
-import { useTranslation } from 'react-i18next'
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
-function useLangChange(props) {
-  const { lang } = useParams()
-  const { t, i18n } = useTranslation()
+function useLangChange() {
+  const { lang } = useParams();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     if (lang) {
-      i18n.changeLanguage(lang)
+      i18n.changeLanguage(lang);
     }
-  }, [lang, i18n])
+  }, [lang, i18n]);
 
-
-  return t(props)
+  return t; // ✅ возвращаем функцию t
 }
 
-export default useLangChange
+export default useLangChange;

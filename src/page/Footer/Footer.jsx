@@ -2,7 +2,7 @@ import style from '../../assets/style/index.module.css'
 import Marquee from '../../Hooks/Marquee';
 import star from '../Home/img/Star.svg'
 import logo from '../Header/img/logo.png'
-import useLangChange from '../../Hooks/LangChange';
+import t from '../../Hooks/LangChange';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
@@ -10,12 +10,14 @@ import ins from './img/ins.svg'
 import yt from './img/yt.svg'
 import tt from './img/tt.svg'
 import ds from './img/ds.svg'
+import useLangChange from '../../Hooks/LangChange';
 
 
 
 
 
 const Footer = () => {
+  const t = useLangChange();
 
   const value = localStorage.getItem('value')
 
@@ -36,7 +38,7 @@ const Footer = () => {
                 <NavLink to={`/?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink} >
-                  {useLangChange('navListItemLinkHome')}
+                  {t('navListItemLinkHome')}
                 </NavLink>
               </li>
               {/* About */}
@@ -44,19 +46,19 @@ const Footer = () => {
                 <NavLink to={`/gg?lang=${value}`}
                   end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
-                  {useLangChange('navListItemLinkAbout')}
+                  {t('navListItemLinkAbout')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
                 <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
-                  {useLangChange('navListItemLinkWork')}
+                  {t('navListItemLinkWork')}
                 </NavLink>
               </li>
               <li className={style.navListItem}>
                 <NavLink to={`/gg?lang=${value}`} end
                   className={({ isActive }) => isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink}>
-                  {useLangChange('navListItemLinkOur')}
+                  {t('navListItemLinkOur')}
                 </NavLink>
               </li>
             </ul>

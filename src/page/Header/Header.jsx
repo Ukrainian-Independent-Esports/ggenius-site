@@ -19,9 +19,12 @@ const Header = () => {
   const auth = useAuth();
   const { user, login, logout } = auth || {}; // безопасная деструктуризация
 
+  // ✅ вызываем хук один раз
+  const t = useLangChange();
+
   // Получаем Telegram авторизацию из URL
   useEffect(() => {
-    if (!auth) return; // проверка внутри эффекта
+    if (!auth) return;
     const params = new URLSearchParams(location.search);
     if (params.get('id')) {
       fetch(`https://ggenius-api.onrender.com/bots/auth.php?${params.toString()}`)
@@ -55,10 +58,6 @@ const Header = () => {
       search: params.toString(),
     }, { replace: true });
   };
-
-  const changeLang = (key) => {
-    return useLangChange(key)
-  }
 
   const loginViaBot = () => {
     const botUsername = 'TestAuthBotb_bot';
@@ -95,7 +94,7 @@ const Header = () => {
                       isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
                     }
                   >
-                    {changeLang(`navListItemLink${item}`)}
+                    {t(`navListItemLink${item}`)}
                   </NavLink>
                 </li>
               ))}
@@ -111,19 +110,19 @@ const Header = () => {
                   <ul className={style.navLinkLoginList}>
                     <li className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemLink}>
-                        {changeLang('navLinkLoginListItemLink')}
+                        {t('navLinkLoginListItemLink')}
                       </Link>
                     </li>
                     <li onClick={logout} className={style.navLinkLoginListItem}>
                       <Link className={style.navLinkLoginListItemSub}>
-                        {changeLang('navLinkLoginListItemSub')}
+                        {t('navLinkLoginListItemSub')}
                       </Link>
                     </li>
                   </ul>
                 </div>
               ) : (
                 <button onClick={loginViaBot} className={style.navLink}>
-                    {changeLang('navLink')}
+                  {t('navLink')}
                 </button>
               )}
 
@@ -150,7 +149,7 @@ const Header = () => {
                     }
                     onClick={() => setMenu(false)}
                   >
-                    {changeLang(`navListItemLink${item}`)}
+                    {t(`navListItemLink${item}`)}
                   </NavLink>
                 </li>
               ))}
@@ -162,12 +161,12 @@ const Header = () => {
                   <span>{user.nickname}</span>
                   <ul className={style.navLinkLoginList}>
                     <li onClick={logout}>
-                      <Link>{changeLang('navLinkLoginListItemSub')}</Link>
+                      <Link>{t('navLinkLoginListItemSub')}</Link>
                     </li>
                   </ul>
                 </div>
               ) : (
-                  <button onClick={loginViaBot}>{changeLang('navLink')}</button>
+                <button onClick={loginViaBot}>{t('navLink')}</button>
               )}
               <div className={style.navLang}>
                 <button

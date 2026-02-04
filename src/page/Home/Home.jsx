@@ -1,5 +1,5 @@
 import style from '../../assets/style/index.module.css'
-import useLangChange from '../../Hooks/LangChange'
+import t from '../../Hooks/LangChange'
 import { Link } from 'react-router-dom'
 import Marquee from '../../Hooks/Marquee'
 import { useRef, useState, useEffect } from 'react';
@@ -28,10 +28,11 @@ import roadMapMob from './img/roadMapMob.png'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import useLangChange from '../../Hooks/LangChange';
 
 
 const Home = () => {
-
+  const t = useLangChange();
   const [chats, setChats] = useState([])
   const [chatInfo, setChatInfo] = useState([])
 
@@ -86,13 +87,13 @@ const Home = () => {
 
           <div className={style.homeInnerContent}>
             <h1 className={style.homeInnerContentTitle}>
-              {useLangChange('homeInnerContentTitle')}
+              {t('homeInnerContentTitle')}
             </h1>
             <p className={style.homeInnerContentSub}>
-              {useLangChange('homeInnerContentSub')}
+              {t('homeInnerContentSub')}
             </p>
             <Link to='https://t.me/ggeniusgg_bot' className={style.homeInnerContentLink}>
-              {useLangChange('navLink')}
+              {t('navLink')}
             </Link>
           </div>
         </div>
@@ -123,10 +124,10 @@ const Home = () => {
       <div className={style.container}>
         <div className={style.whatinner}>
           <h1 className={style.whatinnerTitle}>
-            {useLangChange('whatinnerTitle')}
+            {t('whatinnerTitle')}
           </h1>
           <p className={style.whatinnerSub}>
-            {useLangChange('whatinnerSub')}
+            {t('whatinnerSub')}
           </p>
           <div className={style.slider}>
             <Swiper pagination={true} modules={[Pagination]} slidesPerView={1} className={style.mySwiper} style={{
@@ -144,10 +145,10 @@ const Home = () => {
                     <img className={style.whatinnerListItemImgLeft} src={sword} alt="" />
                   </div>
                   <h2 className={style.whatinnerListItemTitle}>
-                    {useLangChange('whatinnerListItemTitle1')}
+                    {t('whatinnerListItemTitle1')}
                   </h2>
                   <p className={style.whatinnerListItemSub}>
-                    {useLangChange('whatinnerListItemSub1')}
+                    {t('whatinnerListItemSub1')}
                   </p>
                 </li>
               </SwiperSlide>
@@ -159,10 +160,10 @@ const Home = () => {
                   <img className={style.whatinnerListItemImgCup} src={cup} alt="" />
                   <img className={style.whatinnerListItemImgCupFill} src={cup} alt="" />
                   <h2 className={style.whatinnerListItemTitle}>
-                    {useLangChange('whatinnerListItemTitle2')}
+                    {t('whatinnerListItemTitle2')}
                   </h2>
                   <p className={style.whatinnerListItemSub}>
-                    {useLangChange('whatinnerListItemSub2')}
+                    {t('whatinnerListItemSub2')}
                   </p>
                 </li>
               </SwiperSlide>
@@ -175,10 +176,10 @@ const Home = () => {
                     <div className={style.whatinnerListItemImgFlag2}></div>
                   </div>
                   <h2 className={style.whatinnerListItemTitle}>
-                    {useLangChange('whatinnerListItemTitle3')}
+                    {t('whatinnerListItemTitle3')}
                   </h2>
                   <p className={style.whatinnerListItemSub}>
-                    {useLangChange('whatinnerListItemSub3')}
+                    {t('whatinnerListItemSub3')}
                   </p>
                 </li>
               </SwiperSlide>
@@ -193,10 +194,10 @@ const Home = () => {
 
                   </div>
                   <h2 className={style.whatinnerListItemTitle}>
-                    {useLangChange('whatinnerListItemTitle4')}
+                    {t('whatinnerListItemTitle4')}
                   </h2>
                   <p className={style.whatinnerListItemSub}>
-                    {useLangChange('whatinnerListItemSub4')}
+                    {t('whatinnerListItemSub4')}
                   </p>
                 </li>
               </SwiperSlide>
@@ -208,20 +209,20 @@ const Home = () => {
                   <img className={style.whatinnerListItemImgLeft} src={sword} alt="" />
                 </div>
                 <h2 className={style.whatinnerListItemTitle}>
-                  {useLangChange('whatinnerListItemTitle1')}
+                  {t('whatinnerListItemTitle1')}
                 </h2>
                 <p className={style.whatinnerListItemSub}>
-                  {useLangChange('whatinnerListItemSub1')}
+                  {t('whatinnerListItemSub1')}
                 </p>
               </li>
               <li className={style.whatinnerListItemCup}>
                 <img className={style.whatinnerListItemImgCup} src={cup} alt="" />
                 <img className={style.whatinnerListItemImgCupFill} src={cup} alt="" />
                 <h2 className={style.whatinnerListItemTitle}>
-                  {useLangChange('whatinnerListItemTitle2')}
+                  {t('whatinnerListItemTitle2')}
                 </h2>
                 <p className={style.whatinnerListItemSub}>
-                  {useLangChange('whatinnerListItemSub2')}
+                  {t('whatinnerListItemSub2')}
                 </p>
               </li>
               <li className={style.whatinnerListItemFlag}>
@@ -230,10 +231,10 @@ const Home = () => {
 
                 </div>
                 <h2 className={style.whatinnerListItemTitle}>
-                  {useLangChange('whatinnerListItemTitle3')}
+                  {t('whatinnerListItemTitle3')}
                 </h2>
                 <p className={style.whatinnerListItemSub}>
-                  {useLangChange('whatinnerListItemSub3')}
+                  {t('whatinnerListItemSub3')}
                 </p>
               </li>
               <li className={style.whatinnerListItemBrain}>
@@ -243,10 +244,10 @@ const Home = () => {
 
                 </div>
                 <h2 className={style.whatinnerListItemTitle}>
-                  {useLangChange('whatinnerListItemTitle4')}
+                  {t('whatinnerListItemTitle4')}
                 </h2>
                 <p className={style.whatinnerListItemSub}>
-                  {useLangChange('whatinnerListItemSub4')}
+                  {t('whatinnerListItemSub4')}
                 </p>
               </li>
             </ul>
@@ -261,27 +262,27 @@ const Home = () => {
         <div className={style.workInner}>
           <div className={style.workInnerHeder}>
             <h2 className={style.workInnerTitle}>
-              {useLangChange('workInnerTitle')}
+              {t('workInnerTitle')}
             </h2>
             <p className={style.workInnerSub}>
-              {useLangChange('workInnerSub')}
+              {t('workInnerSub')}
             </p>
             <Link to='https://t.me/@ggeniusgg_bot' className={style.workInnerLink}>
-              {useLangChange('navLink')}
+              {t('navLink')}
             </Link>
           </div>
 
           <ul className={style.workInnerList}>
             <li className={style.workInnerListItem}>
               <h3 className={style.workInnerListItemTitle}>
-                {useLangChange('workInnerListItemTitleStart')}
+                {t('workInnerListItemTitleStart')}
               </h3>
               <div className={style.workInnerListItemGroup}>
                 <img src={start} alt="" className={style.workInnerListItemGroupImg} />
                 <img src={startZoom} alt="" className={style.workInnerListItemGroupImgStartZoom} />
               </div>
               <p className={style.workInnerListItemSub}>
-                {useLangChange('workInnerListItemSubStart')}
+                {t('workInnerListItemSubStart')}
               </p>
             </li>
             <span className={style.workInnerListSpan}>
@@ -302,14 +303,14 @@ const Home = () => {
             </span>
             <li className={style.workInnerListItem}>
               <h3 className={style.workInnerListItemTitle}>
-                {useLangChange('workInnerListItemTitleNext')}
+                {t('workInnerListItemTitleNext')}
               </h3>
               <div className={style.workInnerListItemGroup}>
                 <img src={next} alt="" className={style.workInnerListItemGroupImg} />
                 <img src={nextZoom} alt="" className={style.workInnerListItemGroupImgNextZoom} />
               </div>
               <p className={style.workInnerListItemSubNext}>
-                {useLangChange('workInnerListItemSubNext')}
+                {t('workInnerListItemSubNext')}
 
               </p>
             </li>
@@ -331,14 +332,14 @@ const Home = () => {
             </span>
             <li className={style.workInnerListItem}>
               <h3 className={style.workInnerListItemTitle}>
-                {useLangChange('workInnerListItemTitleEnd')}
+                {t('workInnerListItemTitleEnd')}
               </h3>
               <div className={style.workInnerListItemGroup}>
                 <img src={end} alt="" className={style.workInnerListItemGroupImg} />
                 <img src={endZoom} alt="" className={style.workInnerListItemGroupImgEndZoom} />
               </div>
               <p className={style.workInnerListItemSubEnd}>
-                {useLangChange('workInnerListItemSubEnd')}
+                {t('workInnerListItemSubEnd')}
 
               </p>
             </li>
@@ -351,32 +352,32 @@ const Home = () => {
       <div className={style.container}>
         <div className={style.progressInner}>
           <h3 className={style.progressInnerTitle}>
-            {useLangChange('progressInnerTitle')}
+            {t('progressInnerTitle')}
           </h3>
           <div className={style.progressInnerMap}>
             <ul className={style.progressInnerMapList}>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle1')}
+                  {t('progressInnerMapListItemTitle1')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub1')}
+                  {t('progressInnerMapListItemSub1')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle3')}
+                  {t('progressInnerMapListItemTitle3')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub3')}
+                  {t('progressInnerMapListItemSub3')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle5')}
+                  {t('progressInnerMapListItemTitle5')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub5')}
+                  {t('progressInnerMapListItemSub5')}
                 </p>
               </li>
             </ul>
@@ -385,43 +386,43 @@ const Home = () => {
             <ul className={style.progressInnerMapListMob}>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle1')}
+                  {t('progressInnerMapListItemTitle1')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub1')}
+                  {t('progressInnerMapListItemSub1')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle2')}
+                  {t('progressInnerMapListItemTitle2')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub2')}
+                  {t('progressInnerMapListItemSub2')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle3')}
+                  {t('progressInnerMapListItemTitle3')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub3')}
+                  {t('progressInnerMapListItemSub3')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle4')}
+                  {t('progressInnerMapListItemTitle4')}
 
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub4')}
+                  {t('progressInnerMapListItemSub4')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle5')}
+                  {t('progressInnerMapListItemTitle5')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub5')}
+                  {t('progressInnerMapListItemSub5')}
                 </p>
               </li>
             </ul>
@@ -429,19 +430,19 @@ const Home = () => {
             <ul className={style.progressInnerMapListTwo}>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle2')}
+                  {t('progressInnerMapListItemTitle2')}
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub2')}
+                  {t('progressInnerMapListItemSub2')}
                 </p>
               </li>
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
-                  {useLangChange('progressInnerMapListItemTitle4')}
+                  {t('progressInnerMapListItemTitle4')}
 
                 </h4>
                 <p className={style.progressInnerMapListItemSub}>
-                  {useLangChange('progressInnerMapListItemSub4')}
+                  {t('progressInnerMapListItemSub4')}
                 </p>
               </li>
             </ul>
@@ -455,14 +456,14 @@ const Home = () => {
         <Link to='https://t.me/is_mlbb' className={style.partnersInner}>
           <div className={style.partnersInnerCont}>
             <h4 className={style.partnersInnerContTitle}>
-              {useLangChange('partnersInnerContTitle')}
+              {t('partnersInnerContTitle')}
             </h4>
 
             <p className={style.partnersInnerContSub}>
-              {useLangChange('partnersInnerContSub')}
+              {t('partnersInnerContSub')}
             </p>
             <span className={style.partnersInnerContLink}>
-              {useLangChange('partnersInnerContLink')}
+              {t('partnersInnerContLink')}
             </span>
           </div>
           <img className={style.partnersInnerImg} src={partners} alt='mllbb heroes' />
@@ -476,7 +477,7 @@ const Home = () => {
       <div className={style.container}>
         <div className={style.chatsInner}>
           <h6 className={style.chatsInnerTitle}>
-            {useLangChange('chatsInnerTitle')}
+            {t('chatsInnerTitle')}
           </h6>
           <div className={style.chatsInnerInfo}>
             <ul className={style.chatsInnerInfoList}>
