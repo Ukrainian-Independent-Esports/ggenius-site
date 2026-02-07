@@ -15,6 +15,7 @@ const Error = () => {
   const value = localStorage.getItem('value')
   const error = useRouteError()
   const status = 404;
+  const t = useLangChange()
   console.error(error);
 
   return <>
@@ -29,14 +30,14 @@ const Error = () => {
           <h5 className={style.errorPageInnerContTitle}>
             <span>{status} </span>
 
-            {useLangChange('Not Found')}
+            {t('Not Found')}
           </h5>
           <p className={style.errorPageInnerContSub}>
-            {useLangChange('errorPageInnerContSub')}
+            {t('errorPageInnerContSub')}
           </p>
-          <NavLink className={style.errorPageInnerContLink} to={`/?lang=${value}`}
+          <NavLink className={style.errorPageInnerContLink} to={`/Home/?lang=${value}`}
             end>
-            {useLangChange('errorPageInnerContLink')}
+            {t('errorPageInnerContLink')}
           </NavLink>
         </div>
       </div>

@@ -1149,9 +1149,14 @@ input {
   opacity: 1;
   height: 50px;
   padding: 10px;
+  gap: 5px;
   border-radius: 10px;
   background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
   transform: translateY(0%) scale(1);
+  transition: all 0.4s;
+}
+.listLangBtn:hover .listLangItem {
+  transform: scale(1.05);
   transition: all 0.4s;
 }
 .listLangBtn:hover .listLangOpt {
@@ -1162,6 +1167,9 @@ input {
   position: absolute;
   top: 50px;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   border-bottom: 0.5px solid rgba(130, 153, 255, 0);
   background: linear-gradient(165deg, rgba(255, 255, 255, 0) 10.39%, rgba(255, 255, 255, 0.05) 78.43%);
   border: none;
@@ -1238,11 +1246,14 @@ input {
   position: absolute;
   display: flex;
   flex-direction: column;
+  width: 50%;
+  right: 5%;
   gap: 20px;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
   padding: 12px;
+  margin-top: 12px;
   background-color: rgba(204, 204, 204, 0.3);
   border: 1px solid #ccc;
   border-radius: 12px;
@@ -1759,7 +1770,12 @@ input {
   }
 }
 .profile {
-  padding: 150px 0 80px;
+  display: block;
+  padding: 200px 0 80px;
+}
+
+.profileOff {
+  display: none;
 }
 
 .profileInner {
@@ -1776,14 +1792,68 @@ input {
   color: #fff;
 }
 
+.profileInnerUserInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileInnerUserInfoTxt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
 .profileInnerUserInfoImg {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  margin-bottom: 10px;
-  box-shadow: 0 0 10px #fff;
 }
 
+.profileInnerUserInfoAvatarEff {
+  position: relative;
+  display: flex;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profileInnerUserInfoAvatarEff1 {
+  position: absolute;
+  width: 152px;
+  height: 152px;
+  border-radius: 50%;
+  box-shadow: 7px -2px 10px blue, 0px -4px 10px red, -3px 3px 10px violet;
+  transition: all 0.4s;
+  animation: eff 3s infinite forwards;
+}
+.profileInnerUserInfoAvatarEff1:hover {
+  box-shadow: 7px -2px 20px blue, 0px -4px 20px red, -3px 3px 20px violet;
+  transition: all 0.4s;
+}
+
+@keyframes eff {
+  0% {
+    transform: rotate(90deg);
+    box-shadow: 7px -2px 10px blue, 0px -4px 10px red, -3px 3px 10px violet;
+  }
+  50% {
+    transform: rotate(90deg);
+    box-shadow: -3px 3px 13px blue, 7px -2px 13px red, 0px -4px 13px violet;
+  }
+  75% {
+    transform: rotate(90deg);
+    box-shadow: 0px -4px 13px blue, -3px 3px 13px red, 7px -2px 13px violet;
+  }
+  100% {
+    transform: rotate(90deg);
+    box-shadow: 7px -2px 10px blue, 0px -4px 10px red, -3px 3px 10px violet;
+  }
+}
 .profileInnerUserInfoTitle {
   color: #fff;
   text-align: center;
@@ -1800,10 +1870,32 @@ input {
   margin-bottom: 20px;
 }
 
-.profileInnerUserCharaImg {
+.profileInnerUserCharaImages {
+  display: flex;
+  gap: 30px;
+}
+
+.profileInnerUserCharaImg,
+.profileInnerUserCharaImg1 {
+  cursor: zoom-in;
+  width: 600px;
+  height: 300px;
+  transform: scale(1);
+  margin-bottom: 20px;
+  transition: all 0.4s;
+}
+
+.profileInnerUserCharaImgZoom,
+.profileInnerUserCharaImgZoom1 {
+  cursor: zoom-out;
+  position: relative;
   width: 600px;
   height: 300px;
   margin-bottom: 20px;
+  transform: scale(2);
+  filter: drop-shadow(0 0 5px #c4c4c4);
+  z-index: 10;
+  transition: all 0.4s;
 }
 
 .profileInnerUserCharaTitleHero {
@@ -1823,4 +1915,76 @@ input {
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
+}
+
+.tournaments {
+  padding: 200px 0 80px;
+  color: #fff;
+}
+
+.tournamentsInnerTitle {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -1.28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.tournamentsInnerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.tournamentsInnerListItem {
+  display: flex;
+  width: 500px;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  transform: scale(1);
+  background: radial-gradient(64.8% 53.19% at 20.3% 79.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%), linear-gradient(36deg, rgba(0, 34, 255, 0) 20.41%, rgba(0, 34, 255, 0.2) 90.92%), linear-gradient(303deg, rgba(255, 255, 255, 0.05) 36.73%, rgba(255, 255, 255, 0) 131.77%);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.4s;
+}
+.tournamentsInnerListItem:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(35, 53, 221, 0.8);
+  transition: all 0.4s;
+}
+
+.tournamentsInnerListItemLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s;
+}
+
+.tournamentsInnerListItemTitle {
+  margin-bottom: 20px;
+}
+
+.tournamentsInnerListItemDesc {
+  margin-bottom: 20px;
+}
+
+.tournamentsInnerListItemStatus {
+  font-size: 18px;
+}
+
+.tournamentsInnerListItemInfoPrize {
+  color: #c4c4c4;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.tournamentsInnerListItemStatusStat {
+  color: red;
+}
+
+.tournamentsInnerListItemStatusStatActive {
+  color: green;
 }/*# sourceMappingURL=index.module.css.map */

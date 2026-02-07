@@ -1,0 +1,69 @@
+.tournaments {
+  padding: 200px 0 80px;
+  color: $color;
+}
+
+.tournamentsInnerTitle {
+  @include titleSection;
+}
+
+.tournamentsInnerList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.tournamentsInnerListItem {
+  display: flex;
+  width: 500px;
+  padding: 10px;
+  border: 1px solid $color;
+  border-radius: 10px;
+  transform: scale(1);
+  background:
+    radial-gradient(64.8% 53.19% at 20.3% 79.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%),
+    linear-gradient(36deg, rgba(0, 34, 255, 0) 20.41%, rgba(0, 34, 255, 0.2) 90.92%),
+    linear-gradient(303deg, rgba(255, 255, 255, 0.05) 36.73%, rgba(255, 255, 255, 0) 131.77%);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.4s;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(35, 53, 221, 0.8);
+    transition: all 0.4s;
+  }
+}
+
+.tournamentsInnerListItemLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    transition: all 0.4s;
+
+}
+
+.tournamentsInnerListItemTitle {
+  margin-bottom: 20px;
+}
+
+.tournamentsInnerListItemDesc {
+  margin-bottom: 20px;
+}
+
+.tournamentsInnerListItemStatus {
+  font-size: 18px;
+}
+
+.tournamentsInnerListItemInfoPrize {
+  color: #c4c4c4;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.tournamentsInnerListItemStatusStat {
+  color: red;
+}
+
+.tournamentsInnerListItemStatusStatActive {
+  color: green;
+}

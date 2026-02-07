@@ -12,6 +12,7 @@
 		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
+		"aos": "^2.3.4",
 		"i18next": "^25.7.3",
 		"i18next-browser-languagedetector": "^8.2.0",
 		"i18next-http-backend": "^3.0.2",

@@ -68,7 +68,7 @@ const Header = () => {
     <header className={style.header}>
       <div className={menu ? style.containerr : style.container}>
         <nav className={style.nav}>
-          <Link to={`/?lang=${lang}`} className={style.navLogoLink}>
+          <Link to={`/Home?lang=${lang}`} className={style.navLogoLink}>
             <img src={logo} alt="Logo" className={style.navLogoLinkImg} />
           </Link>
 
@@ -85,10 +85,10 @@ const Header = () => {
           {/* DESKTOP MENU */}
           <div className={style.navMenu}>
             <ul className={style.navList}>
-              {['Home', 'About', 'Work', 'Our'].map((item, idx) => (
+              {['Home', 'About', 'Work', 'Our', 'Tourn'].map((item, idx) => (
                 <li className={style.navListItem} key={idx}>
                   <NavLink
-                    to={`/${item === 'Home' ? '' : 'gg'}?lang=${lang}`}
+                    to={`/${item}/?lang=${lang}`}
                     end
                     className={({ isActive }) =>
                       isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
@@ -139,15 +139,14 @@ const Header = () => {
           {/* MOBILE MENU */}
           <div className={menu ? style.navMenuActive : style.navMenuDis}>
             <ul className={style.navList}>
-              {['Home', 'About', 'Work', 'Our'].map((item, idx) => (
+              {['Home', 'About', 'Work', 'Our', 'Tourn'].map((item, idx) => (
                 <li className={style.navListItem} key={idx}>
                   <NavLink
-                    to={`/${item === 'Home' ? '' : 'gg'}?lang=${lang}`}
+                    to={`/${item}/?lang=${lang}`}
                     end
                     className={({ isActive }) =>
                       isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
                     }
-                    onClick={() => setMenu(false)}
                   >
                     {t(`navListItemLink${item}`)}
                   </NavLink>

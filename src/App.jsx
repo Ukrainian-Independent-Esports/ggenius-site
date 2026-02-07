@@ -5,20 +5,31 @@ import { Outlet, useLocation } from 'react-router';
 import { useEffect, useRef, useState } from 'react';
 import LanguageProvider from './Hooks/LanguageProvider';
 import { AuthProvider } from './Hooks/useAuth';
-
-
+import AOS from 'aos';
+import "aos/dist/aos.css"
 
 const App = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // длительность анимации (мс)
+      once: true,     // анимация запускается один раз
+    });
+  }, []);
+
+
   const location = useLocation();
   const [chats, setChats] = useState([])
- 
+
   useEffect(() => {
-    fetch('https://ggenius-api.onrender.com/mlbb/get_posts.php?table=users')
+    fetch('https://ggenius-api.onrender.com/mlbb/get_posts.php?table=user_memories')
       .then(g => g.json())
       .then(data => setChats(data))
       .catch(err => console.error(err))
   }, [])
- 
+
+  console.log(chats);
+
 
   useEffect(() => {
     window.scrollTo({
@@ -29,15 +40,15 @@ const App = () => {
   }, [location]);
 
   return (<>
-  <AuthProvider>
-    <div  className={style.wrapper}>
-      <Header />
-      <main className={style.main}>
-        <LanguageProvider />
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className={style.wrapper}>
+        <Header />
+        <main className={style.main}>
+          <LanguageProvider />
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </AuthProvider>
   </>
   );

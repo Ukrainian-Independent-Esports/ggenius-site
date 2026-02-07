@@ -32,6 +32,7 @@ import useLangChange from '../../Hooks/LangChange';
 
 
 const Home = () => {
+
   const t = useLangChange();
   const [chats, setChats] = useState([])
   const [chatInfo, setChatInfo] = useState([])
@@ -97,9 +98,8 @@ const Home = () => {
             </Link>
           </div>
         </div>
-
         <div className={style.homeinnerImgGroup2}>
-          <img className={style.homeInnerImg2Blur} src={obs} alt="hero Obsidia blur" fetchpriority='high' />
+          <img className={style.homeInnerImg2Blur} src={obs} alt="hero Obsidia blur" fetchPriority='high' />
           <img className={style.homeInnerImg2} src={obs} alt="hero Obsidia" />
         </div>
 
@@ -123,12 +123,16 @@ const Home = () => {
     <section className={style.what}>
       <div className={style.container}>
         <div className={style.whatinner}>
-          <h1 className={style.whatinnerTitle}>
-            {t('whatinnerTitle')}
-          </h1>
-          <p className={style.whatinnerSub}>
-            {t('whatinnerSub')}
-          </p>
+          <div className={style.whatinnerHeader} data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1200">
+            <h1 className={style.whatinnerTitle}>
+              {t('whatinnerTitle')}
+            </h1>
+            <p className={style.whatinnerSub}>
+              {t('whatinnerSub')}
+            </p>
+          </div>
           <div className={style.slider}>
             <Swiper pagination={true} modules={[Pagination]} slidesPerView={1} className={style.mySwiper} style={{
               width: '380px',
@@ -203,7 +207,7 @@ const Home = () => {
               </SwiperSlide>
             </Swiper>
             <ul className={style.whatinnerList}>
-              <li className={style.whatinnerListItemSword}>
+              <li className={style.whatinnerListItemSword} data-aos="fade-down">
                 <div className={style.whatinnerListItemGroupImg}>
                   <img className={style.whatinnerListItemImgRight} src={sword} alt="" />
                   <img className={style.whatinnerListItemImgLeft} src={sword} alt="" />
@@ -215,7 +219,7 @@ const Home = () => {
                   {t('whatinnerListItemSub1')}
                 </p>
               </li>
-              <li className={style.whatinnerListItemCup}>
+              <li className={style.whatinnerListItemCup} data-aos="fade-down">
                 <img className={style.whatinnerListItemImgCup} src={cup} alt="" />
                 <img className={style.whatinnerListItemImgCupFill} src={cup} alt="" />
                 <h2 className={style.whatinnerListItemTitle}>
@@ -225,7 +229,7 @@ const Home = () => {
                   {t('whatinnerListItemSub2')}
                 </p>
               </li>
-              <li className={style.whatinnerListItemFlag}>
+              <li className={style.whatinnerListItemFlag} data-aos="fade-down">
                 <div className={style.whatinnerListItemImgFlag}>
                   <div className={style.whatinnerListItemImgFlag2}></div>
 
@@ -237,7 +241,7 @@ const Home = () => {
                   {t('whatinnerListItemSub3')}
                 </p>
               </li>
-              <li className={style.whatinnerListItemBrain}>
+              <li className={style.whatinnerListItemBrain} data-aos="fade-down">
                 <div className={style.whatinnerListItemBrainGroup}>
                   <img className={style.whatinnerListItemImgBrain} src={brain} alt="" />
                   <img className={style.whatinnerListItemImgElBrain} src={elementsBrain} alt="" />
@@ -260,7 +264,9 @@ const Home = () => {
     <section className={style.work}>
       <div className={style.container}>
         <div className={style.workInner}>
-          <div className={style.workInnerHeder}>
+          <div className={style.workInnerHeder} data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1200">
             <h2 className={style.workInnerTitle}>
               {t('workInnerTitle')}
             </h2>
@@ -273,7 +279,7 @@ const Home = () => {
           </div>
 
           <ul className={style.workInnerList}>
-            <li className={style.workInnerListItem}>
+            <li className={style.workInnerListItem} data-aos="zoom-out-right" data-aos-duration="700">
               <h3 className={style.workInnerListItemTitle}>
                 {t('workInnerListItemTitleStart')}
               </h3>
@@ -285,23 +291,24 @@ const Home = () => {
                 {t('workInnerListItemSubStart')}
               </p>
             </li>
-            <span className={style.workInnerListSpan}>
+            <span className={style.workInnerListSpan} data-aos="zoom-out-right"
+              data-aos-duration="1000">
               <svg xmlns="http://www.w3.org/2000/svg" width="80" height="157" viewBox="0 0 80 157" fill="none">
                 <path d="M0 0V21.6207L59.4569 77.4741L0 138.733V156.75L79.2759 77.4741L0 0Z" fill="url(#paint0_linear_34_362)" />
                 <path d="M0 57.6552V36.0345L45.0431 77.4741L0 126.121V102.698L25.2241 77.4741L0 57.6552Z" fill="url(#paint1_linear_34_362)" />
                 <defs>
                   <linearGradient id="paint0_linear_34_362" x1="79.2759" y1="77.4741" x2="-5.3623" y2="78" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00369B" />
-                    <stop offset="1" stop-color="#00369B" stop-opacity="0" />
+                    <stop stopColor="#00369B" />
+                    <stop offset="1" stopColor="#00369B" stopOpacity="0" />
                   </linearGradient>
                   <linearGradient id="paint1_linear_34_362" x1="79.2759" y1="77.4741" x2="-5.3623" y2="78" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00369B" />
-                    <stop offset="1" stop-color="#00369B" stop-opacity="0" />
+                    <stop stopColor="#00369B" />
+                    <stop offset="1" stopColor="#00369B" stopOpacity="0" />
                   </linearGradient>
                 </defs>
               </svg>
             </span>
-            <li className={style.workInnerListItem}>
+            <li className={style.workInnerListItem} data-aos="zoom-out-right" data-aos-duration="1200">
               <h3 className={style.workInnerListItemTitle}>
                 {t('workInnerListItemTitleNext')}
               </h3>
@@ -314,23 +321,23 @@ const Home = () => {
 
               </p>
             </li>
-            <span className={style.workInnerListSpan}>
+            <span className={style.workInnerListSpan} data-aos="zoom-out-right" data-aos-duration="1400">
               <svg xmlns="http://www.w3.org/2000/svg" width="80" height="157" viewBox="0 0 80 157" fill="none">
                 <path d="M0 0V21.6207L59.4569 77.4741L0 138.733V156.75L79.2759 77.4741L0 0Z" fill="url(#paint0_linear_34_362)" />
                 <path d="M0 57.6552V36.0345L45.0431 77.4741L0 126.121V102.698L25.2241 77.4741L0 57.6552Z" fill="url(#paint1_linear_34_362)" />
                 <defs>
                   <linearGradient id="paint0_linear_34_362" x1="79.2759" y1="77.4741" x2="-5.3623" y2="78" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00369B" />
-                    <stop offset="1" stop-color="#00369B" stop-opacity="0" />
+                    <stop stopColor="#00369B" />
+                    <stop offset="1" stopColor="#00369B" stopOpacity="0" />
                   </linearGradient>
                   <linearGradient id="paint1_linear_34_362" x1="79.2759" y1="77.4741" x2="-5.3623" y2="78" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#00369B" />
-                    <stop offset="1" stop-color="#00369B" stop-opacity="0" />
+                    <stop stopColor="#00369B" />
+                    <stop offset="1" stopColor="#00369B" stopOpacity="0" />
                   </linearGradient>
                 </defs>
               </svg>
             </span>
-            <li className={style.workInnerListItem}>
+            <li className={style.workInnerListItem} data-aos="zoom-out-right" data-aos-duration="1700">
               <h3 className={style.workInnerListItemTitle}>
                 {t('workInnerListItemTitleEnd')}
               </h3>
@@ -482,13 +489,13 @@ const Home = () => {
           <div className={style.chatsInnerInfo}>
             <ul className={style.chatsInnerInfoList}>
               {
-              visibleChats.map(chat => (
-                <li className={style.chatsInnerInfoListItem} key={chat.id}>
-                  <img src={chat.avatar} alt="" className={style.chatsInnerInfoListItemImg} />
-                  <h6 className={style.chatsInnerInfoListItemTitle}>{chat.title}</h6>
-                  <p className={style.chatsInnerInfoListItemCount}></p>
-                </li>
-              ))
+                visibleChats.map(chat => (
+                  <li className={style.chatsInnerInfoListItem} key={chat.id}>
+                    <img src={chat.avatar} alt="" className={style.chatsInnerInfoListItemImg} />
+                    <h6 className={style.chatsInnerInfoListItemTitle}>{chat.title}</h6>
+                    <p className={style.chatsInnerInfoListItemCount}></p>
+                  </li>
+                ))
               }
             </ul>
           </div>
