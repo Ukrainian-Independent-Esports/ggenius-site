@@ -68,7 +68,7 @@ const Header = () => {
     <header className={style.header}>
       <div className={menu ? style.containerr : style.container}>
         <nav className={style.nav}>
-          <Link to={`/Home?lang=${lang}`} className={style.navLogoLink}>
+          <Link to={`/Home/?lang=${lang}`} className={style.navLogoLink}>
             <img src={logo} alt="Logo" className={style.navLogoLinkImg} />
           </Link>
 

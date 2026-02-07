@@ -358,11 +358,15 @@ const Home = () => {
     <section className={style.progress}>
       <div className={style.container}>
         <div className={style.progressInner}>
-          <h3 className={style.progressInnerTitle}>
-            {t('progressInnerTitle')}
-          </h3>
+          <div className={style.progressInnerHeader} data-aos="fade-down"
+            data-aos-duration="3000">
+            <h3 className={style.progressInnerTitle} >
+              {t('progressInnerTitle')}
+            </h3>
+          </div>
           <div className={style.progressInnerMap}>
-            <ul className={style.progressInnerMapList}>
+            <ul className={style.progressInnerMapList} data-aos="fade-down"
+              data-aos-duration="3500">
               <li className={style.progressInnerMapListItem}>
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle1')}
@@ -371,7 +375,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub1')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} >
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle3')}
                 </h4>
@@ -379,7 +383,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub3')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} >
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle5')}
                 </h4>
@@ -391,7 +395,7 @@ const Home = () => {
             <img src={roadMap} alt="" className={style.progressInnerMapRoad} />
             <img src={roadMapMob} alt="" className={style.progressInnerMapRoadMob} />
             <ul className={style.progressInnerMapListMob}>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} data-aos="fade-up">
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle1')}
                 </h4>
@@ -399,7 +403,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub1')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} data-aos="fade-up">
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle2')}
                 </h4>
@@ -407,7 +411,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub2')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} data-aos="fade-up">
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle3')}
                 </h4>
@@ -415,7 +419,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub3')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} data-aos="fade-up">
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle4')}
 
@@ -424,7 +428,7 @@ const Home = () => {
                   {t('progressInnerMapListItemSub4')}
                 </p>
               </li>
-              <li className={style.progressInnerMapListItem}>
+              <li className={style.progressInnerMapListItem} data-aos="fade-up">
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle5')}
                 </h4>
@@ -434,8 +438,9 @@ const Home = () => {
               </li>
             </ul>
 
-            <ul className={style.progressInnerMapListTwo}>
-              <li className={style.progressInnerMapListItem}>
+            <ul className={style.progressInnerMapListTwo} data-aos="fade-up"
+              data-aos-duration="3500">
+              <li className={style.progressInnerMapListItem} >
                 <h4 className={style.progressInnerMapListItemTitle}>
                   {t('progressInnerMapListItemTitle2')}
                 </h4>
@@ -460,7 +465,9 @@ const Home = () => {
 
     <section className={style.partners}>
       <div className={style.container}>
-        <Link to='https://t.me/is_mlbb' className={style.partnersInner}>
+        <Link to='https://t.me/is_mlbb' className={style.partnersInner} data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1000">
           <div className={style.partnersInnerCont}>
             <h4 className={style.partnersInnerContTitle}>
               {t('partnersInnerContTitle')}
@@ -480,7 +487,7 @@ const Home = () => {
       </div>
     </section>
 
-    <section className={style.chats}>
+    {/* <section className={style.chats}>
       <div className={style.container}>
         <div className={style.chatsInner}>
           <h6 className={style.chatsInnerTitle}>
@@ -489,8 +496,9 @@ const Home = () => {
           <div className={style.chatsInnerInfo}>
             <ul className={style.chatsInnerInfoList}>
               {
-                visibleChats.map(chat => (
-                  <li className={style.chatsInnerInfoListItem} key={chat.id}>
+                visibleChats.map((chat, index) => (
+                  <li className={style.chatsInnerInfoListItem} key={chat.id}      data-aos="fade-down"
+                    data-aos-duration={`${600 * index}`}>
                     <img src={chat.avatar} alt="" className={style.chatsInnerInfoListItemImg} />
                     <h6 className={style.chatsInnerInfoListItemTitle}>{chat.title}</h6>
                     <p className={style.chatsInnerInfoListItemCount}></p>
@@ -501,7 +509,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
   </>
 }
 
