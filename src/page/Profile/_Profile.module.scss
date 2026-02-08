@@ -16,158 +16,123 @@
   gap: 80px;
 }
 
-.profileInnerUserInfo,
 .profileInnerUserChara {
+  position: relative;
   color: $color;
 }
 
 .profileInnerUserInfo {
+  margin-bottom: 20px;
+}
+
+.profileInnerUserInfoObv {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  gap: 24px;
+  padding: 32px;
+}
+
+.profileInnerUserInfoBack {
+  position: absolute;
+  inset: 0;
 }
 
 .profileInnerUserInfoTxt {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 10px;
-  text-align: left;
+  z-index: 10;
+}
+
+.profileInnerUserInfoRank {
 }
 
 .profileInnerUserInfoImg {
-  width: 150px;
-  height: 150px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
+  stroke-width: 3px;
+  aspect-ratio: 1/1;
+  stroke: #0064ff;
+  border: solid 2px #0064ff;
+  filter: drop-shadow(0 0 16px #0064ff);
 }
 
 .profileInnerUserInfoAvatarEff {
   position: relative;
   display: flex;
-  width: 152px;
-  height: 152px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   margin-bottom: 20px;
-}
-
-.profileInnerUserInfoAvatarEff1 {
-  position: absolute;
-  width: 152px;
-  height: 152px;
-  border-radius: 50%;
-  box-shadow:
-    7px -2px 10px blue,
-    0px -4px 10px red,
-    -3px 3px 10px violet;
-  transition: all 0.4s;
-  animation: eff 3s infinite forwards;
-
-  &:hover {
-    box-shadow:
-      7px -2px 20px blue,
-      0px -4px 20px red,
-      -3px 3px 20px violet;
-    transition: all 0.4s;
-  }
-}
-
-// 7px -2px 10px blue,
-//  0px -4px 10px red,
-//  -3px 3px 10px violet;
-
-@keyframes eff {
-  0% {
-    transform: rotate(90deg);
-    box-shadow:
-      7px -2px 10px blue,
-      0px -4px 10px red,
-      -3px 3px 10px violet;
-  }
-  50% {
-    transform: rotate(90deg);
-    box-shadow:
-      -3px 3px 13px blue,
-      7px -2px 13px red,
-      0px -4px 13px violet;
-  }
-  75% {
-    transform: rotate(90deg);
-    box-shadow:
-      0px -4px 13px blue,
-      -3px 3px 13px red,
-      7px -2px 13px violet;
-  }
-  100% {
-    transform: rotate(90deg);
-    box-shadow:
-      7px -2px 10px blue,
-      0px -4px 10px red,
-      -3px 3px 10px violet;
-  }
 }
 
 .profileInnerUserInfoTitle {
   color: $color;
   text-align: center;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .profileInnerUserInfoRank {
+  display: flex;
+  align-items: center;
+  gap: 7px;
   text-align: center;
-  color: #c4c4c4;
+  color: #c5c5c5;
 }
 
-.profileInnerUserCharaTitle {
-  font-size: 25px;
-  margin-bottom: 20px;
-}
-
-.profileInnerUserCharaImages {
+.profileInnerHeader {
   display: flex;
-  gap: 30px;
+  gap: 59px;
 }
 
-.profileInnerUserCharaImg,
-.profileInnerUserCharaImg1 {
-  cursor: zoom-in;
-  width: 600px;
-  height: 300px;
-  transform: scale(1);
-  margin-bottom: 20px;
-  transition: all 0.4s;
+.profileInnerHeaderList {
+  padding: 12px 0;
+  width: 220px;
+  border-radius: 16px;
+  background: #031843;
+  color: $color;
 }
 
-.profileInnerUserCharaImgZoom,
-.profileInnerUserCharaImgZoom1 {
-  cursor: zoom-out;
+.profileInnerHeaderListItem {
+  cursor: pointer;
   position: relative;
-  width: 600px;
-  height: 300px;
-  margin-bottom: 20px;
-  transform: scale(2);
-  filter: drop-shadow(0 0 5px #c4c4c4);
-  z-index: 10;
+  padding: 16px;
+  border-right: 2px solid #017fff;
+  background: linear-gradient(270deg, rgba(80, 149, 255, 0.3) 0%, rgba(80, 149, 255, 0) 100%);
   transition: all 0.4s;
 }
 
-.profileInnerUserCharaTitleHero {
-  margin-bottom: 20px;
+.profileInnerHeaderListItemOff {
+  cursor: pointer;
+  position: relative;
+  padding: 16px;
+  background: transparent;
+  transition: all 0.4s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0%;
+    opacity: 1;
+    height: 100%;
+    background: linear-gradient(270deg, rgba(80, 149, 255, 0.3) 0%, rgba(80, 149, 255, 0) 100%);
+    z-index: 1;
+    transition: all 0.4s;
+  }
+
+  &:hover {
+    &::after {
+      border-right: 2px solid #017fff;
+      width: 100%;
+      transition: all 0.4s;
+    }
+  }
 }
 
-.profileInnerUserCharaList {
-  display: flex;
-  gap: 30px;
-}
-
-.profileInnerUserCharaListItem {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background:
-    radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%),
-    linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%),
-    linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
-  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
-  backdrop-filter: blur(1px);
+.profileInnerHeaderInfoNav {
+  color: $color;
 }
