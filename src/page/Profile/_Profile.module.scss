@@ -9,11 +9,7 @@
 
 .profileInner {
   padding: 40px 0;
-}
-
-.profileInner {
-  display: flex;
-  gap: 80px;
+  height: 100vh;
 }
 
 .profileInnerUserChara {
@@ -85,6 +81,7 @@
 .profileInnerHeader {
   display: flex;
   gap: 59px;
+  height: 177px;
 }
 
 .profileInnerHeaderList {
@@ -135,17 +132,25 @@
 
 .profileInnerHeaderGroups {
   position: relative;
+  overflow: hidden;
   width: 100%;
+  height: 100vh;
 }
 
-.profileInnerHeaderInfo1 {
+.profileInnerHeaderInfo {
+  position: absolute;
+  inset: 0;
   width: 100%;
   opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
   transition: all 0.4s;
 }
 
-.profileInnerHeaderInfo1Dis {
+.profileInnerHeaderInfoDis {
+  visibility: hidden;
   opacity: 0;
+  transform: translateY(-100%);
   transition: all 0.4s;
 }
 
@@ -168,9 +173,107 @@
 .profileInnerHeaderInfo1NavList {
   display: flex;
   gap: 12px;
+  margin-bottom: 24px;
+}
+
+.profileInnerHeaderInfo1NavListItemBtnActive {
+  cursor: pointer;
+  padding: 10px;
+  color: $color;
+  text-align: center;
+  font-family: $poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%;
+  letter-spacing: -0.32px;
+  border-radius: 4px;
+  background-color: #017fff;
+  transition: all 0.4s;
 }
 
 .profileInnerHeaderInfo1NavListItemBtn {
+  cursor: pointer;
   padding: 10px;
   color: $color;
+  text-align: center;
+  font-family: $poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 120%; /* 19.2px */
+  letter-spacing: -0.32px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s;
+
+  &:hover {
+    background-color: #017fff;
+    transition: all 0.4s;
+  }
+}
+
+.profileInnerHeaderInfo1Total {
+  display: flex;
+  width: 100%;
+}
+
+.profileInnerHeaderInfo1TotalStatTitle {
+  margin-bottom: 16px;
+}
+
+.profileInnerHeaderInfo1TotalStat {
+  width: 100%;
+}
+
+.profileInnerHeaderInfo1TotalStatGroup {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.profileInnerHeaderInfo1TotalStatGroup1TotalMeaning {
+  margin-bottom: 30px;
+}
+
+.profileInnerHeaderInfo1TotalStatList {
+  display: flex;
+  gap: 24px;
+}
+
+.profileInnerHeaderInfo1TotalStatListItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 258px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background:
+    radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%),
+    linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%),
+    linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
+}
+
+.profileInnerHeaderInfo1TotalStatListItemImg {
+  width: 56px;
+  height: 56px;
+}
+
+.profileInnerHeaderInfo1TotalStatListItemTitle {
+  font-family: $montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%; /* 19.2px */
+}
+
+.profileInnerHeaderInfo1TotalStatListItemSub {
+  color: var(--text-white, #fff);
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 38.4px */
+  text-transform: uppercase;
 }
