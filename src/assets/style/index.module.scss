@@ -35,7 +35,6 @@ body {
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
-
   background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
 
@@ -274,5 +273,5 @@ input {
 @import "../../page/Footer/scss/Footer.module";
 @import "../../page/About/About.module";
 @import "../../page/Error/scss/Error.module";
-@import '../../page/Profile/Profile.module';
-@import '../../page/Tournaments/tournaments.module';
+@import "../../page/Profile/Profile.module";
+@import "../../page/Tournaments/tournaments.module";

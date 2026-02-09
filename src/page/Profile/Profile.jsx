@@ -55,17 +55,51 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        
+
         <div className={style.profileInnerHeader}>
           <ul className={style.profileInnerHeaderList}>
             <li className={nav == 1 ? style.profileInnerHeaderListItem : style.profileInnerHeaderListItemOff} onClick={() => setNav(1)}>{t('profileInnerHeaderListItemTotal')}</li>
             <li className={nav == 2 ? style.profileInnerHeaderListItem : style.profileInnerHeaderListItemOff} onClick={() => setNav(2)}>{t('profileInnerHeaderListItemDetail')}</li>
             <li className={nav == 3 ? style.profileInnerHeaderListItem : style.profileInnerHeaderListItemOff} onClick={() => setNav(3)}>{t('profileInnerHeaderListItemSettings')}</li>
           </ul>
-                  
-          <div className={style.profileInnerHeaderInfo}>
-            <div className={style.profileInnerHeaderInfoNav}>
-                  {nav}
+
+          <div className={style.profileInnerHeaderGroups}>
+            <div className={nav === 1 ? style.profileInnerHeaderInfo1 : style.profileInnerHeaderInfo1Dis}>
+              <div className={style.profileInnerHeaderInfo1Nav}>
+                <h3 className={style.profileInnerHeaderInfo1NavTitle}>
+                  {t('profileInnerHeaderInfoNavTitle')}
+                </h3>
+
+                <ul className={style.profileInnerHeaderInfo1NavList}>
+                  <li className={style.profileInnerHeaderInfo1NavListItem}>
+                    <button className={style.profileInnerHeaderInfo1NavListItemBtn}>
+                      {t('profileInnerHeaderInfoNavListItemBtn30Days')}
+                    </button>
+                  </li>
+                  <li className={style.profileInnerHeaderInfo1NavListItem}>
+                    <button className={style.profileInnerHeaderInfo1NavListItemBtn}>
+                      {t('profileInnerHeaderInfoNavListItemBtnSeason')}
+                    </button>
+                  </li>
+                  <li className={style.profileInnerHeaderInfo1NavListItem}>
+                    <button className={style.profileInnerHeaderInfo1NavListItemBtn}>
+                      {t('profileInnerHeaderInfoNavListItemBtnTotal')}
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div className={nav === 2 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis}>
+              <div className={style.profileInnerHeaderInfo2Nav}>
+                {nav}
+              </div>
+            </div>
+            <div className={nav === 3 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis}>
+              <div className={style.profileInnerHeaderInfo3Nav}>
+                {nav}
+              </div>
             </div>
           </div>
         </div>
