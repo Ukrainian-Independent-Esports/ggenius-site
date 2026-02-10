@@ -74,9 +74,9 @@ const Profile = () => {
               <li className={nav == 3 ? style.profileInnerHeaderListItem : style.profileInnerHeaderListItemOff} onClick={() => setNav(3)}>{t('profileInnerHeaderListItemSettings')}</li>
             </ul>
 
-            <div className={style.profileInnerHeaderGroups}>
+            <div className={style.profileInnerHeaderGroups} data-aos="fade-down">
               {/* ЗАГАЛЬНА ІНФОРМАЦІЯ */}
-              <div className={nav === 1 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis}>
+              <div className={nav === 1 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis} >
                 <div className={style.profileInnerHeaderInfo1Nav}>
                   <h3 className={style.profileInnerHeaderInfo1NavTitle}>
                     {t('profileInnerHeaderInfoNavTitle')}
@@ -108,10 +108,10 @@ const Profile = () => {
                 <div className={style.profileInnerHeaderInfo1Total}>
                   <div className={style.profileInnerHeaderInfo1TotalStat}>
 
-                    <div className={style.profileInnerHeaderInfo1TotalStatGroup}>
+                    <div className={style.profileInnerHeaderInfo1TotalStatGroup} >
 
                       {/* ЗАГАЛЬНІ ЗНАЧЕННЯ */}
-                      <div className={style.profileInnerHeaderInfo1TotalStatGroup1}>
+                      <div className={style.profileInnerHeaderInfo1TotalStatGroup1} data-aos="flip-left">
                         <div className={style.profileInnerHeaderInfo1TotalStatGroup1TotalMeaning}>
                           <h4 className={style.profileInnerHeaderInfo1TotalStatTitle}>
                             {t('profileInnerHeaderInfo1TotalStatTitle')}
@@ -262,7 +262,7 @@ const Profile = () => {
                       </div>
 
                       {/* СЕРЕДНЯ ЗА МАТЧ СТАТИСТИКА */}
-                      <div className={style.profileInnerTotalMatches}>
+                      <div className={style.profileInnerTotalMatches} data-aos="fade-left">
                         {/* СРЕДНЕЕ */}
                         <div className={style.profileInnerTotalMatchesАverage}>
                           <h5 className={style.profileInnerTotalMatchesАverageTitle}>
@@ -290,7 +290,7 @@ const Profile = () => {
                             <li className={style.profileInnerTotalMatchesАverageListItem}>
                               <div className={style.profileInnerTotalMatchesАverageListItemHed}>
                                 <span className={style.profileInnerTotalMatchesАverageListItemHed}>
-                                  <img src={iconInfo} className={style.profileInnerTotalMatchesАverageListItemHedImg} alt="" />
+                                  <img src={iconInfo} className={style.profileInnerTotalMatchesАverageListItemHedImg} alt="icon" />
                                   <h5 className={style.profileInnerTotalMatchesАverageListItemHeadTitle}>
                                     {t('profileInnerTotalMatchesАverageListItemHeadTitleDMG')}
                                   </h5>
@@ -307,7 +307,7 @@ const Profile = () => {
                               <div className={style.profileInnerTotalMatchesАverageListItemHed}>
                                 <span className={style.profileInnerTotalMatchesАverageListItemHed}>
 
-                                  <img src={iconInfo} className={style.profileInnerTotalMatchesАverageListItemHedImg} alt="" />
+                                  <img src={iconInfo} className={style.profileInnerTotalMatchesАverageListItemHedImg} alt="icon" />
                                   <h5 className={style.profileInnerTotalMatchesАverageListItemHeadTitle}>
                                     {t('profileInnerTotalMatchesАverageListItemHeadTitleTurDMG')}
                                   </h5>
@@ -327,6 +327,64 @@ const Profile = () => {
                           <h5 className={style.profileInnerTotalMatchesAchievementTitle}>
                             {t('profileInnerTotalMatchesAchievementTitle')}
                           </h5>
+
+                          <ul className={style.profileInnerTotalMatchesAchievementList}>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleFirst')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.first_blood_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleDubl')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.double_kill_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleTriple')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.double_kill_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleLegend')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.legendary_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleMVP')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.mvp_count}
+                              </p>
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
@@ -337,13 +395,14 @@ const Profile = () => {
               {/* ДЕТАЛІ ГРИ */}
               <div className={nav === 2 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis}>
                 <div className={style.profileInnerHeaderInfo2Nav}>
-                  sdfgsdfsd
+                  В Розробці!
                 </div>
               </div>
 
               {/* НАЛАШТУВАННЯ */}
               <div className={nav === 3 ? style.profileInnerHeaderInfo : style.profileInnerHeaderInfoDis}>
                 <div className={style.profileInnerHeaderInfo3Nav}>
+                  В Розробці!
                 </div>
               </div>
             </div>

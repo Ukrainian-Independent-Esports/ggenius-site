@@ -487,6 +487,8 @@ const Home = () => {
       </div>
     </section>
 
+    <Marquee images={[star, logo, star, logo, star, logo, star, logo, star, logo, star, logo]} styles={`${style.footerStroke}`} />
+
     {/* <section className={style.chats}>
       <div className={style.container}>
         <div className={style.chatsInner}>

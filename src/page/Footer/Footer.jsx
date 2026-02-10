@@ -12,10 +12,6 @@ import tt from './img/tt.svg'
 import ds from './img/ds.svg'
 import useLangChange from '../../Hooks/LangChange';
 
-
-
-
-
 const Footer = () => {
   const t = useLangChange();
 
@@ -23,7 +19,7 @@ const Footer = () => {
 
   return <>
 
-    <Marquee images={[star, logo, star, logo, star, logo, star, logo, star, logo, star, logo]} styles={`${style.footerStroke}`} />
+    
     <footer className={style.footer}>
 
       <div className={style.container}>
