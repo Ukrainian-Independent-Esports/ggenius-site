@@ -31,6 +31,10 @@ const Profile = () => {
   const raw = user.main_roles
   const arr = JSON.parse(raw)
 
+  // Дата створення
+  // const rawDate = user.created_at
+  // const date = new Date(rawDate)
+
 
 
   return <>
@@ -63,6 +67,7 @@ const Profile = () => {
                 </p>
               </div>
             </div>
+            
           </div>
 
 
@@ -359,7 +364,7 @@ const Profile = () => {
                                 </h6>
                               </div>
                               <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
-                                x {user.double_kill_count}
+                                x {user.triple_kill_count}
                               </p>
                             </li>
                             <li className={style.profileInnerTotalMatchesAchievementListItem}>
@@ -377,11 +382,33 @@ const Profile = () => {
                               <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
                                 <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
                                 <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleManiac')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.maniac_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
                                   {t('profileInnerTotalMatchesAchievementListItemHeadTitleMVP')}
                                 </h6>
                               </div>
                               <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
                                 x {user.mvp_count}
+                              </p>
+                            </li>
+                            <li className={style.profileInnerTotalMatchesAchievementListItem}>
+                              <div className={style.profileInnerTotalMatchesAchievementListItemHead}>
+                                <img src={iconInfo} alt="icon" className={style.profileInnerTotalMatchesAchievementListItemHeadImg} />
+                                <h6 className={style.profileInnerTotalMatchesAchievementListItemHeadTitle}>
+                                  {t('profileInnerTotalMatchesAchievementListItemHeadTitleMVPLoss')}
+                                </h6>
+                              </div>
+                              <p className={style.profileInnerTotalMatchesAchievementListItemSub}>
+                                x {user.mvp_loss_count}
                               </p>
                             </li>
                           </ul>

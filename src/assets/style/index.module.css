@@ -2001,6 +2001,7 @@ input {
 .profileInnerHeaderInfo1TotalStatGroup {
   display: flex;
   width: 100%;
+  gap: 37px;
   justify-content: space-between;
 }
 
@@ -2239,6 +2240,10 @@ input {
   overflow-y: scroll;
   height: 250px;
 }
+.profileInnerTotalMatchesAchievementList::-webkit-scrollbar {
+  background-color: rgba(0, 40, 135, 0.2941176471);
+  width: 10px;
+}
 
 .profileInnerTotalMatchesAchievementListItemHeadTitle {
   font-size: 24px;
@@ -2261,6 +2266,7 @@ input {
 .profileInnerHeaderInfo3Nav {
   font-size: 90px;
   color: red;
+  text-transform: uppercase;
 }
 
 .tournaments {

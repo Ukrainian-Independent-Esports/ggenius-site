@@ -238,6 +238,7 @@
 .profileInnerHeaderInfo1TotalStatGroup {
   display: flex;
   width: 100%;
+  gap: 37px;
   justify-content: space-between;
 }
 
@@ -493,8 +494,18 @@
 .profileInnerTotalMatchesAchievementList {
   overflow-y: scroll;
   height: 250px;
+  // scrollbar-width: none;
+  // -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    // display: none;
+    background-color: #0028874b;
+    width: 10px;
+  }
 }
 
+// .profileInnerTotalMatchesAchievementList::-webkit-scrollbar {
+//   display: none;
+// }
 .profileInnerTotalMatchesAchievementListItemHeadTitle {
   font-size: 24px;
   font-weight: 500;
@@ -516,4 +527,5 @@
 .profileInnerHeaderInfo3Nav {
   font-size: 90px;
   color: red;
+  text-transform: uppercase;
 }
