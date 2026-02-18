@@ -9,12 +9,15 @@
 
 .profileInner {
   padding: 40px 0;
-  height: 705px;
 }
 
 .profileInnerUserChara {
   position: relative;
   color: $color;
+}
+
+.sectInfo {
+  position: relative;
 }
 
 .profileInnerUserInfo {
@@ -31,6 +34,10 @@
 .profileInnerUserInfoBack {
   position: absolute;
   inset: 0;
+}
+
+.profileInnerUserInfoBackMob {
+  display: none;
 }
 
 .profileInnerUserInfoTxt {
@@ -81,12 +88,12 @@
 .profileInnerHeader {
   display: flex;
   gap: 59px;
-  height: 177px;
 }
 
 .profileInnerHeaderList {
   padding: 12px 0;
   width: 220px;
+  height: 147px;
   border-radius: 16px;
   background: #031843;
   color: $color;
@@ -144,16 +151,16 @@
   height: 800px;
   opacity: 1;
   visibility: visible;
-  transform: translateX(0%);
-  transition: all 0.4s;
+  transform: translateX(0%) scale(1);
+  transition: all 0.6s;
 }
 
 .profileInnerHeaderInfoDis {
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.4s;
+  transform: translateX(100%) scale(0);
+  transition: all 0.6s;
 }
 
 .profileInnerHeaderInfo1Nav {
@@ -494,12 +501,10 @@
 .profileInnerTotalMatchesAchievementList {
   overflow-y: scroll;
   height: 250px;
-  // scrollbar-width: none;
-  // -ms-overflow-style: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   &::-webkit-scrollbar {
-    // display: none;
-    background-color: #0028874b;
-    width: 10px;
+    display: none;
   }
 }
 
@@ -529,3 +534,5 @@
   color: red;
   text-transform: uppercase;
 }
+
+@import "./ProfileMedia.module";

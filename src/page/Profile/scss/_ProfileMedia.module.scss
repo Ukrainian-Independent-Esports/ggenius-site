@@ -1,0 +1,274 @@
+@media screen and (max-width: 560px) {
+  .profile {
+    padding: 100px 0 80px;
+  }
+  .profileInner {
+    width: 350px;
+  }
+
+  .profileInnerUserInfoBack {
+    display: none;
+  }
+  .profileInnerUserInfoObv {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+  }
+
+  .profileInnerUserInfoBackMob {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+
+  .profileInnerUserInfoImg {
+    width: 156px;
+    height: 156px;
+  }
+
+  .profileInnerUserInfoTxt {
+    text-align: center;
+    align-items: center;
+  }
+
+  .profileInnerHeader {
+    display: block;
+  }
+
+  .profileInnerHeaderNav {
+    width: 100%;
+    overflow-x: auto;
+    background: #031843;
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+
+  .profileInnerHeaderList {
+    display: flex;
+    padding: 0;
+    width: 600px;
+    text-align: center;
+    height: 50px;
+  }
+
+  .profileInnerHeaderListItem {
+    border-bottom: 2px solid #017fff;
+    border-right: none;
+    background: linear-gradient(355deg, rgba(80, 149, 255, 0.3) 3.7%, rgba(80, 149, 255, 0) 95.94%);
+  }
+
+  .profileInnerHeaderInfo1Nav {
+    margin-bottom: 24px;
+  }
+
+  .profileInnerHeaderInfo2Nav {
+    display: block;
+  }
+
+  .profileInnerHeaderInfo1NavTitle {
+    font-size: 28px;
+  }
+
+  .profileInnerHeaderListItem,
+  .profileInnerHeaderListItemOff {
+    width: 170px;
+  }
+
+  .profileInnerHeaderGroups {
+    width: 100%;
+    height: 1650px;
+  }
+
+  .profileInnerHeaderInfo1TotalStatGroup1TotalMeaning,
+  .profileInnerHeaderInfo1TotalStatGroup1 {
+    width: 100%;
+  }
+
+  .profileInnerHeaderInfo1TotalStatGroup {
+    flex-direction: column;
+  }
+
+  .profileInnerHeaderInfo1TotalStatList {
+    width: 100%;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .profileInnerHeaderInfo1TotalStatListItem {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+  }
+
+  .profileInnerHeaderInfo1TotalStatListItemImg {
+    width: 72px;
+    height: 72px;
+  }
+
+  .profileInnerHeaderInfo1TotalStatListItemCont {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 19px;
+  }
+
+  .profileInnerHeaderInfo1TotalStatListDet {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .profileInnerHeaderInfo1TotalStatListItemDet {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+  }
+
+  .profileInnerTotalMatchesАverage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profileInnerEconomyList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .profileInnerEconomyListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+
+  .profileInnerEconomyListItemHeadsCont {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .profileInnerEconomyListItemBack {
+    width: 100%;
+  }
+
+  .profileInnerEconomyListItemHeads {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubDMGMob,
+  .profileInnerEconomyListItemSubTurDMGMob {
+    font-size: 16px;
+    line-height: 120%;
+  }
+
+  .profileInnerEconomyListItemSubGoldMob {
+    color: #ff7801;
+  }
+  .profileInnerEconomyListItemSubDMGMob {
+    color: #009f1b;
+  }
+  .profileInnerEconomyListItemSubTurDMGMob {
+    color: #ff01fb;
+  }
+
+  .profileInnerEconomyListItemSubGold,
+  .profileInnerEconomyListItemSubDMG,
+  .profileInnerEconomyListItemSubTurDMG {
+    display: none;
+  }
+
+  .profileInnerTotalMatchesАverageList,
+  .profileInnerTotalMatchesАverageListItem,
+  .profileInnerTotalMatchesАverageListItemBack {
+    width: 90%;
+  }
+
+  .profileInnerTotalMatchesAchievementListItem {
+    padding: 10px 16px;
+  }
+
+  .profileInnerTotalMatchesAchievementListItemHeadTitle {
+    font-size: 14px;
+  }
+
+  .profileInnerHeaderInfo1TotalStatListItemSubDet {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .profileInner {
+    width: 420px;
+  }
+  .profileInnerUserInfoBackMob {
+    width: 100%;
+    height: 330px;
+  }
+
+  .profileInnerTotalMatchesАverageListItemHed {
+    display: flex;
+    justify-content: start;
+  }
+  .profileInnerTotalMatchesАverageListItem {
+    width: 100%;
+  }
+  .profileInnerTotalMatchesАverageListItemBack,
+  .profileInnerTotalMatchesАverageListItemHed,
+  .profileInnerTotalMatchesАverage {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .profileInner {
+    width: 405px;
+  }
+  .profileInnerTotalMatchesАverageListItemHed {
+    display: flex;
+    justify-content: start;
+  }
+  .profileInnerTotalMatchesАverageListItem {
+    width: 100%;
+  }
+  .profileInnerTotalMatchesАverageListItemBack,
+  .profileInnerTotalMatchesАverageListItemHed,
+  .profileInnerTotalMatchesАverage {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .profileInner {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profileInner {
+    width: 380px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .profileInner {
+    width: 355px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .profileInner {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 344px) {
+  .profileInner {
+    width: 330px;
+  }
+}

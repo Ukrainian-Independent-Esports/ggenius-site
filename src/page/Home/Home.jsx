@@ -273,7 +273,7 @@ const Home = () => {
             <p className={style.workInnerSub}>
               {t('workInnerSub')}
             </p>
-            <Link to='https://t.me/@ggeniusgg_bot' className={style.workInnerLink}>
+            <Link to='https://t.me/ggeniusgg_bot' className={style.workInnerLink}>
               {t('navLink')}
             </Link>
           </div>

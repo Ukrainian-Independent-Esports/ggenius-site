@@ -223,7 +223,6 @@ input {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(1.89% 46.43% at 49.64% 46.43%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(73.64% 50.63% at 50% 50%, #3575ff 19.71%, #002987 100%);
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 8px #fff, inset 0 -24px 32px rgba(255, 255, 255, 0.12), 0 8px 24px inset rgba(255, 255, 255, 0.32);
   transition: all 0.5s;
-  transition: all 0.5s;
 }
 .homeInnerContentLink:hover {
   border-radius: 32px;
@@ -231,6 +230,9 @@ input {
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
   transform: scale(1.05);
   transition: background transform box-shadow 0.5s;
+}
+.homeInnerContentLink {
+  transition: all 0.5s;
 }
 
 .homeInnerImgUnion {
@@ -351,8 +353,7 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%), linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%), linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
 }
 
 .whatinnerListItemSword:hover .whatinnerListItemImgRight {
@@ -601,7 +602,6 @@ input {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(1.89% 46.43% at 49.64% 46.43%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(73.64% 50.63% at 50% 50%, #3575ff 19.71%, #002987 100%);
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 8px #fff, inset 0 -24px 32px rgba(255, 255, 255, 0.12), 0 8px 24px inset rgba(255, 255, 255, 0.32);
   transition: all 0.5s;
-  margin-bottom: 58px;
 }
 .workInnerLink:hover {
   border-radius: 32px;
@@ -609,6 +609,9 @@ input {
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
   transform: scale(1.05);
   transition: background transform box-shadow 0.5s;
+}
+.workInnerLink {
+  margin-bottom: 58px;
 }
 
 .workInnerList {
@@ -803,7 +806,6 @@ input {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(1.89% 46.43% at 49.64% 46.43%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(73.64% 50.63% at 50% 50%, #3575ff 19.71%, #002987 100%);
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 8px #fff, inset 0 -24px 32px rgba(255, 255, 255, 0.12), 0 8px 24px inset rgba(255, 255, 255, 0.32);
   transition: all 0.5s;
-  font-size: 18px;
 }
 .partnersInnerContLink:hover {
   border-radius: 32px;
@@ -811,6 +813,9 @@ input {
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
   transform: scale(1.05);
   transition: background transform box-shadow 0.5s;
+}
+.partnersInnerContLink {
+  font-size: 18px;
 }
 
 .chatsInnerInfoList {
@@ -901,13 +906,14 @@ input {
     visibility: hidden;
   }
   .slider {
-    width: 100%;
+    width: 420px;
   }
   .whatinnerListItemSword,
   .whatinnerListItemCup,
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
     height: 320px;
+    width: 330px;
   }
   .whatinnerList {
     width: 100%;
@@ -1210,7 +1216,6 @@ input {
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(1.89% 46.43% at 49.64% 46.43%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(73.64% 50.63% at 50% 50%, #3575ff 19.71%, #002987 100%);
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 8px #fff, inset 0 -24px 32px rgba(255, 255, 255, 0.12), 0 8px 24px inset rgba(255, 255, 255, 0.32);
   transition: all 0.5s;
-  transition: all 0.4s;
 }
 .navLink:hover {
   border-radius: 32px;
@@ -1218,6 +1223,9 @@ input {
   box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
   transform: scale(1.05);
   transition: background transform box-shadow 0.5s;
+}
+.navLink {
+  transition: all 0.4s;
 }
 
 .hiddenTgWidget {
@@ -1349,31 +1357,35 @@ input {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 130px 16px 0 16px;
+    padding: 90px 16px 0 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
     width: 100vw;
-    min-height: 100vh;
-    width: 100vw;
-    min-height: 100vh;
     transform: translateX(100%);
     background: radial-gradient(132.98% 132.99% at 52.67% 109.98%, rgba(0, 100, 255, 0.4) 0%, rgba(5, 4, 10, 0) 100%), #05040a;
     transition: all 0.4s;
   }
   .navMenuActive {
     position: absolute;
-    padding: 130px 16px 0 16px;
+    padding: 90px 16px 0 16px;
     top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     transform: translateX(0%);
     background: radial-gradient(132.98% 132.99% at 52.67% 109.98%, rgba(0, 100, 255, 0.4) 0%, rgba(5, 4, 10, 0) 100%), #05040a;
     transition: all 0.4s;
+  }
+  .navMenuActiveDiv {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 570px;
   }
   .navMenuActiveLine {
     display: flex;
@@ -1392,10 +1404,15 @@ input {
     height: 1px;
     background-color: #3f426a;
   }
+  .navMenuLineTitle {
+    color: #c5c5c5;
+    font-weight: 500;
+    line-height: 120%; /* 16.8px */
+  }
   .navList {
     flex-direction: column;
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 48px;
   }
   .navLink {
     display: none;
@@ -1404,40 +1421,50 @@ input {
   .navCopyListMob {
     display: flex;
     gap: 27px;
+    margin-bottom: 48px;
+  }
+  .autho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .navIns {
+    align-items: start;
     flex-direction: column;
     gap: 10px;
   }
   .navLang {
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 19px;
     color: #fff;
     margin-bottom: 55px;
   }
   .navLangBtnEn,
-  .navLangBtnUk {
-    border-radius: 32px;
+  .navLangBtnUa {
     color: #000;
-    padding: 12px 35px;
+    padding: 16px 40px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     line-height: 120%; /* 14.4px */
     letter-spacing: -0.24px;
-    background-color: #fff;
+    border-radius: 24px;
+    background: #fff;
     transition: all 0.4s;
   }
-  .navLangBtnUkDis,
+  .navLangBtnUaDis,
   .navLangBtnEnDis {
     color: #fff;
-    padding: 12px 35px;
+    padding: 16px 40px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     line-height: 120%; /* 14.4px */
     letter-spacing: -0.24px;
-    border-radius: 32px;
+    border-radius: 24px;
     background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.4s;
   }
@@ -1451,7 +1478,8 @@ input {
     gap: 10px;
     flex-direction: column;
   }
-  .navActiveBtnsLinkInv {
+  .navActiveBtnsLinkInv,
+  .authoLink {
     position: relative;
     padding: 16px 40px;
     font-size: 14px;
@@ -1461,19 +1489,24 @@ input {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), radial-gradient(1.89% 46.43% at 49.64% 46.43%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(73.64% 50.63% at 50% 50%, #3575ff 19.71%, #002987 100%);
     box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 8px #fff, inset 0 -24px 32px rgba(255, 255, 255, 0.12), 0 8px 24px inset rgba(255, 255, 255, 0.32);
     transition: all 0.5s;
+  }
+  .navActiveBtnsLinkInv:hover,
+  .authoLink:hover {
+    border-radius: 32px;
+    background: radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(78.51% 56.91% at 51.91% 52.6%, #0084ff 0%, #375be0 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(78.51% 56.91% at 51.91% 52.6%, #0084ff 0%, #375be0 100%);
+    box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
+    transform: scale(1.05);
+    transition: background transform box-shadow 0.5s;
+  }
+  .navActiveBtnsLinkInv,
+  .authoLink {
     padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 361px;
     height: 64px;
-  }
-  .navActiveBtnsLinkInv:hover {
-    border-radius: 32px;
-    background: radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(78.51% 56.91% at 51.91% 52.6%, #0084ff 0%, #375be0 100%), radial-gradient(69.25% 69.32% at 47.35% 93.75%, rgba(255, 255, 255, 0.4) 0%, rgba(11, 49, 143, 0) 100%), radial-gradient(78.51% 56.91% at 51.91% 52.6%, #0084ff 0%, #375be0 100%);
-    box-shadow: 0 2px 4px rgba(69, 95, 162, 0.25), 0 8px 16px rgba(69, 106, 162, 0.12), 0 16px 32px rgba(41, 57, 100, 0.25), inset 0 0 20px #fff, inset 0 24px 32px rgba(255, 255, 255, 0.12), inset 0 8px 24px rgba(255, 255, 255, 0.32);
-    transform: scale(1.05);
-    transition: background transform box-shadow 0.5s;
+    margin-bottom: 14px;
   }
   .navActiveBtnsLink {
     display: flex;
@@ -1515,6 +1548,16 @@ input {
     display: flex;
   }
 }
+@media screen and (max-width: 430px) {
+  .navMenuActiveDiv {
+    height: 960px;
+  }
+}
+@media screen and (max-width: 390px) {
+  .navMenuActiveDiv {
+    height: 750px;
+  }
+}
 @media screen and (max-width: 380px) and (max-height: 740px) {
   .navLang {
     margin-bottom: 5px;
@@ -1548,10 +1591,23 @@ input {
     padding: 84px 10px 0;
   }
 }
+@media screen and (max-width: 375px) {
+  .navMenuActiveDiv {
+    height: 580px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .navMenuActiveDiv {
+    height: 650px;
+  }
+}
 @media screen and (max-width: 346px) {
   .nav {
     padding: 0 5px;
     width: 93%;
+  }
+  .navMenuActiveDiv {
+    height: 770px;
   }
   .navActiveBtnsLink,
   .navActiveBtnsLinkInv {
@@ -1635,6 +1691,18 @@ input {
   transition: filter 0.4s;
 }
 
+.footerCopyMobLincSite {
+  transition: all 0.4s;
+}
+.footerCopyMobLincSite:hover {
+  transition: all 0.4s;
+}
+
+.footerCopyMobLincImg {
+  width: 30px;
+  height: 30px;
+}
+
 @media screen and (max-width: 560px) {
   .footer {
     background-color: rgba(0, 0, 0, 0.3);
@@ -1680,6 +1748,10 @@ input {
     visibility: hidden;
   }
 }
+.errorPage {
+  padding: 130px 0 80px;
+}
+
 .errorPageInner {
   position: relative;
 }
@@ -1757,15 +1829,18 @@ input {
   }
   .errorPageInnerContTitle {
     font-size: 40px;
+    width: 350px;
   }
   .errorPageInnerContSub {
     font-size: 16px;
+    width: 350px;
   }
   .errorPageInnerBack {
     display: none;
     width: 100%;
   }
   .errorPageInnerBackMob {
+    display: block;
     width: 100%;
     height: 100%;
   }
@@ -1781,12 +1856,15 @@ input {
 
 .profileInner {
   padding: 40px 0;
-  height: 705px;
 }
 
 .profileInnerUserChara {
   position: relative;
   color: #fff;
+}
+
+.sectInfo {
+  position: relative;
 }
 
 .profileInnerUserInfo {
@@ -1803,6 +1881,10 @@ input {
 .profileInnerUserInfoBack {
   position: absolute;
   inset: 0;
+}
+
+.profileInnerUserInfoBackMob {
+  display: none;
 }
 
 .profileInnerUserInfoTxt {
@@ -1850,12 +1932,12 @@ input {
 .profileInnerHeader {
   display: flex;
   gap: 59px;
-  height: 177px;
 }
 
 .profileInnerHeaderList {
   padding: 12px 0;
   width: 220px;
+  height: 147px;
   border-radius: 16px;
   background: #031843;
   color: #fff;
@@ -1909,16 +1991,16 @@ input {
   height: 800px;
   opacity: 1;
   visibility: visible;
-  transform: translateX(0%);
-  transition: all 0.4s;
+  transform: translateX(0%) scale(1);
+  transition: all 0.6s;
 }
 
 .profileInnerHeaderInfoDis {
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  transform: translateX(100%);
-  transition: all 0.4s;
+  transform: translateX(100%) scale(0);
+  transition: all 0.6s;
 }
 
 .profileInnerHeaderInfo1Nav {
@@ -2205,8 +2287,7 @@ input {
   background: radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%), linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%), linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
   /* shadow/card */
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
   margin-bottom: 20px;
 }
 
@@ -2231,18 +2312,18 @@ input {
   background: radial-gradient(64.8% 53.19% at 20.3% 29.12%, rgba(35, 53, 221, 0.5) 0%, rgba(0, 12, 101, 0) 100%), linear-gradient(36deg, rgba(0, 34, 255, 0) 43.41%, rgba(0, 34, 255, 0.2) 90.92%), linear-gradient(303deg, rgba(255, 255, 255, 0.05) 16.73%, rgba(255, 255, 255, 0) 131.77%);
   /* shadow/card */
   box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.05) inset;
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
   margin-bottom: 20px;
 }
 
 .profileInnerTotalMatchesAchievementList {
   overflow-y: scroll;
   height: 250px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .profileInnerTotalMatchesAchievementList::-webkit-scrollbar {
-  background-color: rgba(0, 40, 135, 0.2941176471);
-  width: 10px;
+  display: none;
 }
 
 .profileInnerTotalMatchesAchievementListItemHeadTitle {
@@ -2269,6 +2350,239 @@ input {
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 560px) {
+  .profile {
+    padding: 100px 0 80px;
+  }
+  .profileInner {
+    width: 350px;
+  }
+  .profileInnerUserInfoBack {
+    display: none;
+  }
+  .profileInnerUserInfoObv {
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+  }
+  .profileInnerUserInfoBackMob {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+  .profileInnerUserInfoImg {
+    width: 156px;
+    height: 156px;
+  }
+  .profileInnerUserInfoTxt {
+    text-align: center;
+    align-items: center;
+  }
+  .profileInnerHeader {
+    display: block;
+  }
+  .profileInnerHeaderNav {
+    width: 100%;
+    overflow-x: auto;
+    background: #031843;
+    border-radius: 12px;
+    margin-bottom: 24px;
+  }
+  .profileInnerHeaderList {
+    display: flex;
+    padding: 0;
+    width: 600px;
+    text-align: center;
+    height: 50px;
+  }
+  .profileInnerHeaderListItem {
+    border-bottom: 2px solid #017fff;
+    border-right: none;
+    background: linear-gradient(355deg, rgba(80, 149, 255, 0.3) 3.7%, rgba(80, 149, 255, 0) 95.94%);
+  }
+  .profileInnerHeaderInfo1Nav {
+    margin-bottom: 24px;
+  }
+  .profileInnerHeaderInfo2Nav {
+    display: block;
+  }
+  .profileInnerHeaderInfo1NavTitle {
+    font-size: 28px;
+  }
+  .profileInnerHeaderListItem,
+  .profileInnerHeaderListItemOff {
+    width: 170px;
+  }
+  .profileInnerHeaderGroups {
+    width: 100%;
+    height: 1650px;
+  }
+  .profileInnerHeaderInfo1TotalStatGroup1TotalMeaning,
+  .profileInnerHeaderInfo1TotalStatGroup1 {
+    width: 100%;
+  }
+  .profileInnerHeaderInfo1TotalStatGroup {
+    flex-direction: column;
+  }
+  .profileInnerHeaderInfo1TotalStatList {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .profileInnerHeaderInfo1TotalStatListItem {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+  }
+  .profileInnerHeaderInfo1TotalStatListItemImg {
+    width: 72px;
+    height: 72px;
+  }
+  .profileInnerHeaderInfo1TotalStatListItemCont {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 19px;
+  }
+  .profileInnerHeaderInfo1TotalStatListDet {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .profileInnerHeaderInfo1TotalStatListItemDet {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    justify-content: space-between;
+  }
+  .profileInnerTotalMatchesАverage {
+    display: flex;
+    flex-direction: column;
+  }
+  .profileInnerEconomyList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .profileInnerEconomyListItem {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+  }
+  .profileInnerEconomyListItemHeadsCont {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .profileInnerEconomyListItemBack {
+    width: 100%;
+  }
+  .profileInnerEconomyListItemHeads {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubDMGMob,
+  .profileInnerEconomyListItemSubTurDMGMob {
+    font-size: 16px;
+    line-height: 120%;
+  }
+  .profileInnerEconomyListItemSubGoldMob {
+    color: #ff7801;
+  }
+  .profileInnerEconomyListItemSubDMGMob {
+    color: #009f1b;
+  }
+  .profileInnerEconomyListItemSubTurDMGMob {
+    color: #ff01fb;
+  }
+  .profileInnerEconomyListItemSubGold,
+  .profileInnerEconomyListItemSubDMG,
+  .profileInnerEconomyListItemSubTurDMG {
+    display: none;
+  }
+  .profileInnerTotalMatchesАverageList,
+  .profileInnerTotalMatchesАverageListItem,
+  .profileInnerTotalMatchesАverageListItemBack {
+    width: 90%;
+  }
+  .profileInnerTotalMatchesAchievementListItem {
+    padding: 10px 16px;
+  }
+  .profileInnerTotalMatchesAchievementListItemHeadTitle {
+    font-size: 14px;
+  }
+  .profileInnerHeaderInfo1TotalStatListItemSubDet {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .profileInner {
+    width: 420px;
+  }
+  .profileInnerUserInfoBackMob {
+    width: 100%;
+    height: 330px;
+  }
+  .profileInnerTotalMatchesАverageListItemHed {
+    display: flex;
+    justify-content: start;
+  }
+  .profileInnerTotalMatchesАverageListItem {
+    width: 100%;
+  }
+  .profileInnerTotalMatchesАverageListItemBack,
+  .profileInnerTotalMatchesАverageListItemHed,
+  .profileInnerTotalMatchesАverage {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .profileInner {
+    width: 405px;
+  }
+  .profileInnerTotalMatchesАverageListItemHed {
+    display: flex;
+    justify-content: start;
+  }
+  .profileInnerTotalMatchesАverageListItem {
+    width: 100%;
+  }
+  .profileInnerTotalMatchesАverageListItemBack,
+  .profileInnerTotalMatchesАverageListItemHed,
+  .profileInnerTotalMatchesАverage {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 412px) {
+  .profileInner {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .profileInner {
+    width: 380px;
+  }
+}
+@media screen and (max-width: 380px) {
+  .profileInner {
+    width: 355px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .profileInner {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 344px) {
+  .profileInner {
+    width: 330px;
+  }
+}
 .tournaments {
   padding: 200px 0 80px;
   color: #fff;

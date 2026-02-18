@@ -19,7 +19,7 @@ const Footer = () => {
 
   return <>
 
-    
+
     <footer className={style.footer}>
 
       <div className={style.container}>
@@ -60,6 +60,7 @@ const Footer = () => {
             </ul>
           </nav>
 
+          {/* Для мобильных устройств */}
           <ul className={style.footerCopyListMob}>
             <li className={style.footerCopyListItem}>
               <Link className={style.footerCopyListItemLinkIns}>
@@ -84,11 +85,30 @@ const Footer = () => {
           </ul>
           <span className={style.line}></span>
 
-          <p className={style.footerCopySubMob}>Copyright © 2025 GGenius. All rights reserved.</p>
-
+          <p className={style.footerCopySubMob}>
+            <p className={style.footerCopyMobLinc}>
+              <a href="https://ggenius.gg" className={style.footerCopyMobLincSite}>Ggenius</a>
+              © 2024 by{" "}
+              <a href="https://github.com/Nimarchik" className={style.footerCopyMobLincUser}>Ivanov Oleksii</a>
+              is licensed under{" "}
+              <a href="https://creativecommons.org/licenses/by/4.0/" className={style.footerCopyMobLincence}>CC BY 4.0</a>
+              <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+              <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+            </p>
+          </p>
 
           <div className={style.footerCopy}>
-            <p className={style.footerCopySub}>Copyright © 2025 GGenius. All rights reserved.</p>
+            <p className={style.footerCopySub}>
+              <p className={style.footerCopyMobLinc}>
+                <a href="https://ggenius.gg" className={style.footerCopyMobLincSite}>Ggenius</a>
+                © 2024 by{" "}
+                <a href="https://github.com/Nimarchik" className={style.footerCopyMobLincUser}>Ivanov Oleksii</a>
+                is licensed under{" "}
+                <a href="https://creativecommons.org/licenses/by/4.0/" className={style.footerCopyMobLincence}>CC BY 4.0</a>
+                <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+                <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+              </p>
+            </p>
             <ul className={style.footerCopyList}>
               <li className={style.footerCopyListItem}>
                 <Link className={style.footerCopyListItemLinkIns}>

@@ -52,7 +52,8 @@
   }
 
   .slider {
-    width: 100%;
+    // width: 100%;
+    width: 420px;
   }
 
   .whatinnerListItemSword,
@@ -60,6 +61,7 @@
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
     height: 320px;
+    width: 330px;
   }
 
   .whatinnerList {
@@ -196,7 +198,7 @@
   .partnersInner {
     width: 396px;
   }
-   .partnersInner {
+  .partnersInner {
     width: 365px;
     margin: 0 auto;
   }
@@ -206,10 +208,7 @@
 }
 
 @media screen and (max-width: 400px) {
-  
 }
-
-
 
 @media screen and (max-width: 380px) {
   .whatinnerListItem,

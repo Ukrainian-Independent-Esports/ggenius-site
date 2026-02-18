@@ -19,12 +19,10 @@ const Error = () => {
   console.error(error);
 
   return <>
-    <Header />
     <section className={style.errorPage}>
-
       <div className={style.errorPageInner}>
-        <img className={style.errorPageInnerBack} src={back} alt="" />
-        <img className={style.errorPageInnerBackMob} src={backMob} alt="" />
+        <img className={style.errorPageInnerBack} src={back} alt="back" />
+        <img className={style.errorPageInnerBackMob} src={backMob} alt="back" />
 
         <div className={style.errorPageInnerCont}>
           <h5 className={style.errorPageInnerContTitle}>
@@ -41,9 +39,7 @@ const Error = () => {
           </NavLink>
         </div>
       </div>
-
     </section>
-    <Footer />
   </>
 }
 

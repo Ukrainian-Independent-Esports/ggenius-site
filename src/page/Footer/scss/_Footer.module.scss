@@ -54,7 +54,7 @@
 .footerCopyListItemLinkYT,
 .footerCopyListItemLinkTT,
 .footerCopyListItemLinkDS {
-transition: all .4s;
+  transition: all 0.4s;
 }
 
 .footerCopyListItemLinkIns {
@@ -85,4 +85,17 @@ transition: all .4s;
   }
 }
 
-@import './media.module';
+.footerCopyMobLincSite {
+  transition: all 0.4s;
+
+  &:hover {
+    transition: all 0.4s;
+  }
+}
+
+.footerCopyMobLincImg {
+  width: 30px;
+  height: 30px;
+}
+
+@import "./media.module";

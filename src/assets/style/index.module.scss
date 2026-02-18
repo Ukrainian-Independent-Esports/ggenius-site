@@ -164,26 +164,27 @@ input {
 }
 
 @mixin langActive {
-  border-radius: 32px;
   color: #000;
-  padding: 12px 35px;
+  padding: 16px 40px;
   font-size: 12px;
   font-family: $poppins;
   font-weight: 800;
   line-height: 120%; /* 14.4px */
   letter-spacing: -0.24px;
-  background-color: #fff;
+  border-radius: 24px;
+  background: $color;
   transition: all 0.4s;
 }
+
 @mixin langDis {
   color: #fff;
-  padding: 12px 35px;
+   padding: 16px 40px;
   font-size: 12px;
   font-family: $poppins;
   font-weight: 800;
   line-height: 120%; /* 14.4px */
   letter-spacing: -0.24px;
-  border-radius: 32px;
+  border-radius: 24px;
   background-color: rgba($color: $color, $alpha: 0.1);
   transition: all 0.4s;
 }
@@ -274,5 +275,5 @@ input {
 @import "../../page/Footer/scss/Footer.module";
 @import "../../page/About/About.module";
 @import "../../page/Error/scss/Error.module";
-@import "../../page/Profile/Profile.module";
+@import "../../page/Profile/scss/Profile.module";
 @import "../../page/Tournaments/tournaments.module";

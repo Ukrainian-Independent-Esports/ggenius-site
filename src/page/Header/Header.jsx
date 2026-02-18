@@ -15,12 +15,22 @@ const Header = () => {
   const location = useLocation();
   const [menu, setMenu] = useState(false);
   const [lang, setLangState] = useState('ua');
+  const [scrollY, setScrollY] = useState('0px')
 
   const auth = useAuth();
   const { user, login, logout } = auth || {}; // безопасная деструктуризация
 
   // ✅ вызываем хук один раз
   const t = useLangChange();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(`${window.scrollY}px`);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Получаем Telegram авторизацию из URL
   useEffect(() => {
@@ -84,6 +94,8 @@ const Header = () => {
 
           {/* DESKTOP MENU */}
           <div className={style.navMenu}>
+
+            {/* Ссылки на страницы Desktop */}
             <ul className={style.navList}>
               {['Home', 'About', 'Work', 'Our', 'Tourn'].map((item, idx) => (
                 <li className={style.navListItem} key={idx}>
@@ -101,6 +113,7 @@ const Header = () => {
             </ul>
 
             <div className={style.navIns}>
+              {/* Авторизация на Desktop */}
               {user ? (
                 <div className={style.navLinkLogin}>
                   <div className={style.navLinkLoginUsers}>
@@ -126,6 +139,7 @@ const Header = () => {
                 </button>
               )}
 
+              {/* Смена языка на Desktop */}
               <div className={style.listLangBtn}>
                 {lang}
                 <ul className={style.listLang}>
@@ -138,72 +152,116 @@ const Header = () => {
 
           {/* MOBILE MENU */}
           <div className={menu ? style.navMenuActive : style.navMenuDis}>
-            <ul className={style.navList}>
-              {['Home', 'About', 'Work', 'Our', 'Tourn'].map((item, idx) => (
-                <li className={style.navListItem} key={idx}>
-                  <NavLink
-                    to={`/${item}/?lang=${lang}`}
-                    end
-                    className={({ isActive }) =>
-                      isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
-                    }
-                  >
-                    {t(`navListItemLink${item}`)}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
+            <div className={style.navMenuActiveDiv}>
+              <div className={style.navMenuActiveLine}>
+                <h5 className={style.navMenuLineTitle}>
+                  {t('navMenuActiveLine')}
+                </h5>
+                <span className={style.navMenuActiveLineSpan}></span>
+              </div>
+              {/* Ссылки на страницы */}
+              <ul className={style.navList}>
+                {['Home', 'About', 'Work', 'Our', 'Tourn'].map((item, idx) => (
+                  <li className={style.navListItem} key={idx} onClick={() => setMenu(!menu)}>
+                    <NavLink
+                      to={`/${item}/?lang=${lang}`}
+                      end
+                      className={({ isActive }) =>
+                        isActive ? `${style.navListItemLink} ${style.active}` : style.navListItemLink
+                      }
+                    >
+                      {t(`navListItemLink${item}`)}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
 
-            <div className={style.navIns}>
-              {user ? (
-                <div className={style.navLinkLogin}>
-                  <span>{user.nickname}</span>
-                  <ul className={style.navLinkLoginList}>
-                    <li onClick={logout}>
-                      <Link>{t('navLinkLoginListItemSub')}</Link>
-                    </li>
-                  </ul>
+              <div className={style.navMenuActiveLine}>
+                <h5 className={style.navMenuLineTitle}>
+                  {t('navMenuActiveFind')}
+                </h5>
+                <span className={style.navMenuActiveLineSpan}></span>
+              </div>
+
+              {/* Ссылки на соц. сети */}
+              <ul className={style.navCopyListMob}>
+                <li>
+                  <Link to='https://www.youtube.com/@ggenius_ua'>
+                    <img src={yt} alt="YouTube" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to='https://tiktok.com/@mobile_legends.ua'>
+                    <img src={tt} alt="TikTok" />
+                  </Link>
+                </li>
+                <li>
+                  <Link to=''>
+                    <img src={ds} alt="Discord" />
+                  </Link>
+                </li>
+              </ul>
+
+              <div className={style.navIns}>
+                <div className={style.navMenuActiveLine}>
+                  <h5 className={style.navMenuLineTitle}>
+                    {t('navMenuActiveLang')}
+                  </h5>
+                  <span className={style.navMenuActiveLineSpan}></span>
                 </div>
-              ) : (
-                <button onClick={loginViaBot}>{t('navLink')}</button>
-              )}
-              <div className={style.navLang}>
-                <button
-                  className={lang === 'en' ? style.navLangBtnEn : style.navLangBtnEnDis}
-                  onClick={() => changeLanguage('en')}
-                >
-                  English
-                </button>
-                <button
-                  className={lang === 'ua' ? style.navLangBtnua : style.navLangBtnuaDis}
-                  onClick={() => changeLanguage('ua')}
-                >
-                  Українська
-                </button>
+
+                {/* Смена языка */}
+                <div className={style.navLang}>
+                  <button
+                    className={lang === 'en' ? style.navLangBtnEn : style.navLangBtnEnDis}
+                    onClick={() => changeLanguage('en')}
+                  >
+                    English
+                  </button>
+                  <button
+                    className={lang === 'ua' ? style.navLangBtnUa : style.navLangBtnUaDis}
+                    onClick={() => changeLanguage('ua')}
+                  >
+                    Українська
+                  </button>
+                </div>
+
+                {/* Авторизация */}
+                <div className={style.autho}>
+                  {user ? (
+                    <div className={style.navLinkLogin}>
+                      <NavLink to={`profile/?lang=${lang}`} onClick={() => setMenu(!menu)} className={style.navLinkLoginUsers}>
+                        <span>{user.nickname}</span>
+                        <img className={style.navLinkLoginUsersAvatar} src={user.avatar_permanent_url} alt="" />
+                      </NavLink>
+                      <ul className={style.navLinkLoginList}>
+                        <li className={style.navLinkLoginListItem} onClick={() => setMenu(!menu)}>
+                          <Link to={`profile/?lang=${lang}`} className={style.navLinkLoginListItemLink}>
+                            {t('navLinkLoginListItemLink')}
+                          </Link>
+                        </li>
+                        <li onClick={logout} className={style.navLinkLoginListItem}>
+                          <Link className={style.navLinkLoginListItemSub}>
+                            {t('navLinkLoginListItemSub')}
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  ) : (
+                    <button onClick={loginViaBot} className={style.navActiveBtnsLinkInv}>
+                      {t('navLink')}
+                    </button>
+                  )}
+                  {/* <Link to={'https://t.me/ggenius_chat'} className={style.navActiveBtnsLink}>
+                    {t('navActiveBtnsLink')}
+                  </Link> */}
+                </div>
               </div>
             </div>
-
-            <ul className={style.navCopyListMob}>
-              <li>
-                <Link to='https://www.youtube.com/@ggenius_ua'>
-                  <img src={yt} alt="YouTube" />
-                </Link>
-              </li>
-              <li>
-                <Link to='https://tiktok.com/@mobile_legends.ua'>
-                  <img src={tt} alt="TikTok" />
-                </Link>
-              </li>
-              <li>
-                <Link to=''>
-                  <img src={ds} alt="Discord" />
-                </Link>
-              </li>
-            </ul>
           </div>
         </nav>
-      </div>
-    </header>
+      </div >
+    </header >
   );
 };
 
