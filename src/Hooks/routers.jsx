@@ -6,7 +6,7 @@ import Home from '../page/Home/Home.jsx';
 import AuthCallback from '../page/Header/authCallback.jsx';
 import Profile from '../page/Profile/Profile.jsx';
 import Tournaments from '../page/Tournaments/Tournaments.jsx';
-import Privacy from '../page/privacy/privacy.jsx';
+import Privacy from '../page/Privacy/privacy.jsx';
 
 export const routes = [
   {
