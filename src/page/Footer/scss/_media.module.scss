@@ -40,6 +40,17 @@
     color: $color;
   }
 
+  .footerCopySubMobGr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footerCopyMobLinc {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
   .footerCopyListItemImg {
     width: 36px;
     height: 36px;

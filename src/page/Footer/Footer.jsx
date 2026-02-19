@@ -92,12 +92,19 @@ const Footer = () => {
               <a href="https://github.com/Nimarchik" className={style.footerCopyMobLincUser}>Ivanov Oleksii</a>
               is licensed under{" "}
               <a href="https://creativecommons.org/licenses/by/4.0/" className={style.footerCopyMobLincence}>CC BY 4.0</a>
-              <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
-              <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+              <div>
+                <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+                <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
+              </div>
             </p>
-            <NavLink className={style.footerCopySubMobPrivacy}>
-              {t('footerCopySubMobPrivacy')}
-            </NavLink>
+            <div className={style.footerCopySubMobGr}>
+              <NavLink className={style.footerCopySubMobPrivacy}>
+                {t('footerCopySubMobPrivacy')}
+              </NavLink>
+              <NavLink className={style.footerCopySubMobOfer}>
+                {t('footerCopySubMobOfer')}
+              </NavLink>
+            </div>
           </p>
 
           <div className={style.footerCopy}>

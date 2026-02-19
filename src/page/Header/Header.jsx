@@ -71,8 +71,8 @@ const Header = () => {
 
   const loginViaBot = () => {
     const botUsername = 'ggeniusgg_bot';
-    window.location.href = `https://t.me/${botUsername}?start=auth`;
-  };
+    window.location.href = `https://t.me/${botUsername}?auth=auth`;
+  }
 
   return (
     <header className={style.header}>
