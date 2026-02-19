@@ -14,7 +14,7 @@ const Tournaments = () => {
       .catch(err => console.error(err))
   }, [])
 
-  console.log(tourn);
+  // console.log(tourn);
 
   return <>
     <section className={style.tournaments}>

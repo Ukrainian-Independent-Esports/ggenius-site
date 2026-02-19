@@ -29,19 +29,18 @@ body {
 html,
 body {
   position: relative;
-  min-height: 100%;
+  max-height: 100%;
   width: 100%;
   font-family: $montserrat;
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
   color: $color;
-  background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
+  // background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
 
 html {
   overflow-x: hidden;
-  background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
   background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
 body {
@@ -178,7 +177,7 @@ input {
 
 @mixin langDis {
   color: #fff;
-   padding: 16px 40px;
+  padding: 16px 40px;
   font-size: 12px;
   font-family: $poppins;
   font-weight: 800;
@@ -194,7 +193,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
+  max-height: 100%;
   z-index: 10;
   background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
@@ -277,4 +276,4 @@ input {
 @import "../../page/Error/scss/Error.module";
 @import "../../page/Profile/scss/Profile.module";
 @import "../../page/Tournaments/tournaments.module";
-@import '../../page/privacy/scss/Privacy.module';
+@import "../../page/privacy/scss/Privacy.module";

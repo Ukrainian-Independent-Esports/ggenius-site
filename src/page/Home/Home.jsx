@@ -19,7 +19,7 @@ import nextZoom from './img/nextZoom.webp'
 import endZoom from './img/endZoom.webp'
 import roadMap from './img/roadMap.webp'
 import partners from './img/Partners.webp'
-import partnersMob from './img/partnersMob.png'
+import partnersMob from './img/partnersMob.webp'
 
 import logo from '../Header/img/logo.png'
 import star from './img/Star.svg'

@@ -1,8 +1,8 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router';
 import style from '../../assets/style/index.module.css'
 
-import back from './img/back.png'
-import backMob from './img/backMob.png'
+import back from './img/back.webp'
+import backMob from './img/backMob.webp'
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -29,6 +29,7 @@ const Error = () => {
             <span>{status} </span>
 
             {t('Not Found')}
+            <p>{error}</p>
           </h5>
           <p className={style.errorPageInnerContSub}>
             {t('errorPageInnerContSub')}

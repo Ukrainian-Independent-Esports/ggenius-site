@@ -1,13 +1,14 @@
 @media screen and (max-width: 580px) {
   .header {
+    position: fixed;
     padding: 24px 0 16px 0;
     align-items: center;
-    width: 100%;
+    width: 106%;
   }
 
   .nav {
     padding: 0 5px;
-    width: 95%;
+    width: 90%;
   }
 
   .navLogoLink {

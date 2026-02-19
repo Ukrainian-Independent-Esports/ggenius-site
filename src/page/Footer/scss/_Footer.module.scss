@@ -98,4 +98,34 @@
   height: 30px;
 }
 
+.footerCopyMobLinc {
+  display: flex;
+  gap: 3px;
+  color: #c4c4c4;
+}
+.footerCopySub {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerCopyMobLincSite,
+.footerCopyMobLincUser,
+.footerCopyMobLincence,
+.footerCopySubMobPrivacy,
+.footerCopySubMobOfer {
+  transition: all 0.4s;
+
+  &:hover {
+    color: $color;
+    filter: drop-shadow(0 0 10px $color);
+    transition: all 0.4s;
+  }
+}
+
+.footerCopySubMobPrivacy,
+.footerCopySubMobOfer {
+  color: #c4c4c4;
+}
+
 @import "./media.module";

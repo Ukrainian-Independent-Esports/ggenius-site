@@ -10,19 +10,17 @@ body {
 html,
 body {
   position: relative;
-  min-height: 100%;
+  max-height: 100%;
   width: 100%;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
   color: #fff;
-  background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
 
 html {
   overflow-x: hidden;
-  background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
   background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
 
@@ -59,7 +57,7 @@ input {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
+  max-height: 100%;
   z-index: 10;
   background: linear-gradient(135deg, #05060d 0%, #080a17 35%, #0b1230 65%, #0a1f4a 100%);
 }
@@ -132,7 +130,7 @@ input {
   background: linear-gradient(140deg, rgba(7, 5, 24, 0) 61.23%, #070518 86.34%);
   width: 100%;
   height: 1107px;
-  padding: 150px 0px;
+  padding: 0px 0px 80px;
   mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
 }
@@ -848,6 +846,9 @@ input {
 }
 
 @media screen and (max-width: 560px) {
+  .home {
+    padding: 100px 0 80px;
+  }
   .imgBack {
     width: 1515px;
     height: 852px;
@@ -1012,7 +1013,7 @@ input {
   .whatinnerListItemCup,
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
-    width: 326px;
+    width: 300px;
   }
   .mySwiper {
     width: 390px;
@@ -1048,14 +1049,14 @@ input {
   .whatinnerListItemCup,
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
-    width: 298px;
+    width: 274px;
   }
   .partnersInnerContLink {
     width: 249px;
   }
 }
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -1299,13 +1300,14 @@ input {
 
 @media screen and (max-width: 580px) {
   .header {
+    position: fixed;
     padding: 24px 0 16px 0;
     align-items: center;
-    width: 100%;
+    width: 106%;
   }
   .nav {
     padding: 0 5px;
-    width: 95%;
+    width: 90%;
   }
   .navLogoLink {
     position: relative;
@@ -1703,6 +1705,40 @@ input {
   height: 30px;
 }
 
+.footerCopyMobLinc {
+  display: flex;
+  gap: 3px;
+  color: #c4c4c4;
+}
+
+.footerCopySub {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerCopyMobLincSite,
+.footerCopyMobLincUser,
+.footerCopyMobLincence,
+.footerCopySubMobPrivacy,
+.footerCopySubMobOfer {
+  transition: all 0.4s;
+}
+.footerCopyMobLincSite:hover,
+.footerCopyMobLincUser:hover,
+.footerCopyMobLincence:hover,
+.footerCopySubMobPrivacy:hover,
+.footerCopySubMobOfer:hover {
+  color: #fff;
+  filter: drop-shadow(0 0 10px #fff);
+  transition: all 0.4s;
+}
+
+.footerCopySubMobPrivacy,
+.footerCopySubMobOfer {
+  color: #c4c4c4;
+}
+
 @media screen and (max-width: 560px) {
   .footer {
     background-color: rgba(0, 0, 0, 0.3);
@@ -1979,7 +2015,6 @@ input {
 
 .profileInnerHeaderGroups {
   position: relative;
-  overflow: hidden;
   width: 100%;
   height: 900px;
 }
@@ -1997,6 +2032,7 @@ input {
 
 .profileInnerHeaderInfoDis {
   position: absolute;
+  inset: 0;
   visibility: hidden;
   opacity: 0;
   transform: translateX(100%) scale(0);
@@ -2216,7 +2252,7 @@ input {
 }
 
 .profileInnerTotalMatchesАverageListItemBack {
-  width: 458px;
+  width: 400px;
   position: relative;
 }
 .profileInnerTotalMatchesАverageListItemBack::after {
@@ -2280,7 +2316,6 @@ input {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 450px;
   padding: 16px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -2348,6 +2383,19 @@ input {
   font-size: 90px;
   color: red;
   text-transform: uppercase;
+}
+
+.profileInnerEconomyListItemHeadsCont {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profileInnerEconomyListItemSubGoldMob,
+.profileInnerEconomyListItemSubGoldMob,
+.profileInnerEconomyListItemSubDMGMob,
+.profileInnerEconomyListItemSubTurDMGMob {
+  display: none;
 }
 
 @media screen and (max-width: 560px) {
@@ -2519,6 +2567,18 @@ input {
   .profileInnerHeaderInfo1TotalStatListItemSubDet {
     font-size: 20px;
   }
+  .profileInnerHeaderInfo2Nav,
+  .profileInnerHeaderInfo3Nav {
+    font-size: 40px;
+    color: red;
+    text-transform: uppercase;
+  }
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubDMGMob,
+  .profileInnerEconomyListItemSubTurDMGMob {
+    display: block;
+  }
 }
 @media screen and (max-width: 430px) {
   .profileInner {
@@ -2653,4 +2713,19 @@ input {
 
 .tournamentsInnerListItemStatusStatActive {
   color: green;
+}
+
+.privacy {
+  padding: 130px 0 80px;
+}
+
+.privacyInnerTitle {
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 120%;
+  letter-spacing: -1.28px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 24px;
 }/*# sourceMappingURL=index.module.css.map */

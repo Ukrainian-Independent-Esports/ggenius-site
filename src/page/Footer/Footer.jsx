@@ -95,10 +95,19 @@ const Footer = () => {
               <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
               <img className={style.footerCopyMobLincImg} src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" style={{ maxWidth: "1em", maxHeight: "1em", marginLeft: ".2em" }} />
             </p>
+            <NavLink className={style.footerCopySubMobPrivacy}>
+              {t('footerCopySubMobPrivacy')}
+            </NavLink>
           </p>
 
           <div className={style.footerCopy}>
             <p className={style.footerCopySub}>
+              <NavLink to={`privacy?lang=${value}`} className={style.footerCopySubMobPrivacy}>
+                {t('footerCopySubMobPrivacy')}
+              </NavLink>
+              <NavLink className={style.footerCopySubMobOfer}>
+                {t('footerCopySubMobOfer')}
+              </NavLink>
               <p className={style.footerCopyMobLinc}>
                 <a href="https://ggenius.gg" className={style.footerCopyMobLincSite}>Ggenius</a>
                 © 2024 by{" "}

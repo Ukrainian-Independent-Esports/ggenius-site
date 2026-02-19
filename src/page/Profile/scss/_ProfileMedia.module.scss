@@ -201,6 +201,20 @@
   .profileInnerHeaderInfo1TotalStatListItemSubDet {
     font-size: 20px;
   }
+
+  .profileInnerHeaderInfo2Nav,
+  .profileInnerHeaderInfo3Nav {
+    font-size: 40px;
+    color: red;
+    text-transform: uppercase;
+  }
+
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubGoldMob,
+  .profileInnerEconomyListItemSubDMGMob,
+  .profileInnerEconomyListItemSubTurDMGMob {
+    display: block;
+  }
 }
 
 @media screen and (max-width: 430px) {

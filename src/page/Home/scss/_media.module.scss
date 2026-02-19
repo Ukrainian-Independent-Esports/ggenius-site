@@ -1,4 +1,7 @@
 @media screen and (max-width: 560px) {
+  .home {
+    padding: 100px 0 80px;
+  }
   .imgBack {
     width: 1515px;
     height: 852px;
@@ -20,6 +23,10 @@
   .workInnerSub {
     @include subSectionMob;
   }
+
+  // .mySwiper {
+  //   width: 390px !important;
+  // }
 
   .whatinnerSub {
     margin-bottom: 24px;
@@ -185,7 +192,7 @@
   .whatinnerListItemCup,
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
-    width: 326px;
+    width: 300px;
   }
   .mySwiper {
     width: 390px;
@@ -226,7 +233,7 @@
   .whatinnerListItemCup,
   .whatinnerListItemFlag,
   .whatinnerListItemBrain {
-    width: 298px;
+    width: 274px;
   }
 
   .partnersInnerContLink {

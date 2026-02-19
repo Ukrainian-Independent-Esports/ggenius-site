@@ -28,16 +28,15 @@ const App = () => {
       .catch(err => console.error(err))
   }, [])
 
-  console.log(chats);
 
 
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: 'smooth',
-  //   });
-  // }, [location]);
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [location]);
 
   return (<>
     <AuthProvider>

@@ -139,7 +139,7 @@
 
 .profileInnerHeaderGroups {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
   height: 900px;
 }
@@ -157,6 +157,7 @@
 
 .profileInnerHeaderInfoDis {
   position: absolute;
+  inset: 0;
   visibility: hidden;
   opacity: 0;
   transform: translateX(100%) scale(0);
@@ -383,7 +384,7 @@
 }
 
 .profileInnerTotalMatchesАverageListItemBack {
-  width: 458px;
+  width: 400px;
   position: relative;
 
   &::after {
@@ -454,7 +455,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 450px;
+  // width: 450px;
   padding: 16px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -533,6 +534,17 @@
   font-size: 90px;
   color: red;
   text-transform: uppercase;
+}
+.profileInnerEconomyListItemHeadsCont {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.profileInnerEconomyListItemSubGoldMob,
+.profileInnerEconomyListItemSubGoldMob,
+.profileInnerEconomyListItemSubDMGMob,
+.profileInnerEconomyListItemSubTurDMGMob {
+  display: none;
 }
 
 @import "./ProfileMedia.module";
