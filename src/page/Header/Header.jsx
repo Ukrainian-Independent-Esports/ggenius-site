@@ -70,7 +70,7 @@ const Header = () => {
   };
 
   const loginViaBot = () => {
-    const botUsername = 'TestAuthBotb_bot';
+    const botUsername = 'ggeniusgg_bot';
     window.location.href = `https://t.me/${botUsername}?start=auth`;
   };
 
