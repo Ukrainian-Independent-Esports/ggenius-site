@@ -15,10 +15,16 @@ export const routes = [
     errorElement: <Error />,
     children: [
       {
+        path: '',
+        index: true,
+        element: <Home />
+      },
+      {
         path: 'Home',
         index: true,
         element: <Home />
       },
+
       {
         path: 'About',
         element: <About />
