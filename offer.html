@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Публічна оферта — GGenius</title>
+
+  <meta name="description" content="Публічна оферта ФОП Науменка Олега Олександровича на надання інформаційних послуг та послуг з організації дозвілля (GGenius)." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Open Graph / Telegram preview -->
+  <meta property="og:title" content="Публічна оферта — GGenius" />
+  <meta property="og:description" content="Договір публічної оферти на надання послуг поповнення ігрового акаунту MLBB через платформу GGenius." />
+  <meta property="og:image" content="https://ggenius.gg/preview.webp" />
+  <meta property="og:url" content="https://ggenius.gg/offer" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicons -->
+  <link rel="icon" href="/favicon/favicon-96x96.png" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0c0c10;
+      --surface:   #14141c;
+      --surface2:  #1c1c28;
+      --border:    #2a2a3a;
+      --accent:    #7c5cfc;
+      --accent-dim:#5a3fcc;
+      --text:      #e8e8f0;
+      --muted:     #8888a8;
+      --warn:      #d4a017;
+      --danger:    #e05c6a;
+      --mono:      'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Sticky nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(12, 12, 16, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+
+    .nav-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+      white-space: nowrap;
+      padding: 0.55rem 0;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+
+    .nav-logo {
+      font-weight: 700;
+      color: var(--accent);
+      margin-right: 1rem;
+      flex-shrink: 0;
+    }
+
+    nav a {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
+      color: var(--muted);
+      transition: color 0.2s, background 0.2s;
+      flex-shrink: 0;
+    }
+    nav a:hover { color: var(--text); background: var(--surface2); text-decoration: none; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 960px;
+      margin: 3rem auto 0;
+      padding: 0 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      padding: 0.25rem 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1.2rem;
+    }
+
+    .meta-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .meta-pills span {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.25rem 0.75rem;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* ── Preamble ── */
+    .preamble {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .preamble strong { color: var(--text); }
+
+    /* ── Section cards ── */
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.25s;
+    }
+    .section-card:hover { border-color: var(--accent-dim); }
+
+    .section-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-card h2 .num {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      padding: 0.15rem 0.45rem;
+    }
+
+    /* ── Clauses ── */
+    .clause {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+    .clause:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .clause-warn {
+      background: rgba(212, 160, 23, 0.08);
+      border-left: 3px solid var(--warn);
+      border-radius: 0 8px 8px 0;
+      padding: 0.65rem 1rem;
+      color: #f0c842;
+      margin: 0.4rem 0;
+      font-size: 0.92rem;
+    }
+
+    .clause-danger {
+      background: rgba(224, 92, 106, 0.08);
+      border-left: 3px solid var(--danger);
+      border-radius: 0 8px 8px 0;
+      padding: 0.65rem 1rem;
+      color: #f07a86;
+      margin: 0.4rem 0;
+      font-size: 0.92rem;
+    }
+
+    .clause-num {
+      font-weight: 600;
+      color: var(--accent);
+      margin-right: 0.35rem;
+    }
+
+    /* ── Terms table ── */
+    .terms-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      margin-top: 0.5rem;
+    }
+    .terms-table th, .terms-table td {
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    .terms-table th {
+      background: var(--surface2);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .terms-table tr:nth-child(even) td { background: rgba(124, 92, 252, 0.04); }
+    .terms-table td:first-child { font-weight: 600; color: var(--text); white-space: nowrap; }
+
+    /* ── Requisites grid ── */
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .req-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      transition: border-color 0.2s;
+    }
+    .req-card:hover { border-color: var(--accent-dim); }
+    .req-card.wide { grid-column: 1 / -1; }
+
+    .req-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .req-value {
+      font-size: 0.95rem;
+      color: var(--text);
+      word-break: break-all;
+    }
+    .req-value.mono {
+      font-family: var(--mono);
+      font-size: 0.88rem;
+      color: #a0d4ff;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; color: #111; }
+      nav { display: none; }
+      .section-card, .preamble { background: #fff; border-color: #ccc; }
+      .hero h1 { -webkit-text-fill-color: #111; background: none; color: #111; }
+      .clause-warn, .clause-danger { background: #fff9; border-left-width: 2px; }
+      .req-card { background: #f5f5f5; }
+      a { color: #333; }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .hero h1 { font-size: 1.6rem; }
+      .section-card { padding: 1.25rem 1rem; }
+      .terms-table { display: block; overflow-x: auto; }
+      .req-grid { grid-template-columns: 1fr; }
+      .req-card.wide { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky navigation -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">GGenius</span>
+      <a href="#preamble">Преамбула</a>
+      <a href="#s1">§1 Терміни</a>
+      <a href="#s2">§2 Предмет</a>
+      <a href="#s3">§3 Відповідальність</a>
+      <a href="#s4">§4 Оплата</a>
+      <a href="#s5">§5 Повернення</a>
+      <a href="#s6">§6 Дані</a>
+      <a href="#s7">§7 Форс-мажор</a>
+      <a href="#s8">§8 Спори</a>
+      <a href="#s9">§9 Реквізити</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-badge">Публічна оферта</div>
+    <h1>Договір про надання інформаційних послуг</h1>
+    <div class="meta-pills">
+      <span>📅 Дата набрання чинності: 01.01.2026</span>
+      <span>🇺🇦 Законодавство України</span>
+      <span>⚙️ Платформа GGenius · MLBB</span>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Preamble -->
+    <div class="preamble" id="preamble">
+      <p>Цей документ є офіційною пропозицією (публічною офертою) Фізичної особи-підприємця <strong>Науменка Олега Олександровича</strong> (надалі — Виконавець), укласти договір про надання інформаційних послуг та послуг з організації дозвілля з будь-якою фізичною особою, яка має повну цивільну правоздатність та дієздатність (надалі — Користувач), на викладених нижче умовах.</p>
+      <p style="margin-top:0.75rem;">Договір є публічним згідно зі статтею 633 Цивільного кодексу України. Беззастережне прийняття умов цієї Оферти (Акцепт) означає, що Користувач ознайомився та повністю згоден з усіма положеннями цього Договору.</p>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="section-card" id="s1">
+      <h2><span class="num">1</span> Терміни та визначення</h2>
+      <table class="terms-table">
+        <thead>
+          <tr>
+            <th>Термін</th>
+            <th>Визначення</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Оферта</td>
+            <td>Публічна пропозиція Виконавця, адресована будь-якій фізичній особі, укласти цей Договір на визначених у ньому умовах.</td>
+          </tr>
+          <tr>
+            <td>Акцепт</td>
+            <td>Повне та беззастережне прийняття Користувачем умов Оферти шляхом здійснення оплати за Послуги Виконавця. З моменту оплати Договір вважається укладеним.</td>
+          </tr>
+          <tr>
+            <td>Послуга</td>
+            <td>Дії Виконавця з технічного забезпечення нарахування внутрішньоігрової валюти (алмазів, пропусків тощо) в грі Mobile Legends: Bang Bang (MLBB) на вказаний Користувачем ігровий акаунт через ідентифікатори User ID та Zone ID.</td>
+          </tr>
+          <tr>
+            <td>Платформа</td>
+            <td>Програмне забезпечення Виконавця (Telegram-бот, вебсайт або інші ресурси проєкту GGenius), через яке здійснюється замовлення Послуг.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Section 2 -->
+    <section class="section-card" id="s2">
+      <h2><span class="num">2</span> Предмет Договору</h2>
+      <div class="clause">
+        <span class="clause-num">2.1.</span> Виконавець зобов'язується надати Користувачу Послугу на умовах цього Договору, а Користувач зобов'язується прийняти та оплатити її.
+      </div>
+      <div class="clause">
+        <span class="clause-num">2.2.</span> Послуги надаються на основі ідентифікаційних даних, введених Користувачем самостійно під час оформлення замовлення на Платформі.
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="section-card" id="s3">
+      <h2><span class="num">3</span> Порядок надання послуг та відповідальність</h2>
+      <div class="clause">
+        <span class="clause-num">3.1.</span> Для отримання Послуги Користувач зобов'язаний надати точні дані свого ігрового акаунту — User ID та Zone ID у грі MLBB.
+      </div>
+      <div class="clause">
+        <span class="clause-num">3.2.</span> Користувач несе повну одноосібну відповідальність за правильність і достовірність вказаних ідентифікаційних даних.
+      </div>
+      <div class="clause-danger">
+        <span class="clause-num">3.3.</span> ⛔ У разі надання Користувачем помилкових даних, внаслідок чого ігрова валюта була успішно зарахована на інший (чужий) акаунт — Послуга вважається наданою Виконавцем належним чином. Претензії не приймаються, кошти не повертаються.
+      </div>
+      <div class="clause">
+        <span class="clause-num">3.4.</span> Виконавець не несе відповідальності за блокування акаунту Користувача адміністрацією гри (Moonton), якщо таке блокування стало наслідком порушення Користувачем правил самої гри.
+      </div>
+    </section>
+
+    <!-- Section 4 -->
+    <section class="section-card" id="s4">
+      <h2><span class="num">4</span> Вартість послуг та порядок розрахунків</h2>
+      <div class="clause">
+        <span class="clause-num">4.1.</span> Вартість Послуг визначається Виконавцем і публікується в інтерфейсі Платформи в національній валюті України (UAH).
+      </div>
+      <div class="clause">
+        <span class="clause-num">4.2.</span> Оплата здійснюється на умовах 100% передоплати через інтегровану платіжну систему (Еквайр) на поточний рахунок Виконавця.
+      </div>
+      <div class="clause">
+        <span class="clause-num">4.3.</span> Банківські комісії та комісії платіжних систем Користувач сплачує самостійно, якщо інше не передбачено інтерфейсом Платформи.
+      </div>
+      <div class="clause">
+        <span class="clause-num">4.4.</span> Виконавець гарантує відсутність взаємодії з платіжними інструментами чи контрагентами країни-агресора (рф) та держави-союзника агресора (рб).
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section class="section-card" id="s5">
+      <h2><span class="num">5</span> Політика повернення коштів (Refund Policy)</h2>
+      <div class="clause-warn">
+        <span class="clause-num">5.1.</span> ⚠️ Відповідно до ст. 13 Закону України «Про захист прав споживачів», послуги з надання цифрового контенту не підлягають поверненню після моменту їх фактичного виконання (зарахування ігрової валюти на сервері розробника гри).
+      </div>
+      <div class="clause-warn">
+        <span class="clause-num">5.2.</span> ⚠️ Повернення коштів можливе виключно у разі технічної помилки на стороні Виконавця (неможливість виконання замовлення через збій Платформи або технічну недоступність серверів MLBB), за умови звернення до підтримки до фактичного нарахування валюти.
+      </div>
+      <div class="clause-warn">
+        <span class="clause-num">5.3.</span> Термін повернення за погодженими заявками: від 1 до 3 банківських днів на ту саму картку/рахунок, з якого надійшла оплата.
+      </div>
+    </section>
+
+    <!-- Section 6 -->
+    <section class="section-card" id="s6">
+      <h2><span class="num">6</span> Конфіденційність та захист персональних даних</h2>
+      <div class="clause">
+        <span class="clause-num">6.1.</span> Шляхом Акцепту Оферти Користувач надає згоду на обробку своїх даних (User ID, Zone ID, нікнейм у Telegram) відповідно до Закону України «Про захист персональних даних» — виключно в межах надання Послуги.
+      </div>
+      <div class="clause">
+        <span class="clause-num">6.2.</span> Виконавець у жодному разі не запитує паролі, логіни або інші дані для прямого доступу до акаунту чи електронної пошти Користувача.
+      </div>
+      <div class="clause">
+        <span class="clause-num">6.3.</span> Дані банківських карт обробляються виключно на стороні еквайра (Monobank). Виконавець не збирає та не зберігає платіжні реквізити.
+      </div>
+    </section>
+
+    <!-- Section 7 -->
+    <section class="section-card" id="s7">
+      <h2><span class="num">7</span> Обставини непереборної сили (Форс-мажор)</h2>
+      <div class="clause">
+        <span class="clause-num">7.1.</span> Сторони звільняються від відповідальності за невиконання зобов'язань у разі виникнення обставин непереборної сили: воєнні дії, обстріли, тривалі блекаути, відсутність інтернет-зв'язку, а також глобальні технічні збої на стороні серверів Moonton, Telegram або платіжних систем.
+      </div>
+    </section>
+
+    <!-- Section 8 -->
+    <section class="section-card" id="s8">
+      <h2><span class="num">8</span> Вирішення спорів</h2>
+      <div class="clause">
+        <span class="clause-num">8.1.</span> Усі суперечки вирішуються шляхом переговорів. У разі недосягнення згоди — спір передається до суду за місцем реєстрації Виконавця відповідно до чинного законодавства України.
+      </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section class="section-card" id="s9">
+      <h2><span class="num">9</span> Реквізити Виконавця</h2>
+      <div class="req-grid">
+        <div class="req-card">
+          <div class="req-label">Виконавець</div>
+          <div class="req-value">ФОП Науменко Олег Олександрович</div>
+        </div>
+        <div class="req-card">
+          <div class="req-label">РНОКПП (ІПН)</div>
+          <div class="req-value mono">3273212633</div>
+        </div>
+        <div class="req-card wide">
+          <div class="req-label">Адреса реєстрації</div>
+          <div class="req-value">Україна, 49000, Дніпропетровська обл., м. Дніпро, вул. Січеславська Набережна, буд. 6</div>
+        </div>
+        <div class="req-card wide">
+          <div class="req-label">Рахунок (IBAN)</div>
+          <div class="req-value mono">UA543220010000026206373946128</div>
+        </div>
+        <div class="req-card">
+          <div class="req-label">Банк</div>
+          <div class="req-value">АТ «УНІВЕРСАЛ БАНК» (Monobank)</div>
+        </div>
+        <div class="req-card">
+          <div class="req-label">Email</div>
+          <div class="req-value"><a href="mailto:mlbb.boss.ua@gmail.com">mlbb.boss.ua@gmail.com</a></div>
+        </div>
+        <div class="req-card">
+          <div class="req-label">Telegram-підтримка</div>
+          <div class="req-value"><a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer">@ggenius_support</a></div>
+        </div>
+        <div class="req-card">
+          <div class="req-label">Бот</div>
+          <div class="req-value"><a href="https://t.me/ggeniusgg_bot" target="_blank" rel="noopener noreferrer">@ggeniusgg_bot</a></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>© 2026 GGenius — Ukrainian Independent Esports</div>
+    <div class="footer-links">
+      <a href="https://ggenius.gg">ggenius.gg</a>
+      <a href="https://t.me/ggeniusgg_bot" target="_blank" rel="noopener noreferrer">Telegram Bot</a>
+      <a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer">Підтримка</a>
+    </div>
+  </footer>
+
+</body>
+</html>
