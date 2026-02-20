@@ -15,4 +15,11 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
+  <!-- Політика конфіденційності -->
+  <url>
+    <loc>https://ggenius.gg/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
