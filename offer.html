@@ -36,19 +36,19 @@
 
     :root {
       /* ── Backgrounds ── */
-      --bg:           #0a0f1e;
+      --bg:           #030613;
       --bg-deep:      #030613;
       --surface:      #0d1b3e;
-      --surface2:     #1a1060;
+      --surface2:     #0f1a40;
       --surface3:     #0f1a40;
 
       /* ── Borders ── */
-      --border:       #2a2a4a;
-      --border-glow:  rgba(124, 77, 255, 0.35);
+      --border:       rgba(52, 164, 255, 0.15);
+      --border-glow:  rgba(52, 164, 255, 0.40);
 
       /* ── Accents ── */
-      --accent:       #7c4dff;
-      --accent-bright:#B07CFF;
+      --accent:       #34a4ff;
+      --accent-bright:#60b8ff;
       --accent-blue:  #34a4ff;
       --accent-green: #00FF88;
       --accent-gold:  #FFD700;
@@ -85,7 +85,7 @@
       --shadow-sm:  0 1px 4px rgba(0, 0, 0, 0.20);
       --shadow-md:  0 2px 8px rgba(0, 0, 0, 0.28);
       --shadow-lg:  0 4px 16px rgba(0, 0, 0, 0.35);
-      --shadow-glow: 0 0 0 1px var(--border-glow), 0 8px 32px rgba(124, 77, 255, 0.14);
+      --shadow-glow: 0 0 0 1px var(--border-glow), 0 8px 32px rgba(52, 164, 255, 0.12);
     }
 
     html { scroll-behavior: smooth; }
@@ -212,7 +212,7 @@
       border-radius: 20px;
       padding: 0.25rem 1rem;    /* 4px 16px — на сітці */
       margin-bottom: 1.25rem;
-      background: rgba(124, 77, 255, 0.08);
+      background: rgba(52, 164, 255, 0.06);
     }
 
     .hero-body h1 {
@@ -271,7 +271,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(124, 77, 255, 0.06) 0%, transparent 65%);
+      background: radial-gradient(ellipse at top left, rgba(52, 164, 255, 0.04) 0%, transparent 65%);
       pointer-events: none;
     }
     .preamble strong { color: var(--text); }
@@ -310,7 +310,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at top left, rgba(124, 77, 255, 0.05) 0%, transparent 60%);
+      background: radial-gradient(ellipse at top left, rgba(52, 164, 255, 0.03) 0%, transparent 60%);
       pointer-events: none;
     }
     .section-card:hover {
@@ -354,7 +354,7 @@
     ══════════════════════════════════════════ */
     .clause {
       padding: 0.75rem 0;       /* 12px — уніфіковано (було 0.6) */
-      border-bottom: 1px solid rgba(42, 42, 74, 0.5);
+      border-bottom: 1px solid rgba(52, 164, 255, 0.12);
       font-size: 0.9375rem;     /* 15px */
       color: var(--text);
       line-height: 1.7;
@@ -431,12 +431,12 @@
     }
     .terms-table td {
       padding: 0.75rem 1rem;    /* 12px 16px — точно як th */
-      border-bottom: 1px solid rgba(42, 42, 74, 0.4);
+      border-bottom: 1px solid rgba(52, 164, 255, 0.10);
       vertical-align: top;
       color: var(--text);       /* було --text-muted для last-child → тепер однаково */
     }
     .terms-table tr:last-child td { border-bottom: none; }
-    .terms-table tr:nth-child(even) td { background: rgba(124, 77, 255, 0.03); }
+    .terms-table tr:nth-child(even) td { background: rgba(52, 164, 255, 0.03); }
     .terms-table td:first-child {
       font-family: var(--mono);
       font-size: 0.8125rem;     /* 13px */
@@ -522,7 +522,7 @@
     .badge-link:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
     .badge-link.tg    { background: rgba(38, 165, 228, 0.15); border-color: #26A5E4; color: #72ccf7; }
     .badge-link.email { background: rgba(234, 67, 53, 0.12);  border-color: #ea4335; color: #f4857d; }
-    .badge-link.web   { background: rgba(124, 77, 255, 0.12); border-color: var(--accent); color: var(--accent-bright); }
+    .badge-link.web   { background: rgba(52, 164, 255, 0.10); border-color: var(--accent); color: var(--accent-bright); }
 
     /* ══════════════════════════════════════════
        FOOTER BANNER + LINKS
