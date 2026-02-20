@@ -8,479 +8,793 @@
   <meta name="description" content="Політика конфіденційності ФОП Науменка Олега Олександровича щодо обробки персональних даних користувачів платформи GGenius." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Open Graph / Telegram preview -->
-  <meta property="og:title" content="Політика конфіденційності — GGenius" />
-  <meta property="og:description" content="Обробка персональних даних · Проєкт GGenius. Відповідно до Закону України «Про захист персональних даних»." />
-  <meta property="og:image" content="https://ggenius.gg/preview.webp" />
-  <meta property="og:url" content="https://ggenius.gg/privacy" />
-  <meta property="og:type" content="website" />
+  <meta property="og:title"       content="Політика конфіденційності — GGenius" />
+  <meta property="og:description" content="Обробка персональних даних · Проєкт GGenius. Відповідно до ЗУ «Про захист персональних даних»." />
+  <meta property="og:image"       content="https://ggenius.gg/preview.webp" />
+  <meta property="og:url"         content="https://ggenius.gg/privacy" />
+  <meta property="og:type"        content="website" />
 
-  <!-- Favicons -->
-  <link rel="icon" href="/favicon/favicon-96x96.png" />
+  <link rel="icon"             href="/favicon/favicon-96x96.png" />
   <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
-  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <link rel="manifest"         href="/favicon/site.webmanifest" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── Reset & base ── */
+    /* ══════════════════════════════════════════
+       TOKENS  — менше фіолетового, більше сталі
+    ══════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0c0c10;
-      --surface:   #14141c;
-      --surface2:  #1c1c28;
-      --border:    #2a2a3a;
-      --accent:    #7c5cfc;
-      --accent-dim:#5a3fcc;
-      --text:      #e8e8f0;
-      --muted:     #8888a8;
-      --warn:      #d4a017;
-      --danger:    #e05c6a;
-      --mono:      'JetBrains Mono', monospace;
+      /* backgrounds — глибокий midnight-navy, без фіолетового підтону */
+      --bg:        #080e1c;
+      --surface:   #0c1527;
+      --surface2:  #101e36;
+      --surface3:  #0e1a30;
+
+      /* borders — сталево-сині, прозорі */
+      --border:    rgba(52, 100, 180, 0.28);
+      --border-hi: rgba(52, 164, 255, 0.55);
+
+      /* accent — лише синій, фіолет прибрати */
+      --accent:    #2a7fff;
+      --accent-hi: #34a4ff;
+      --accent-lo: rgba(42, 127, 255, 0.15);
+
+      /* functional colours */
+      --green:     #00c97a;
+      --green-bg:  rgba(0, 201, 122, 0.08);
+      --gold:      #e8b84b;
+      --gold-bg:   rgba(232, 184, 75, 0.08);
+      --red:       #f04b5a;
+      --red-bg:    rgba(240, 75, 90, 0.09);
+
+      /* text — чистий, не синьо-сірий */
+      --text:      #dce8ff;
+      --text-2:    #8ba4cc;
+      --text-3:    #556680;
+
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+      --r:  10px;
+      --r2: 6px;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: var(--sans);
       background: var(--bg);
       color: var(--text);
-      line-height: 1.7;
+      line-height: 1.75;
       font-size: 16px;
+      min-height: 100vh;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a { color: var(--accent-hi); text-decoration: none; transition: color .18s; }
+    a:hover { color: #fff; text-decoration: underline; }
 
-    /* ── Sticky nav ── */
+    /* ══ NAV ══ */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(12, 12, 16, 0.92);
-      backdrop-filter: blur(10px);
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(8, 14, 28, .94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
     }
-
     .nav-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-      white-space: nowrap;
-      padding: 0.55rem 0;
+      max-width: 1000px; margin: 0 auto;
+      display: flex; align-items: center; gap: .2rem;
+      overflow-x: auto; scrollbar-width: none;
+      white-space: nowrap; padding: .55rem 1.5rem;
     }
     .nav-inner::-webkit-scrollbar { display: none; }
 
     .nav-logo {
-      font-weight: 700;
-      color: var(--accent);
-      margin-right: 1rem;
-      flex-shrink: 0;
+      font-family: var(--mono); font-weight: 700; font-size: .9rem;
+      color: var(--text); margin-right: .75rem; flex-shrink: 0;
+      letter-spacing: .03em;
     }
+    .nav-sep { width: 1px; height: 14px; background: var(--border); margin: 0 .4rem; flex-shrink: 0; }
 
-    nav a {
-      font-size: 0.78rem;
-      padding: 0.3rem 0.65rem;
-      border-radius: 6px;
-      color: var(--muted);
-      transition: color 0.2s, background 0.2s;
-      flex-shrink: 0;
+    nav a.nl {
+      font-size: .74rem; font-weight: 500;
+      padding: .25rem .55rem; border-radius: 5px;
+      color: var(--text-2);
+      transition: color .18s, background .18s; flex-shrink: 0;
     }
-    nav a:hover { color: var(--text); background: var(--surface2); text-decoration: none; }
+    nav a.nl:hover { color: var(--text); background: var(--surface2); text-decoration: none; }
 
-    /* ── Hero ── */
-    .hero {
-      max-width: 960px;
-      margin: 3rem auto 0;
-      padding: 0 1.5rem 2.5rem;
+    .nav-right { margin-left: auto; display: flex; gap: .45rem; flex-shrink: 0; }
+    .nav-chip {
+      font-family: var(--mono); font-size: .68rem; font-weight: 600;
+      padding: .18rem .55rem; border-radius: 20px;
+      border: 1px solid currentColor; opacity: .65; transition: opacity .18s;
+    }
+    .nav-chip:hover { opacity: 1; text-decoration: none; }
+    .nav-chip.offer   { color: var(--gold); }
+    .nav-chip.privacy { color: var(--accent-hi); }
+
+    /* ══ HERO BANNER ══ */
+    .hero-banner { width: 100%; overflow: hidden; line-height: 0; }
+    .hero-banner img { width: 100%; display: block; }
+
+    .hero-body {
       text-align: center;
+      padding: 2.25rem 1.5rem 1.75rem;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-family: var(--mono); font-size: .68rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent-hi); border: 1px solid rgba(52,164,255,.35);
+      border-radius: 20px; padding: .22rem .85rem; margin-bottom: 1.1rem;
+      background: rgba(52,164,255,.06);
+    }
+    .hero-body h1 {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; line-height: 1.2;
+      /* білий → блакитний, без фіолетового */
+      background: linear-gradient(130deg, #ffffff 0%, #8ec8ff 55%, var(--accent-hi) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: .45rem;
+    }
+    .hero-sub { font-size: .96rem; color: var(--text-2); margin-bottom: 1.1rem; }
+
+    .chips-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .45rem; }
+    .chip-pill {
+      font-family: var(--mono); font-size: .76rem; color: var(--text-2);
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 20px; padding: .25rem .75rem;
     }
 
-    .hero-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      border-radius: 20px;
-      padding: 0.25rem 0.9rem;
-      margin-bottom: 1.2rem;
-    }
+    /* ══ LAYOUT ══ */
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 5rem; }
 
-    .hero h1 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 700;
-      line-height: 1.2;
-      background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .meta-pills {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .meta-pills span {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.25rem 0.75rem;
-    }
-
-    /* ── Layout ── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 1.5rem 4rem;
-    }
-
-    /* ── Preamble ── */
+    /* ══ PREAMBLE ══ */
     .preamble {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-      font-size: 0.95rem;
-      color: var(--muted);
+      position: relative; overflow: hidden;
+      background: var(--surface3);
+      border: 1px solid var(--border); border-left: 3px solid var(--accent);
+      border-radius: var(--r);
+      padding: 1.4rem 1.65rem; margin-bottom: 1.75rem;
+      font-size: .93rem; color: var(--text-2);
+    }
+    .preamble::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(42,127,255,.05) 0%, transparent 60%);
+      pointer-events: none;
     }
     .preamble strong { color: var(--text); }
-
-    /* ── Section cards ── */
-    .section-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.75rem 1.75rem 1.5rem;
-      margin-bottom: 1.5rem;
-      transition: border-color 0.25s;
-    }
-    .section-card:hover { border-color: var(--accent-dim); }
-
-    .section-card h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .section-card h2 .num {
-      font-size: 0.72rem;
-      font-weight: 600;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 6px;
-      padding: 0.15rem 0.45rem;
+    .preamble p + p { margin-top: .65rem; }
+    .law-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .65rem; }
+    .law-chip {
+      font-family: var(--mono); font-size: .71rem; color: var(--accent-hi);
+      background: rgba(52,164,255,.07); border: 1px solid rgba(52,164,255,.22);
+      border-radius: 5px; padding: .15rem .5rem;
     }
 
-    /* ── Clauses ── */
-    .clause {
-      padding: 0.55rem 0;
+    /* ══ SECTION CARDS ══ */
+    .sc {
+      position: relative; overflow: hidden;
+      background: var(--surface3); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 1.65rem 1.65rem 1.4rem;
+      margin-bottom: 1.1rem;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .sc::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top left, rgba(42,127,255,.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .sc:hover {
+      border-color: var(--border-hi);
+      box-shadow: 0 0 0 1px rgba(52,164,255,.15), 0 6px 28px rgba(42,127,255,.08);
+    }
+
+    .sc h2 {
+      font-size: 1rem; font-weight: 700; color: var(--text);
+      margin-bottom: 1.15rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .snum {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 1.45rem; height: 1.45rem; padding: 0 .38rem;
+      font-family: var(--mono); font-size: .67rem; font-weight: 700;
+      /* сталево-синій градієнт, без фіолетового */
+      background: linear-gradient(135deg, #1a5fcc 0%, var(--accent-hi) 100%);
+      color: #fff; border-radius: 5px;
+    }
+    .sico { font-size: .95rem; line-height: 1; }
+
+    /* ══ CLAUSES ══ */
+    .cl {
+      padding: .55rem 0;
+      border-bottom: 1px solid rgba(52,100,180,.18);
+      font-size: .92rem; color: var(--text);
+    }
+    .cl:last-child { border-bottom: none; padding-bottom: 0; }
+    .cn {
+      font-family: var(--mono); font-weight: 600; font-size: .8rem;
+      color: var(--accent-hi); margin-right: .35rem;
+    }
+
+    /* ══ CALLOUTS ══ */
+    .co {
+      display: flex; gap: .7rem;
+      border-radius: 0 var(--r2) var(--r2) 0;
+      padding: .7rem 1rem; margin: .45rem 0;
+      font-size: .9rem; line-height: 1.6;
+    }
+    .co-i { font-size: .95rem; flex-shrink: 0; margin-top: .12rem; }
+    .co.info   { background: rgba(52,164,255,.07); border-left: 3px solid var(--accent-hi);  color: #a8d4f8; }
+    .co.tip    { background: var(--green-bg);      border-left: 3px solid var(--green);       color: #7de8ba; }
+    .co.warn   { background: var(--gold-bg);       border-left: 3px solid var(--gold);        color: #f0d080; }
+    .co.danger { background: var(--red-bg);        border-left: 3px solid var(--red);         color: #f8909a; }
+    .co strong { color: #fff; }
+
+    /* ══ DATA TABLE ══ */
+    .dt { width: 100%; border-collapse: collapse; font-size: .88rem; margin-top: .25rem; }
+    .dt th {
+      background: var(--surface2); color: var(--accent-hi);
+      font-family: var(--mono); font-size: .67rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: .07em;
+      padding: .55rem .9rem; text-align: left;
       border-bottom: 1px solid var(--border);
-      font-size: 0.95rem;
     }
-    .clause:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .clause-danger {
-      background: rgba(224, 92, 106, 0.08);
-      border-left: 3px solid var(--danger);
-      border-radius: 0 8px 8px 0;
-      padding: 0.65rem 1rem;
-      color: #f07a86;
-      margin: 0.4rem 0;
-      font-size: 0.92rem;
+    .dt td {
+      padding: .65rem .9rem;
+      border-bottom: 1px solid rgba(52,100,180,.14);
+      vertical-align: top; color: var(--text-2);
     }
+    .dt tr:last-child td { border-bottom: none; }
+    .dt tr:nth-child(even) td { background: rgba(42,127,255,.03); }
+    .dt td:first-child { font-family: var(--mono); font-size: .82rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+    .dt td:nth-child(2) { color: var(--text); }
 
-    .clause-num {
-      font-weight: 600;
-      color: var(--accent);
-      margin-right: 0.35rem;
+    /* tag chips */
+    .tg {
+      display: inline-block; font-family: var(--mono); font-size: .65rem;
+      font-weight: 600; padding: .08rem .4rem; border-radius: 4px;
     }
+    .tg.req { background: rgba(42,127,255,.15); color: var(--accent-hi);  border: 1px solid rgba(52,164,255,.35); }
+    .tg.opt { background: var(--green-bg);      color: var(--green);      border: 1px solid rgba(0,201,122,.3); }
+    .tg.no  { background: var(--red-bg);        color: var(--red);        border: 1px solid rgba(240,75,90,.35); }
 
-    /* ── Requisites grid ── */
-    .req-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 0.5rem;
+    /* ══ SVG CHARTS wrapper ══ */
+    .chart-wrap {
+      margin: 1.1rem 0 .25rem;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r); overflow: hidden;
     }
+    .chart-wrap svg { display: block; width: 100%; height: auto; }
 
+    /* ══ RIGHTS GRID ══ */
+    .rg { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: .75rem; margin-top: .5rem; }
+    .rc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r2); padding: .9rem 1rem;
+      transition: border-color .2s, transform .18s;
+    }
+    .rc:hover { border-color: var(--border-hi); transform: translateY(-1px); }
+    .rc-ico { font-size: 1.25rem; margin-bottom: .35rem; }
+    .rc-title { font-size: .86rem; font-weight: 700; color: var(--text); margin-bottom: .2rem; }
+    .rc-desc  { font-size: .78rem; color: var(--text-2); line-height: 1.5; }
+
+    /* ══ REQ GRID ══ */
+    .req-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(205px,1fr)); gap: .75rem; margin-top: .5rem; }
     .req-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem 1.1rem;
-      transition: border-color 0.2s;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r2); padding: .9rem 1rem;
+      transition: border-color .2s, transform .18s;
     }
-    .req-card:hover { border-color: var(--accent-dim); }
-    .req-card.wide { grid-column: 1 / -1; }
+    .req-card:hover { border-color: var(--border-hi); transform: translateY(-1px); }
+    .req-card.wide  { grid-column: 1 / -1; }
+    .rl { font-family: var(--mono); font-size: .65rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin-bottom: .35rem; }
+    .rv { font-size: .91rem; color: var(--text); word-break: break-all; }
+    .rv.mono { font-family: var(--mono); font-size: .84rem; color: var(--accent-hi); letter-spacing: .03em; }
 
-    .req-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
+    /* ══ CONTACT BADGES ══ */
+    .cbadges { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
+    .cb {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-family: var(--mono); font-size: .75rem; font-weight: 600;
+      padding: .28rem .8rem; border-radius: 20px; border: 1px solid transparent;
+      transition: opacity .18s, transform .15s; white-space: nowrap;
     }
-    .req-value {
-      font-size: 0.95rem;
-      color: var(--text);
-      word-break: break-all;
-    }
-    .req-value.mono {
-      font-family: var(--mono);
-      font-size: 0.88rem;
-      color: #a0d4ff;
-    }
+    .cb:hover { opacity: .82; transform: translateY(-1px); text-decoration: none; }
+    .cb.tg    { background: rgba(38,165,228,.13); border-color: #26A5E4; color: #80d4f7; }
+    .cb.em    { background: rgba(234,67,53,.11);  border-color: #ea4335; color: #f5958d; }
+    .cb.web   { background: rgba(42,127,255,.11); border-color: var(--accent); color: var(--accent-hi); }
 
-    /* ── Footer ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
+    /* ══ FOOTER ══ */
+    .footer-banner { width: 100%; overflow: hidden; line-height: 0; margin-top: 2rem; }
+    .footer-banner img { width: 100%; display: block; }
+    footer { text-align: center; padding: 1.75rem 1.5rem 2.25rem; color: var(--text-2); font-size: .82rem; }
+    .fpills { display: flex; justify-content: center; flex-wrap: wrap; gap: .5rem; margin: .75rem 0; }
+    .fp {
+      font-family: var(--mono); font-size: .7rem; font-weight: 600;
+      padding: .22rem .7rem; border-radius: 20px; border: 1px solid;
+      transition: opacity .18s;
     }
-    footer .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      margin-top: 0.75rem;
-    }
-    footer a { color: var(--muted); }
-    footer a:hover { color: var(--accent); }
+    .fp:hover { opacity: .75; text-decoration: none; }
+    .fp.offer   { color: var(--gold);      border-color: var(--gold); }
+    .fp.privacy { color: var(--accent-hi); border-color: var(--accent); }
+    .fp.bot     { color: #80d4f7;          border-color: #26A5E4; }
+    .fp.site    { color: var(--text-2);    border-color: var(--border); }
+    .fcopy { font-size: .77rem; color: var(--text-3); margin-top: .45rem; }
 
-    /* ── Print ── */
+    /* ══ PRINT ══ */
     @media print {
       body { background: #fff; color: #111; }
-      nav { display: none; }
-      .section-card, .preamble { background: #fff; border-color: #ccc; }
-      .hero h1 { -webkit-text-fill-color: #111; background: none; color: #111; }
-      .clause-danger { background: #fff9; border-left-width: 2px; }
-      .req-card { background: #f5f5f5; }
+      nav, .hero-banner, .footer-banner { display: none; }
+      .sc, .preamble { background: #fff; border: 1px solid #ccc; box-shadow: none; }
+      .hero-body h1 { -webkit-text-fill-color: #111; background: none; color: #111; }
+      .co { background: #f9f9f9 !important; border-left-color: #999 !important; color: #333 !important; }
+      .req-card, .rc { background: #f5f5f5; border-color: #ddd; }
       a { color: #333; }
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 580px) {
-      .hero h1 { font-size: 1.6rem; }
-      .section-card { padding: 1.25rem 1rem; }
-      .req-grid { grid-template-columns: 1fr; }
+    /* ══ RESPONSIVE ══ */
+    @media (max-width: 600px) {
+      .hero-body h1 { font-size: 1.45rem; }
+      .sc { padding: 1.1rem .9rem; }
+      .dt { display: block; overflow-x: auto; }
+      .req-grid, .rg { grid-template-columns: 1fr; }
       .req-card.wide { grid-column: 1; }
+      .nav-right { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Sticky navigation -->
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-logo">GGenius</span>
-      <a href="#s1">Дані</a>
-      <a href="#s2">Мета</a>
-      <a href="#s3">Передача</a>
-      <a href="#s4">Захист</a>
-      <a href="#s5">Права</a>
-      <a href="#s6">Зміни</a>
-      <a href="#s7">Контакти</a>
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">🔐 GGenius</span>
+    <div class="nav-sep"></div>
+    <a href="#preamble" class="nl">Преамбула</a>
+    <a href="#s1"       class="nl">§1 Дані</a>
+    <a href="#s2"       class="nl">§2 Мета</a>
+    <a href="#s3"       class="nl">§3 Передача</a>
+    <a href="#s4"       class="nl">§4 Захист</a>
+    <a href="#s5"       class="nl">§5 Права</a>
+    <a href="#s6"       class="nl">§6 Зміни</a>
+    <a href="#s7"       class="nl">§7 Контакти</a>
+    <div class="nav-right">
+      <a href="https://ggenius.gg/offer"   class="nav-chip offer">⚔️ Оферта</a>
+      <a href="https://ggenius.gg/privacy" class="nav-chip privacy">🔐 Privacy</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="hero-badge">🔐 Юридичний документ</div>
-    <h1>Політика конфіденційності</h1>
-    <div class="hero-subtitle">Обробка персональних даних · Проєкт GGenius</div>
-    <div class="meta-pills">
-      <span>🟢 Чинна з 01.02.2026</span>
-      <span>🇺🇦 ЗУ «Про захист персональних даних»</span>
-      <span>🔒 Мінімізація даних</span>
+<!-- ══ HERO BANNER — синьо-стальовий, без фіолетового ══ -->
+<div class="hero-banner">
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:030c1c,40:0a1e3e,70:0d3060,100:1a6aaa&height=210&section=header&text=%F0%9F%94%90%20%D0%9F%D0%BE%D0%BB%D1%96%D1%82%D0%B8%D0%BA%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%84%D1%96%D0%B4%D0%B5%D0%BD%D1%86%D1%96%D0%B9%D0%BD%D0%BE%D1%81%D1%82%D1%96&fontSize=34&fontColor=ffffff&animation=fadeIn&fontAlignY=44&desc=GGenius%20%C2%B7%20Data%20Privacy%20Policy%20%C2%B7%20v1.1%20%C2%B7%2020.02.2026&descSize=14&descAlignY=64"
+    alt="GGenius — Політика конфіденційності"
+  />
+</div>
+
+<!-- ══ HERO BODY ══ -->
+<header class="hero-body">
+  <div class="hero-tag">🔐 Юридичний документ · ЗУ № 2297-VI</div>
+  <h1>Політика конфіденційності</h1>
+  <div class="hero-sub">Обробка персональних даних · Проєкт GGenius</div>
+  <div class="chips-row">
+    <span class="chip-pill">🟢 Чинна з 20.02.2026 · v1.1</span>
+    <span class="chip-pill">🇺🇦 ЗУ «Про захист персональних даних»</span>
+    <span class="chip-pill">🛡️ Data Minimization</span>
+    <span class="chip-pill">🔒 Zero card storage</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- PREAMBLE -->
+  <div class="preamble" id="preamble">
+    <p>Ця Політика конфіденційності пояснює, як Фізична особа-підприємець
+      <strong>Науменко Олег Олександрович</strong> (надалі — «Володілець»)
+      збирає, використовує та захищає персональні дані фізичних осіб (надалі — «Користувачів»),
+      які користуються платформою <strong>GGenius</strong> (вебсайтом, Telegram-ботом тощо).
+    </p>
+    <p>Документ розроблено у відповідності до <strong>Закону України «Про захист персональних
+      даних»</strong> (№ 2297-VI від 01.06.2010). Використання Telegram-бота або сайту
+      означає вашу згоду з цією Політикою.</p>
+    <div class="law-chips">
+      <span class="law-chip">📜 ЗУ № 2297-VI</span>
+      <span class="law-chip">📜 ст. 8 — права суб'єкта</span>
+      <span class="law-chip">📜 GDPR-сумісність</span>
     </div>
-  </header>
+  </div>
 
-  <main class="container">
+  <!-- ── §1 ДАНІ ── -->
+  <section class="sc" id="s1">
+    <h2><span class="snum">1</span><span class="sico">🗄️</span> Які дані ми збираємо</h2>
 
-    <!-- Preamble -->
-    <div class="preamble">
-      <p>Ця Політика конфіденційності (надалі — «Політика») пояснює, як Фізична особа-підприємець <strong>Науменко Олег Олександрович</strong> (надалі — «Володілець» або «Виконавець») збирає, використовує, обробляє та захищає персональні дані фізичних осіб (надалі — «Користувачів»), які користуються платформою GGenius (вебсайтом, Telegram-ботом тощо). Ця Політика розроблена відповідно до Закону України «Про захист персональних даних».</p>
+    <!-- SVG: Data categories diagram -->
+    <div class="chart-wrap" aria-label="Категорії даних GGenius">
+      <svg viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+        <defs>
+          <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1a5fcc"/>
+            <stop offset="100%" stop-color="#34a4ff"/>
+          </linearGradient>
+          <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#007a50"/>
+            <stop offset="100%" stop-color="#00c97a"/>
+          </linearGradient>
+          <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#8a1a24"/>
+            <stop offset="100%" stop-color="#f04b5a"/>
+          </linearGradient>
+        </defs>
+        <rect width="720" height="180" fill="#0c1527"/>
+
+        <!-- центр -->
+        <circle cx="360" cy="90" r="38" fill="#0e1a30" stroke="url(#gBlue)" stroke-width="2"/>
+        <text x="360" y="86" text-anchor="middle" fill="#34a4ff" font-size="11" font-weight="700">GGenius</text>
+        <text x="360" y="100" text-anchor="middle" fill="#8ba4cc" font-size="9">дані</text>
+
+        <!-- MLBB -->
+        <rect x="20" y="55" width="140" height="48" rx="8" fill="#0e1a30" stroke="url(#gBlue)" stroke-width="1.5"/>
+        <text x="90" y="75" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">🎮 MLBB ID</text>
+        <text x="90" y="91" text-anchor="middle" fill="#8ba4cc" font-size="9">User ID · Zone ID</text>
+        <line x1="160" y1="79" x2="322" y2="87" stroke="#34a4ff" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+
+        <!-- Telegram -->
+        <rect x="20" y="122" width="140" height="48" rx="8" fill="#0e1a30" stroke="url(#gBlue)" stroke-width="1.5"/>
+        <text x="90" y="142" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">💬 Telegram</text>
+        <text x="90" y="158" text-anchor="middle" fill="#8ba4cc" font-size="9">@username · ID</text>
+        <line x1="160" y1="146" x2="325" y2="98" stroke="#34a4ff" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+
+        <!-- Транзакції -->
+        <rect x="560" y="55" width="140" height="48" rx="8" fill="#0e1a30" stroke="url(#gGreen)" stroke-width="1.5"/>
+        <text x="630" y="75" text-anchor="middle" fill="#00c97a" font-size="10" font-weight="700">🧾 Транзакції</text>
+        <text x="630" y="91" text-anchor="middle" fill="#8ba4cc" font-size="9">UUID · сума · час</text>
+        <line x1="560" y1="79" x2="398" y2="87" stroke="#00c97a" stroke-width="1" stroke-dasharray="4,3" opacity=".5"/>
+
+        <!-- Ніколи -->
+        <rect x="560" y="122" width="140" height="48" rx="8" fill="#0e1a30" stroke="url(#gRed)" stroke-width="1.5"/>
+        <text x="630" y="142" text-anchor="middle" fill="#f04b5a" font-size="10" font-weight="700">⛔ НІКОЛИ</text>
+        <text x="630" y="158" text-anchor="middle" fill="#8ba4cc" font-size="9">паролі · картки</text>
+        <line x1="560" y1="146" x2="395" y2="98" stroke="#f04b5a" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+      </svg>
     </div>
 
-    <!-- Section 1 -->
-    <section class="section-card" id="s1">
-      <h2><span class="num">01</span> Які дані ми збираємо</h2>
-      <div class="clause">
-        <span class="clause-num">1.1.</span> <strong>Ігрові ідентифікатори:</strong> User ID та Zone ID у грі Mobile Legends: Bang Bang — необхідні виключно для нарахування ігрової валюти на правильний акаунт.
-      </div>
-      <div class="clause">
-        <span class="clause-num">1.2.</span> <strong>Контактні дані Telegram:</strong> Нікнейм (username) та/або User ID у Telegram — для надання підтримки та ідентифікації замовлення.
-      </div>
-      <div class="clause">
-        <span class="clause-num">1.3.</span> <strong>Технічні дані замовлення:</strong> Історія транзакцій, сума поповнення, обраний пакет послуг, час замовлення — для виконання умов договору та бухгалтерського обліку.
-      </div>
-      <div class="clause">
-        <span class="clause-num">1.4.</span> <strong>Cookie та аналітика:</strong> Під час використання вебсайту ми можемо збирати технічну інформацію (тип браузера, файли cookie) для покращення роботи сервісу.
-      </div>
-      <div class="clause-danger">
-        <strong>⛔ ЩО МИ НІКОЛИ НЕ ЗБИРАЄМО:</strong>
-        <div style="margin-top:0.5rem;">
-          <div><strong>Паролі та логіни:</strong> Ми ніколи не просимо надати пароль від ігрового акаунту, соціальних мереж або електронної пошти.</div>
-          <div style="margin-top:0.4rem;"><strong>Платіжні дані:</strong> Ми не збираємо і не зберігаємо повні номери банківських карток, CVV-коди чи терміни дії карток. Усі платежі обробляються виключно на захищеній стороні банку-еквайра (АТ «УНІВЕРСАЛ БАНК» / Monobank).</div>
-        </div>
-      </div>
-    </section>
+    <!-- таблиця -->
+    <table class="dt" style="margin-top:.85rem;">
+      <thead>
+        <tr><th>Категорія</th><th>Що саме</th><th>Навіщо</th><th>Тип</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🎮 MLBB ID</td>
+          <td>User ID, Zone ID</td>
+          <td>Нарахування ігрової валюти на правильний акаунт</td>
+          <td><span class="tg req">required</span></td>
+        </tr>
+        <tr>
+          <td>💬 Telegram</td>
+          <td>@username, User ID</td>
+          <td>Підтримка, ідентифікація замовлення</td>
+          <td><span class="tg req">required</span></td>
+        </tr>
+        <tr>
+          <td>🧾 Транзакції</td>
+          <td>Сума, пакет, UUID, час</td>
+          <td>Виконання оферти, бух. облік</td>
+          <td><span class="tg req">required</span></td>
+        </tr>
+        <tr>
+          <td>🌐 Cookie</td>
+          <td>Тип браузера, ОС</td>
+          <td>Покращення сайту</td>
+          <td><span class="tg opt">optional</span></td>
+        </tr>
+        <tr>
+          <td>🔑 Паролі</td>
+          <td>—</td><td>—</td>
+          <td><span class="tg no">НІКОЛИ</span></td>
+        </tr>
+        <tr>
+          <td>💳 Картки</td>
+          <td>—</td><td>—</td>
+          <td><span class="tg no">НІКОЛИ</span></td>
+        </tr>
+      </tbody>
+    </table>
 
-    <!-- Section 2 -->
-    <section class="section-card" id="s2">
-      <h2><span class="num">02</span> Мета збору даних</h2>
-      <div class="clause">
-        <span class="clause-num">2.1.</span> Виконання умов Публічної оферти — зарахування ігрової валюти на правильний акаунт.
+    <div class="co danger" style="margin-top:.85rem;">
+      <span class="co-i">⛔</span>
+      <div>
+        <strong>Ми НІКОЛИ не просимо:</strong> пароль від ігрового акаунту, соціальних мереж або пошти.
+        <br/><strong>Платіжні дані</strong> (номер картки, CVV, термін) обробляються
+        <em>тільки</em> на захищеній стороні еквайра (АТ «УНІВЕРСАЛ БАНК» / Monobank) —
+        ми їх не отримуємо і не зберігаємо.
       </div>
-      <div class="clause">
-        <span class="clause-num">2.2.</span> Надання клієнтської підтримки та вирішення можливих суперечок.
-      </div>
-      <div class="clause">
-        <span class="clause-num">2.3.</span> Запобігання шахрайству та зловживанням на Платформі.
-      </div>
-      <div class="clause">
-        <span class="clause-num">2.4.</span> Ведення бухгалтерського та податкового обліку відповідно до законодавства України.
-      </div>
-    </section>
-
-    <!-- Section 3 -->
-    <section class="section-card" id="s3">
-      <h2><span class="num">03</span> Передача даних третім особам</h2>
-      <div class="clause">
-        Ми не продаємо, не обмінюємо і не передаємо персональні дані Користувачів третім особам у комерційних цілях. Передача даних можлива лише у таких випадках:
-      </div>
-      <div class="clause">
-        <span class="clause-num">3.1.</span> <strong>Провайдери платіжних послуг:</strong> Для ініціації та підтвердження транзакції передається лише номер замовлення та сума. Дані карток нам не передаються.
-      </div>
-      <div class="clause">
-        <span class="clause-num">3.2.</span> <strong>Постачальники ігрової валюти (API Moonton або партнери):</strong> Передаються виключно User ID та Zone ID для безпосереднього нарахування алмазів.
-      </div>
-      <div class="clause">
-        <span class="clause-num">3.3.</span> <strong>На вимогу закону:</strong> За офіційним та законним запитом правоохоронних органів України.
-      </div>
-    </section>
-
-    <!-- Section 4 -->
-    <section class="section-card" id="s4">
-      <h2><span class="num">04</span> Захист та зберігання даних</h2>
-      <div class="clause">
-        <span class="clause-num">4.1.</span> Володілець вживає всіх необхідних технічних та організаційних заходів для захисту даних від несанкціонованого доступу, зміни, розкриття чи знищення.
-      </div>
-      <div class="clause">
-        <span class="clause-num">4.2.</span> Дані зберігаються протягом терміну, необхідного для виконання цілей, описаних у цій Політиці, але не менше <strong>3 років</strong> — відповідно до вимог податкового законодавства України щодо зберігання первинної документації.
-      </div>
-      <div class="clause">
-        <span class="clause-num">4.3.</span> Після закінчення терміну зберігання дані знищуються безповоротно.
-      </div>
-    </section>
-
-    <!-- Section 5 -->
-    <section class="section-card" id="s5">
-      <h2><span class="num">05</span> Права Користувача</h2>
-      <div class="clause">
-        Відповідно до <strong>ст. 8 Закону України «Про захист персональних даних»</strong>, Користувач має право:
-      </div>
-      <div class="clause">
-        <span class="clause-num">5.1.</span> Знати про джерела збору, місцезнаходження своїх персональних даних та мету їх обробки.
-      </div>
-      <div class="clause">
-        <span class="clause-num">5.2.</span> Отримувати інформацію про умови надання доступу до персональних даних.
-      </div>
-      <div class="clause">
-        <span class="clause-num">5.3.</span> Пред'являти вмотивовану вимогу щодо зміни або знищення своїх персональних даних, якщо ці дані обробляються незаконно чи є недостовірними.
-      </div>
-      <div class="clause">
-        <span class="clause-num">5.4.</span> Відкликати згоду на обробку персональних даних.
-      </div>
-      <div class="clause">
-        Для реалізації своїх прав Користувач може звернутися до служби підтримки за контактами, вказаними у розділі 7.
-      </div>
-    </section>
-
-    <!-- Section 6 -->
-    <section class="section-card" id="s6">
-      <h2><span class="num">06</span> Зміни до Політики</h2>
-      <div class="clause">
-        <span class="clause-num">6.1.</span> Володілець залишає за собою право вносити зміни до цієї Політики. Нова редакція Політики вступає в силу з моменту її публікації на Платформі.
-      </div>
-      <div class="clause">
-        <span class="clause-num">6.2.</span> Продовжуючи використовувати сервіс після внесення змін, Користувач підтверджує свою згоду з оновленою Політикою.
-      </div>
-    </section>
-
-    <!-- Section 7 -->
-    <section class="section-card" id="s7">
-      <h2><span class="num">07</span> Контакти Володільця даних</h2>
-      <div class="req-grid">
-        <div class="req-card">
-          <div class="req-label">Володілець даних</div>
-          <div class="req-value">ФОП Науменко Олег Олександрович</div>
-        </div>
-        <div class="req-card">
-          <div class="req-label">РНОКПП (ІПН)</div>
-          <div class="req-value mono">3273212633</div>
-        </div>
-        <div class="req-card wide">
-          <div class="req-label">Адреса реєстрації</div>
-          <div class="req-value">Україна, 49000, Дніпропетровська обл., м. Дніпро, вул. Січеславська Набережна, буд. 6</div>
-        </div>
-        <div class="req-card">
-          <div class="req-label">Email</div>
-          <div class="req-value"><a href="mailto:mlbb.boss.ua@gmail.com">mlbb.boss.ua@gmail.com</a></div>
-        </div>
-        <div class="req-card">
-          <div class="req-label">Telegram-підтримка</div>
-          <div class="req-value"><a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer">@ggenius_support</a></div>
-        </div>
-        <div class="req-card">
-          <div class="req-label">Бот</div>
-          <div class="req-value"><a href="https://t.me/ggeniusgg_bot" target="_blank" rel="noopener noreferrer">@ggeniusgg_bot</a></div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div>© 2026 GGenius — Ukrainian Independent Esports</div>
-    <div class="footer-links">
-      <a href="https://ggenius.gg">ggenius.gg</a>
-      <a href="/offer">📄 Публічна оферта</a>
-      <a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer">Підтримка</a>
     </div>
-  </footer>
+  </section>
+
+  <!-- ── §2 МЕТА ── -->
+  <section class="sc" id="s2">
+    <h2><span class="snum">2</span><span class="sico">🎯</span> Мета збору даних</h2>
+    <div class="cl"><span class="cn">2.1.</span> Виконання умов Публічної оферти — зарахування ігрової валюти на правильний акаунт.</div>
+    <div class="cl"><span class="cn">2.2.</span> Надання клієнтської підтримки та вирішення можливих суперечок.</div>
+    <div class="cl"><span class="cn">2.3.</span> Запобігання шахрайству та зловживанням на Платформі.</div>
+    <div class="cl"><span class="cn">2.4.</span> Ведення бухгалтерського та податкового обліку відповідно до законодавства України.</div>
+    <div class="co tip" style="margin-top:.75rem;">
+      <span class="co-i">💡</span>
+      <div>
+        Принцип <strong>Data Minimization</strong>: збираємо лише мінімум, необхідний для
+        роботи сервісу. Жодних ПІБ, адрес чи телефонів не вимагається.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── §3 ПЕРЕДАЧА ── -->
+  <section class="sc" id="s3">
+    <h2><span class="snum">3</span><span class="sico">📤</span> Передача даних третім особам</h2>
+
+    <div class="cl">
+      Ми <strong>не продаємо</strong>, не обмінюємо і не передаємо персональні дані у
+      комерційних цілях. Передача можлива лише у трьох суворо обмежених випадках:
+    </div>
+
+    <!-- SVG: data flow -->
+    <div class="chart-wrap" aria-label="Потік даних GGenius" style="margin-top:.85rem;">
+      <svg viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+        <rect width="720" height="130" fill="#0c1527"/>
+
+        <!-- User -->
+        <rect x="16" y="42" width="110" height="46" rx="8" fill="#0e1a30" stroke="#34a4ff" stroke-width="1.5"/>
+        <text x="71" y="62" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">👤 Користувач</text>
+        <text x="71" y="78" text-anchor="middle" fill="#8ba4cc" font-size="8.5">User ID + Zone ID</text>
+
+        <!-- Arrow → GGenius -->
+        <line x1="126" y1="65" x2="192" y2="65" stroke="#34a4ff" stroke-width="1.5" marker-end="url(#arr)"/>
+
+        <!-- GGenius -->
+        <rect x="192" y="36" width="130" height="58" rx="8" fill="#0e1a30" stroke="#34a4ff" stroke-width="2"/>
+        <text x="257" y="58" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">⚔️ GGenius</text>
+        <text x="257" y="74" text-anchor="middle" fill="#8ba4cc" font-size="8.5">PostgreSQL · Redis</text>
+        <text x="257" y="88" text-anchor="middle" fill="#8ba4cc" font-size="8.5">UUID генерація</text>
+
+        <!-- Arrow → Monobank -->
+        <line x1="322" y1="52" x2="402" y2="38" stroke="#e8b84b" stroke-width="1.5" marker-end="url(#arrG)"/>
+        <!-- Arrow → Moonton -->
+        <line x1="322" y1="72" x2="402" y2="90" stroke="#00c97a" stroke-width="1.5" marker-end="url(#arrGr)"/>
+
+        <!-- Monobank -->
+        <rect x="402" y="14" width="138" height="44" rx="8" fill="#0e1a30" stroke="#e8b84b" stroke-width="1.5"/>
+        <text x="471" y="32" text-anchor="middle" fill="#e8b84b" font-size="10" font-weight="700">🏦 Monobank</text>
+        <text x="471" y="47" text-anchor="middle" fill="#8ba4cc" font-size="8.5">Сума + UUID (без картки)</text>
+
+        <!-- Moonton -->
+        <rect x="402" y="72" width="138" height="44" rx="8" fill="#0e1a30" stroke="#00c97a" stroke-width="1.5"/>
+        <text x="471" y="90" text-anchor="middle" fill="#00c97a" font-size="10" font-weight="700">🎮 Moonton API</text>
+        <text x="471" y="105" text-anchor="middle" fill="#8ba4cc" font-size="8.5">User ID + Zone ID</text>
+
+        <!-- Never -->
+        <rect x="570" y="42" width="136" height="46" rx="8" fill="#0e1a30" stroke="#f04b5a" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="638" y="62" text-anchor="middle" fill="#f04b5a" font-size="10" font-weight="700">❌ Маркетологи</text>
+        <text x="638" y="78" text-anchor="middle" fill="#8ba4cc" font-size="8.5">не передається</text>
+
+        <defs>
+          <marker id="arr"   markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#34a4ff"/></marker>
+          <marker id="arrG"  markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#e8b84b"/></marker>
+          <marker id="arrGr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#00c97a"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <table class="dt" style="margin-top:.85rem;">
+      <thead>
+        <tr><th>Одержувач</th><th>Що передається</th><th>Підстава</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🏦 Monobank</td>
+          <td>Сума + UUID замовлення</td>
+          <td>Підтвердження транзакції</td>
+        </tr>
+        <tr>
+          <td>🎮 Moonton API</td>
+          <td>User ID + Zone ID</td>
+          <td>Нарахування ігрових алмазів</td>
+        </tr>
+        <tr>
+          <td>🏛️ Правоохоронні органи</td>
+          <td>На офіційний запит</td>
+          <td>Вимога чинного законодавства України</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="co info" style="margin-top:.75rem;">
+      <span class="co-i">🔒</span>
+      <div>
+        <strong>Принцип ізоляції:</strong> GGenius ніколи не отримує реквізити платіжної
+        картки. Весь card-processing — виключно на захищених серверах еквайра.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── §4 ЗАХИСТ ── -->
+  <section class="sc" id="s4">
+    <h2><span class="snum">4</span><span class="sico">🛡️</span> Захист та зберігання даних</h2>
+
+    <!-- SVG: lifecycle -->
+    <div class="chart-wrap" aria-label="Lifecycle даних" style="margin-bottom:.9rem;">
+      <svg viewBox="0 0 720 100" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+        <rect width="720" height="100" fill="#0c1527"/>
+
+        <!-- Stage 1 -->
+        <rect x="16" y="28" width="130" height="44" rx="8" fill="#0e1a30" stroke="#34a4ff" stroke-width="1.5"/>
+        <text x="81" y="48" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">📥 Збір</text>
+        <text x="81" y="63" text-anchor="middle" fill="#8ba4cc" font-size="8.5">HTTPS/TLS 1.3</text>
+
+        <line x1="146" y1="50" x2="182" y2="50" stroke="#34a4ff" stroke-width="1.5" marker-end="url(#a1)"/>
+
+        <!-- Stage 2 -->
+        <rect x="182" y="28" width="150" height="44" rx="8" fill="#0e1a30" stroke="#34a4ff" stroke-width="1.5"/>
+        <text x="257" y="48" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">🔐 Зберігання</text>
+        <text x="257" y="63" text-anchor="middle" fill="#8ba4cc" font-size="8.5">PostgreSQL · VPC · IP-list</text>
+
+        <line x1="332" y1="50" x2="372" y2="50" stroke="#34a4ff" stroke-width="1.5" marker-end="url(#a1)"/>
+
+        <!-- Stage 3 -->
+        <rect x="372" y="28" width="150" height="44" rx="8" fill="#0e1a30" stroke="#e8b84b" stroke-width="1.5"/>
+        <text x="447" y="48" text-anchor="middle" fill="#e8b84b" font-size="10" font-weight="700">📦 ≥ 3 роки</text>
+        <text x="447" y="63" text-anchor="middle" fill="#8ba4cc" font-size="8.5">Подат. законодавство</text>
+
+        <line x1="522" y1="50" x2="562" y2="50" stroke="#e8b84b" stroke-width="1.5" marker-end="url(#a2)"/>
+
+        <!-- Stage 4 -->
+        <rect x="562" y="28" width="142" height="44" rx="8" fill="#0e1a30" stroke="#00c97a" stroke-width="1.5"/>
+        <text x="633" y="48" text-anchor="middle" fill="#00c97a" font-size="10" font-weight="700">🗑️ Знищення</text>
+        <text x="633" y="63" text-anchor="middle" fill="#8ba4cc" font-size="8.5">Безповоротно</text>
+
+        <defs>
+          <marker id="a1" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#34a4ff"/></marker>
+          <marker id="a2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0,7 3.5,0 7" fill="#e8b84b"/></marker>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="cl"><span class="cn">4.1.</span> Всі з'єднання — <strong>HTTPS / WSS</strong> з TLS 1.3. Відкриті протоколи не використовуються.</div>
+    <div class="cl"><span class="cn">4.2.</span> Дані зберігаються у закритому кластері PostgreSQL, ізольованому на рівні VPC та IP-whitelist. Кеш — Redis з аналогічними обмеженнями.</div>
+    <div class="cl"><span class="cn">4.3.</span> Строк зберігання — <strong>не менше 3 років</strong> відповідно до податкового законодавства України.</div>
+    <div class="cl"><span class="cn">4.4.</span> Після закінчення строку — <strong>безповоротне знищення</strong> або анонімізація.</div>
+  </section>
+
+  <!-- ── §5 ПРАВА ── -->
+  <section class="sc" id="s5">
+    <h2><span class="snum">5</span><span class="sico">⚖️</span> Права Користувача</h2>
+
+    <div class="cl" style="margin-bottom:.75rem;">
+      Відповідно до <strong>ст. 8 Закону України «Про захист персональних даних»</strong> ви маєте право:
+    </div>
+
+    <!-- SVG: rights radial -->
+    <div class="chart-wrap" aria-label="Права суб'єкта даних">
+      <svg viewBox="0 0 720 160" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+        <rect width="720" height="160" fill="#0c1527"/>
+
+        <!-- center -->
+        <circle cx="360" cy="80" r="36" fill="#0e1a30" stroke="#34a4ff" stroke-width="2"/>
+        <text x="360" y="76" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">Ваші</text>
+        <text x="360" y="90" text-anchor="middle" fill="#34a4ff" font-size="9">права</text>
+
+        <!-- 5 leaves -->
+        <!-- Знати -->
+        <rect x="16" y="10" width="128" height="44" rx="7" fill="#0e1a30" stroke="#34a4ff" stroke-width="1.3"/>
+        <text x="80" y="30" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">📖 Знати</text>
+        <text x="80" y="46" text-anchor="middle" fill="#8ba4cc" font-size="8.5">джерела · мету</text>
+        <line x1="144" y1="32" x2="325" y2="68" stroke="#34a4ff" stroke-width="1" stroke-dasharray="4,3" opacity=".45"/>
+
+        <!-- Доступ -->
+        <rect x="16" y="106" width="128" height="44" rx="7" fill="#0e1a30" stroke="#34a4ff" stroke-width="1.3"/>
+        <text x="80" y="126" text-anchor="middle" fill="#34a4ff" font-size="10" font-weight="700">🔍 Доступ</text>
+        <text x="80" y="142" text-anchor="middle" fill="#8ba4cc" font-size="8.5">умови · треті особи</text>
+        <line x1="144" y1="128" x2="325" y2="92" stroke="#34a4ff" stroke-width="1" stroke-dasharray="4,3" opacity=".45"/>
+
+        <!-- Виправити -->
+        <rect x="576" y="10" width="128" height="44" rx="7" fill="#0e1a30" stroke="#00c97a" stroke-width="1.3"/>
+        <text x="640" y="30" text-anchor="middle" fill="#00c97a" font-size="10" font-weight="700">✏️ Виправити</text>
+        <text x="640" y="46" text-anchor="middle" fill="#8ba4cc" font-size="8.5">недостовірні дані</text>
+        <line x1="576" y1="32" x2="395" y2="68" stroke="#00c97a" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+
+        <!-- Забуття -->
+        <rect x="576" y="106" width="128" height="44" rx="7" fill="#0e1a30" stroke="#f04b5a" stroke-width="1.3"/>
+        <text x="640" y="126" text-anchor="middle" fill="#f04b5a" font-size="10" font-weight="700">🗑️ Забуття</text>
+        <text x="640" y="142" text-anchor="middle" fill="#8ba4cc" font-size="8.5">видалення за запитом</text>
+        <line x1="576" y1="128" x2="395" y2="92" stroke="#f04b5a" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+
+        <!-- Відкликати -->
+        <rect x="296" y="118" width="128" height="36" rx="7" fill="#0e1a30" stroke="#e8b84b" stroke-width="1.3"/>
+        <text x="360" y="136" text-anchor="middle" fill="#e8b84b" font-size="10" font-weight="700">↩️ Відкликати згоду</text>
+        <line x1="360" y1="118" x2="360" y2="116" stroke="#e8b84b" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+      </svg>
+    </div>
+
+    <div class="rg" style="margin-top:.85rem;">
+      <div class="rc"><div class="rc-ico">📖</div><div class="rc-title">Право знати</div><div class="rc-desc">Дізнатись про джерела, мету та місцезнаходження своїх даних.</div></div>
+      <div class="rc"><div class="rc-ico">🔍</div><div class="rc-title">Право на доступ</div><div class="rc-desc">Отримати інформацію про умови надання даних третім особам.</div></div>
+      <div class="rc"><div class="rc-ico">✏️</div><div class="rc-title">Право на зміну</div><div class="rc-desc">Вимагати виправлення недостовірних або застарілих даних.</div></div>
+      <div class="rc"><div class="rc-ico">🗑️</div><div class="rc-title">Право на забуття</div><div class="rc-desc">Вимагати видалення своїх даних із системи — через підтримку.</div></div>
+      <div class="rc"><div class="rc-ico">↩️</div><div class="rc-title">Відкликати згоду</div><div class="rc-desc">Будь-коли відкликати згоду (унеможливить подальше надання послуг).</div></div>
+      <div class="rc"><div class="rc-ico">🏛️</div><div class="rc-title">Право на скаргу</div><div class="rc-desc">Звернутись до Уповноваженого ВРУ з прав людини.</div></div>
+    </div>
+
+    <div class="co tip" style="margin-top:.9rem;">
+      <span class="co-i">💬</span>
+      <div>
+        Для реалізації будь-якого права — зверніться до
+        <a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer">@ggenius_support</a>
+        або на пошту <a href="mailto:mlbb.boss.ua@gmail.com">mlbb.boss.ua@gmail.com</a>.
+        Відповідь — протягом <strong>10 робочих днів</strong>.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── §6 ЗМІНИ ── -->
+  <section class="sc" id="s6">
+    <h2><span class="snum">6</span><span class="sico">🔄</span> Зміни до Політики</h2>
+    <div class="cl"><span class="cn">6.1.</span> Володілець залишає за собою право вносити зміни. Нова редакція набирає чинності з моменту публікації на Платформі.</div>
+    <div class="cl"><span class="cn">6.2.</span> Про суттєві зміни Користувачі будуть повідомлені через Telegram-бот або канал <a href="https://t.me/ggenius_ua" target="_blank" rel="noopener noreferrer">@ggenius_ua</a>.</div>
+    <div class="cl"><span class="cn">6.3.</span> Продовження використання сервісу після внесення змін підтверджує вашу згоду з оновленою Політикою.</div>
+  </section>
+
+  <!-- ── §7 КОНТАКТИ ── -->
+  <section class="sc" id="s7">
+    <h2><span class="snum">7</span><span class="sico">🏢</span> Контакти Володільця даних</h2>
+    <div class="req-grid">
+      <div class="req-card">
+        <div class="rl">🏢 Володілець даних</div>
+        <div class="rv">ФОП Науменко Олег Олександрович</div>
+      </div>
+      <div class="req-card">
+        <div class="rl">🔢 РНОКПП (ІПН)</div>
+        <div class="rv mono">3273212633</div>
+      </div>
+      <div class="req-card wide">
+        <div class="rl">📍 Адреса реєстрації</div>
+        <div class="rv">Україна, 49000, Дніпропетровська обл., м. Дніпро, вул. Січеславська Набережна, буд. 6</div>
+      </div>
+    </div>
+    <div class="cbadges">
+      <a href="mailto:mlbb.boss.ua@gmail.com" class="cb em">✉️ mlbb.boss.ua@gmail.com</a>
+      <a href="https://t.me/ggenius_support" target="_blank" rel="noopener noreferrer" class="cb tg">💬 @ggenius_support</a>
+      <a href="https://t.me/ggeniusgg_bot"  target="_blank" rel="noopener noreferrer" class="cb tg">🤖 @ggeniusgg_bot</a>
+      <a href="https://ggenius.gg"          target="_blank" rel="noopener noreferrer" class="cb web">🌐 ggenius.gg</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER BANNER — синьо-стальовий ══ -->
+<div class="footer-banner">
+  <img
+    src="https://capsule-render.vercel.app/api?type=waving&color=0:1a6aaa,40:0d3060,70:0a1e3e,100:030c1c&height=110&section=footer"
+    alt=""
+  />
+</div>
+
+<footer>
+  <div class="fpills">
+    <a href="https://ggenius.gg/offer"   class="fp offer">⚔️ Публічна оферта</a>
+    <a href="https://ggenius.gg/privacy" class="fp privacy">🔐 Конфіденційність</a>
+    <a href="https://t.me/ggeniusgg_bot" target="_blank" rel="noopener noreferrer" class="fp bot">🤖 Telegram Bot</a>
+    <a href="https://ggenius.gg"         target="_blank" rel="noopener noreferrer" class="fp site">🌐 ggenius.gg</a>
+  </div>
+  <div class="fcopy">
+    © 2024–2026 <strong style="color:var(--text-2)">GGenius</strong> — Ukrainian Independent Esports &nbsp;·&nbsp; Всі права захищено
+  </div>
+</footer>
 
 </body>
-</html>
+      </html>
