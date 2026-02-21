@@ -568,43 +568,128 @@
     }
 
     /* ══════════════════════════════════════════
-       TABLE OF CONTENTS
+       TOC — COLLAPSIBLE, NO STICKY FREEZE
     ══════════════════════════════════════════ */
-    .toc {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem 1.75rem;
-      margin-bottom: 2.5rem;
-      box-shadow: var(--shadow-md);
+
+    /* Wrapper: normal block in document flow — NO sticky/fixed */
+    .toc-panel {
+      background: #07102a;
+      border: 1px solid rgba(52, 164, 255, 0.25);
+      border-left: 3px solid #34a4ff;
+      border-radius: 12px;
+      margin: 0 auto 2.5rem;
+      max-width: 860px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.40), 0 0 0 1px rgba(52,164,255,0.08);
+      /* NO position:sticky or fixed */
     }
 
-    .toc-title {
-      font-size: 0.7rem;
+    /* Toggle button header */
+    .toc-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--accent-bright);
+      font-family: var(--sans);
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text-sub);
-      font-family: var(--mono);
-      margin-bottom: 1rem;
+      text-align: left;
+      user-select: none;
+      transition: background 0.2s;
+    }
+    .toc-toggle:hover { background: rgba(52,164,255,0.06); }
+
+    .toc-toggle-icon { font-size: 1rem; }
+    .toc-toggle-label { flex: 1; }
+
+    /* Arrow indicator */
+    .toc-toggle-arrow {
+      font-size: 0.7rem;
+      opacity: 0.7;
+      transition: transform 0.3s ease;
+      display: inline-block;
+    }
+    .toc-panel.open .toc-toggle-arrow { transform: rotate(180deg); }
+
+    /* Item counter badge */
+    .toc-toggle-count {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(52,164,255,0.10);
+      border: 1px solid rgba(52,164,255,0.18);
+      border-radius: 20px;
+      padding: 0.1em 0.55em;
+      letter-spacing: 0;
+      text-transform: none;
     }
 
-    .toc-grid {
+    /* Divider line */
+    .toc-divider {
+      height: 1px;
+      background: rgba(52,164,255,0.12);
+      margin: 0 1.25rem;
+      display: none;
+    }
+    .toc-panel.open .toc-divider { display: block; }
+
+    /* TOC body — collapses/expands */
+    .toc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+      opacity: 0;
+    }
+    .toc-panel.open .toc-body {
+      max-height: 2000px;
+      opacity: 1;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 1rem 1.25rem 1.25rem;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 0.25rem 1.5rem;
     }
-
-    .toc a {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      padding: 0.2rem 0;
-      border-bottom: 1px solid transparent;
-      transition: color 0.2s;
+    @media (max-width: 600px) {
+      .toc-list { grid-template-columns: 1fr; }
     }
 
-    .toc a:hover { color: var(--accent-bright); text-decoration: none; }
+    .toc-list li { display: flex; align-items: baseline; gap: 0.5rem; }
+
+    /* Number badges — higher contrast */
+    .toc-num {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #60b8ff;
+      background: rgba(52,164,255,0.13);
+      border: 1px solid rgba(52,164,255,0.22);
+      border-radius: 5px;
+      padding: 0.05em 0.45em;
+      min-width: 1.8em;
+      text-align: center;
+      flex-shrink: 0;
+      letter-spacing: 0;
+    }
+
+    .toc-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 400;
+      line-height: 1.4;
+      transition: color 0.18s;
+    }
+    .toc-list a:hover { color: var(--accent-bright); }
 
     /* ══════════════════════════════════════════
        SECTIONS
@@ -1043,24 +1128,32 @@
   <main class="page-wrap">
 
     <!-- ── Table of Contents ── -->
-    <nav class="toc" aria-label="Зміст документа">
-      <div class="toc-title">📋 Зміст</div>
-      <div class="toc-grid">
-        <a href="#s1">1. Терміни та визначення</a>
-        <a href="#s2">2. Предмет договору</a>
-        <a href="#s3">3. Порядок надання послуг та відповідальність</a>
-        <a href="#s4">4. Вартість послуг та порядок розрахунків</a>
-        <a href="#s5">5. Політика повернення коштів (Refund Policy)</a>
-        <a href="#s6">6. Конфіденційність та захист персональних даних</a>
-        <a href="#s7">7. Вікове обмеження</a>
-        <a href="#s8">8. Протидія шахрайству та фінансовому моніторингу</a>
-        <a href="#s9">9. Обставини непереборної сили (Форс-мажор)</a>
-        <a href="#s10">10. Вирішення спорів та застосовне право</a>
-        <a href="#s11">11. Порядок внесення змін до Оферти</a>
-        <a href="#s12">12. Строк дії Договору</a>
-        <a href="#s13">13. Реквізити виконавця</a>
+    <div class="toc-panel" id="toc-panel">
+      <button class="toc-toggle" id="toc-toggle" onclick="toggleToc()" aria-expanded="false" aria-controls="toc-body">
+        <span class="toc-toggle-icon">📋</span>
+        <span class="toc-toggle-label">ЗМІСТ</span>
+        <span class="toc-toggle-count">13 розділів</span>
+        <span class="toc-toggle-arrow">▼</span>
+      </button>
+      <div class="toc-divider"></div>
+      <div class="toc-body" id="toc-body" role="region" aria-labelledby="toc-toggle">
+        <ol class="toc-list">
+          <li><span class="toc-num">01</span><a href="#s1">Терміни та визначення</a></li>
+          <li><span class="toc-num">02</span><a href="#s2">Предмет договору</a></li>
+          <li><span class="toc-num">03</span><a href="#s3">Порядок надання послуг та відповідальність</a></li>
+          <li><span class="toc-num">04</span><a href="#s4">Вартість послуг та порядок розрахунків</a></li>
+          <li><span class="toc-num">05</span><a href="#s5">Політика повернення коштів (Refund Policy)</a></li>
+          <li><span class="toc-num">06</span><a href="#s6">Конфіденційність та захист персональних даних</a></li>
+          <li><span class="toc-num">07</span><a href="#s7">Вікове обмеження</a></li>
+          <li><span class="toc-num">08</span><a href="#s8">Протидія шахрайству та фінансовому моніторингу</a></li>
+          <li><span class="toc-num">09</span><a href="#s9">Обставини непереборної сили (Форс-мажор)</a></li>
+          <li><span class="toc-num">10</span><a href="#s10">Вирішення спорів та застосовне право</a></li>
+          <li><span class="toc-num">11</span><a href="#s11">Порядок внесення змін до Оферти</a></li>
+          <li><span class="toc-num">12</span><a href="#s12">Строк дії Договору</a></li>
+          <li><span class="toc-num">13</span><a href="#s13">Реквізити виконавця</a></li>
+        </ol>
       </div>
-    </nav>
+    </div>
 
     <!-- ═══════════════════════════════════════
          §1 — ТЕРМІНИ ТА ВИЗНАЧЕННЯ
@@ -1413,6 +1506,24 @@
       </div>
     </div>
   </footer>
+  <script>
+    function toggleToc() {
+      const panel = document.getElementById('toc-panel');
+      const btn   = document.getElementById('toc-toggle');
+      const isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+
+    /* Auto-close TOC after clicking a link (convenient on mobile) */
+    document.querySelectorAll('.toc-list a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        const panel = document.getElementById('toc-panel');
+        const btn   = document.getElementById('toc-toggle');
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
 </body>
 </html>
