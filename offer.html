@@ -797,14 +797,14 @@
 
     ol.clause-list li {
       counter-increment: clause;
-      display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 0.6rem;
+      display: block;
+      position: relative;
+      padding-left: 2.6rem;
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
-      word-break: break-word;
-      overflow-wrap: break-word;
+      word-break: normal;
+      overflow-wrap: anywhere;
       min-width: 0;
     }
 
@@ -814,18 +814,20 @@
       font-weight: 600;
       font-size: 0.75rem;
       color: var(--accent);
-      padding-top: 0.2rem;
+      position: absolute;
+      left: 0;
+      top: 0.2rem;
     }
 
     ul.clause-list li {
-      display: grid;
-      grid-template-columns: 1rem 1fr;
-      gap: 0.6rem;
+      display: block;
+      position: relative;
+      padding-left: 1.6rem;
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
-      word-break: break-word;
-      overflow-wrap: break-word;
+      word-break: normal;
+      overflow-wrap: anywhere;
       min-width: 0;
     }
 
@@ -833,7 +835,9 @@
       content: "▸";
       color: var(--accent);
       font-size: 0.7rem;
-      padding-top: 0.3rem;
+      position: absolute;
+      left: 0;
+      top: 0.3rem;
     }
 
     /* Nested sub-clauses */
@@ -849,7 +853,6 @@
     }
 
     ol.clause-list li > .sub-clause {
-      grid-column: 1 / -1;
       margin-top: 0.4rem;
     }
 
@@ -1102,7 +1105,7 @@
       .toc-list a { font-size: 0.8rem; }
       .requisites-grid { grid-template-columns: 1fr; }
       .doc-meta-pill { font-size: 0.65rem; }
-      ol.clause-list li { grid-template-columns: 1.75rem 1fr; }
+      ol.clause-list li { padding-left: 2.35rem; }
       .sub-clause { margin-left: 0; padding-left: 0.4rem; }
       ul.clause-list.sub-clause { padding-left: 0.5rem; }
       ul.clause-list.sub-clause li { padding-left: 1rem; }
