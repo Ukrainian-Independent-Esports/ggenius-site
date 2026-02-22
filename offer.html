@@ -803,6 +803,8 @@
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     ol.clause-list li::before {
@@ -821,6 +823,8 @@
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     ul.clause-list li::before {
@@ -835,6 +839,32 @@
       margin-left: 1rem;
       padding-left: 1rem;
       border-left: 2px solid rgba(52,164,255,0.15);
+    }
+
+    ul.clause-list.sub-clause {
+      padding-left: 1.5rem;
+      list-style-type: none;
+    }
+
+    ul.clause-list.sub-clause li {
+      display: block;
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.4rem;
+      word-break: normal;
+      overflow-wrap: break-word;
+      hyphens: auto;
+      white-space: normal;
+      line-height: 1.6;
+    }
+
+    ul.clause-list.sub-clause li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      font-size: 0.5rem;
+      top: 0.5rem;
+      color: var(--accent);
     }
 
     /* ── Callout boxes ── */
@@ -1084,7 +1114,7 @@
   <!-- ══ STICKY NAV ══ -->
   <nav aria-label="Навігація документом">
     <div class="nav-inner">
-      <span class="nav-logo">⚔️ GGenius</span>
+      <a href="https://ggenius.gg/" class="nav-logo" style="text-decoration:none;color:inherit;">⚔️ GGenius</a>
       <div class="nav-sep"></div>
       <a href="#s1"  class="nav-link">§1 Терміни</a>
       <a href="#s2"  class="nav-link">§2 Предмет</a>
