@@ -803,8 +803,9 @@
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
-      word-break: normal;
+      word-break: break-word;
       overflow-wrap: break-word;
+      min-width: 0;
     }
 
     ol.clause-list li::before {
@@ -823,8 +824,9 @@
       font-size: 0.875rem;
       color: var(--text-muted);
       line-height: 1.7;
-      word-break: normal;
+      word-break: break-word;
       overflow-wrap: break-word;
+      min-width: 0;
     }
 
     ul.clause-list li::before {
@@ -851,11 +853,17 @@
       position: relative;
       padding-left: 1.2rem;
       margin-bottom: 0.4rem;
-      word-break: normal;
+      word-break: break-word;
       overflow-wrap: break-word;
       hyphens: auto;
       white-space: normal;
       line-height: 1.6;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    .clause-list li > * {
+      min-width: 0;
     }
 
     ul.clause-list.sub-clause li::before {
