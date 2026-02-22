@@ -64,10 +64,17 @@
 		<script>
 		(function() {
 		  'use strict';
-		  var OFFER_URL = 'https://ggenius.gg/offer';
-		  var PRIVACY_URL = 'https://ggenius.gg/privacy';
-		  var MAX_ATTEMPTS = 40;
-		  var attempts = 0;
+		  var OFFER_URL = '/offer';
+		  var PRIVACY_URL = '/privacy';
+		  var OFFER_TEXTS = ['Публічна оферта', 'Public offer'];
+		  var PRIVACY_TEXTS = ['Політика конфіденційності', 'Privacy Policy'];
+
+		  function matchesText(text, patterns) {
+		    for (var i = 0; i < patterns.length; i++) {
+		      if (text.indexOf(patterns[i]) !== -1) return true;
+		    }
+		    return false;
+		  }
 
 		  function patchLink(a, url) {
 		    a.setAttribute('href', url);
@@ -75,67 +82,56 @@
 		    a.setAttribute('rel', 'noopener noreferrer');
 		  }
 
-		  function patchFooterLinks() {
-		    attempts++;
-		    var patched = false;
-
-		    var footer = document.querySelector('footer');
-		    if (!footer) {
-		      if (attempts < MAX_ATTEMPTS) setTimeout(patchFooterLinks, 250);
-		      return;
-		    }
-
-		    var links = footer.querySelectorAll('a');
-		    links.forEach(function(a) {
+		  function patchFooter(footer) {
+		    footer.querySelectorAll('a').forEach(function(a) {
 		      var text = (a.textContent || '').trim();
-		      if (text.indexOf('Політика конфіденційності') !== -1) {
-		        patchLink(a, PRIVACY_URL);
-		        patched = true;
-		      }
-		      if (text.indexOf('Публічна оферта') !== -1) {
-		        patchLink(a, OFFER_URL);
-		        patched = true;
-		      }
+		      if (matchesText(text, PRIVACY_TEXTS)) patchLink(a, PRIVACY_URL);
+		      else if (matchesText(text, OFFER_TEXTS)) patchLink(a, OFFER_URL);
 		    });
+		  }
 
-		    if (!patched) {
-		      var walker = document.createTreeWalker(footer, NodeFilter.SHOW_TEXT);
-		      var node;
-		      var toReplace = [];
-		      while ((node = walker.nextNode())) {
-		        var val = node.nodeValue ? node.nodeValue.trim() : '';
-		        if (val === 'Політика конфіденційності') {
-		          toReplace.push({ node: node, url: PRIVACY_URL, text: val });
-		        } else if (val === 'Публічна оферта') {
-		          toReplace.push({ node: node, url: OFFER_URL, text: val });
-		        }
+		  function attachClickInterceptor(footer) {
+		    footer.addEventListener('click', function(e) {
+		      var a = e.target && e.target.closest ? e.target.closest('a') : null;
+		      if (!a) return;
+		      var text = (a.textContent || '').trim();
+		      var url = null;
+		      if (matchesText(text, PRIVACY_TEXTS)) url = PRIVACY_URL;
+		      else if (matchesText(text, OFFER_TEXTS)) url = OFFER_URL;
+		      if (url) {
+		        e.preventDefault();
+		        e.stopImmediatePropagation();
+		        window.open(url, '_blank', 'noopener,noreferrer');
 		      }
-		      toReplace.forEach(function(item) {
-		        var a = document.createElement('a');
-		        a.href = item.url;
-		        a.textContent = item.text;
-		        a.target = '_blank';
-		        a.rel = 'noopener noreferrer';
-		        a.style.color = 'inherit';
-		        a.style.textDecoration = 'none';
-		        if (item.node.parentNode) {
-		          item.node.parentNode.replaceChild(a, item.node);
-		          patched = true;
-		        }
-		      });
-		    }
+		    }, true);
+		  }
 
-		    if (!patched && attempts < MAX_ATTEMPTS) {
-		      setTimeout(patchFooterLinks, 250);
+		  function init() {
+		    var MAX_ATTEMPTS = 40;
+		    var attempts = 0;
+		    function tryFind() {
+		      attempts++;
+		      var footer = document.querySelector('footer');
+		      if (!footer) {
+		        if (attempts < MAX_ATTEMPTS) setTimeout(tryFind, 250);
+		        return;
+		      }
+		      patchFooter(footer);
+		      attachClickInterceptor(footer);
+		      var observer = new MutationObserver(function() {
+		        observer.disconnect();
+		        patchFooter(footer);
+		        observer.observe(footer, { subtree: true, childList: true });
+		      });
+		      observer.observe(footer, { subtree: true, childList: true });
 		    }
+		    setTimeout(tryFind, 300);
 		  }
 
 		  if (document.readyState === 'loading') {
-		    document.addEventListener('DOMContentLoaded', function() {
-		      setTimeout(patchFooterLinks, 300);
-		    });
+		    document.addEventListener('DOMContentLoaded', init);
 		  } else {
-		    setTimeout(patchFooterLinks, 300);
+		    init();
 		  }
 		})();
 		</script>
