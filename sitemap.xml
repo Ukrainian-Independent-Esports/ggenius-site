@@ -8,18 +8,4 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Публічна оферта -->
-  <url>
-    <loc>https://ggenius.gg/offer</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-
-  <!-- Політика конфіденційності -->
-  <url>
-    <loc>https://ggenius.gg/privacy</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 </urlset>

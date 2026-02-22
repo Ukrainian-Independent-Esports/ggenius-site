@@ -54,86 +54,11 @@
     
 		<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
-		<script type="module" crossorigin src="/assets/index-dex4-pHM.js"></script>
-		<link rel="stylesheet" crossorigin href="/assets/index-C7nEiPBh.css">
+		<script type="module" crossorigin src="/assets/index-BcpleFlY.js"></script>
+		<link rel="stylesheet" crossorigin href="/assets/index-CcZ2jtPm.css">
 	</head>
     
 	<body>
 		<div id="app"></div>
-		<!-- Footer legal links patcher -->
-		<script>
-		(function() {
-		  'use strict';
-		  var OFFER_URL = '/offer';
-		  var PRIVACY_URL = '/privacy';
-		  var OFFER_TEXTS = ['Публічна оферта', 'Public offer'];
-		  var PRIVACY_TEXTS = ['Політика конфіденційності', 'Privacy Policy'];
-
-		  function matchesText(text, patterns) {
-		    for (var i = 0; i < patterns.length; i++) {
-		      if (text.indexOf(patterns[i]) !== -1) return true;
-		    }
-		    return false;
-		  }
-
-		  function patchLink(a, url) {
-		    a.setAttribute('href', url);
-		    a.setAttribute('target', '_blank');
-		    a.setAttribute('rel', 'noopener noreferrer');
-		  }
-
-		  function patchFooter(footer) {
-		    footer.querySelectorAll('a').forEach(function(a) {
-		      var text = (a.textContent || '').trim();
-		      if (matchesText(text, PRIVACY_TEXTS)) patchLink(a, PRIVACY_URL);
-		      else if (matchesText(text, OFFER_TEXTS)) patchLink(a, OFFER_URL);
-		    });
-		  }
-
-		  function attachClickInterceptor(footer) {
-		    footer.addEventListener('click', function(e) {
-		      var a = e.target && e.target.closest ? e.target.closest('a') : null;
-		      if (!a) return;
-		      var text = (a.textContent || '').trim();
-		      var url = null;
-		      if (matchesText(text, PRIVACY_TEXTS)) url = PRIVACY_URL;
-		      else if (matchesText(text, OFFER_TEXTS)) url = OFFER_URL;
-		      if (url) {
-		        e.preventDefault();
-		        e.stopImmediatePropagation();
-		        window.open(url, '_blank', 'noopener,noreferrer');
-		      }
-		    }, true);
-		  }
-
-		  function init() {
-		    var MAX_ATTEMPTS = 40;
-		    var attempts = 0;
-		    function tryFind() {
-		      attempts++;
-		      var footer = document.querySelector('footer');
-		      if (!footer) {
-		        if (attempts < MAX_ATTEMPTS) setTimeout(tryFind, 250);
-		        return;
-		      }
-		      patchFooter(footer);
-		      attachClickInterceptor(footer);
-		      var observer = new MutationObserver(function() {
-		        observer.disconnect();
-		        patchFooter(footer);
-		        observer.observe(footer, { subtree: true, childList: true });
-		      });
-		      observer.observe(footer, { subtree: true, childList: true });
-		    }
-		    setTimeout(tryFind, 300);
-		  }
-
-		  if (document.readyState === 'loading') {
-		    document.addEventListener('DOMContentLoaded', init);
-		  } else {
-		    init();
-		  }
-		})();
-		</script>
 	</body>
 </html>
