@@ -1,0 +1,23 @@
+# Backend Dependencies for GGenius Authentication
+# Залежності бекенду для автентифікації GGenius
+
+# Web Framework
+fastapi>=0.109.1
+starlette>=0.40.0
+uvicorn>=0.27.0
+
+# JWT Authentication
+python-jose[cryptography]>=3.3.0
+
+# Environment Configuration
+python-dotenv>=1.0.0
+
+# Telegram Bot (if using aiogram for bot integration)
+aiogram>=3.22.0
+
+# CORS
+# (included in starlette/fastapi)
+
+# Development dependencies
+pytest>=7.4.0
+httpx>=0.26.0  # For testing with FastAPI TestClient
